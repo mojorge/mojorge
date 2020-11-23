@@ -9,19 +9,48 @@
 		
 
 <style>
-ul {
+* {
+  box-sizing: border-box;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 1px;
+}
+
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+
+ul.main_menu{
   list-style-type: none;
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
   overflow: hidden;
   background-color: #333;
 }
 
-li {
+li.main_menu {
   float: left;
 }
 
-li a, .dropbtn {
+li.main_menu a, .dropbtn {
   display: inline-block;
   color: white;
   text-align: center;
@@ -29,7 +58,7 @@ li a, .dropbtn {
   text-decoration: none;
 }
 
-li a:hover, .dropdown:hover .dropbtn {
+li.main_menu a:hover, .dropdown:hover .dropbtn {
   background-color: red;
 }
 
@@ -60,14 +89,21 @@ li.dropdown {
   display: block;
 }
 
+header {
+  background-color: #ffffff;
+  padding: 10px;
+  text-align: center;
+  color: black;
+}
+
+
 .main-title a{
   color:#222222;
   margin:0;
-  font-size:30px;
+  font-size:35px;
   line-height:1.2em;
   word-wrap:break-word;
   font-weight:700;
-  text-transform:none;
   text-decoration: none;
 }
 
@@ -79,21 +115,24 @@ li.dropdown {
 </head>
 
 
-
+<header>
 
 <h1 class="main-title"><a href="index.html">Jorge Zhang</a></h1>
-
-
 <p class="site-description" itemprop="description">Personal website</p>
 
+</header>
 
 
-<ul>
-  <li><a href="daggers-highschool/index.html">About Daggers High</a></li>
-  <li><a href="puzzles/index.html">Puzzles</a></li>
-  <li><a href="tutoring/index.html">Puzzles</a></li>
+<div class="row">
+<div class="col-1">
+</div>
+<div class="col-10">
+<ul class="main_menu">
+  <li class="main_menu"><a href="daggers-highschool/index.html">About Daggers High</a></li>
+  <li class="main_menu"><a href="puzzles/index.html">Puzzles</a></li>
+  <li class="main_menu"><a href="tutoring/index.html">Tutoring</a></li>
   <li class="dropdown">
-    <a href="#" class="dropbtn">Blog Archive</a>
+    <a href="blog-archive.html" class="dropbtn">Blog Archive</a>
     <div class="dropdown-content">
       <a href="category/reviews/index.html">Reviews</a>
       <a href="tag/education/index.html">Education</a>
@@ -102,10 +141,17 @@ li.dropdown {
     </div>
   </li>
 </ul>
+</div>
+<div class="col-1">
+</div>
+</div>
 
+<p></p>
 
-
-
+<div class="row">
+<div class="col-1">
+</div>
+<div class="col-10">
 
 This is an archive of my blog posts.
 
@@ -145,12 +191,27 @@ This is an archive of my blog posts.
 </ul>
 
 
+</div>
+<div class="col-1">
+</div>
+</div>
 
+
+<div class="row">
+<div class="col-1">
+</div>
+<div class="col-10">
 <footer>
 <span>&copy; 2020 Jorge Zhang</span> 
 </footer>
-
+</div>
+<div class="col-1">
+</div>
+</div>
 
 
 </body>
 </html>
+
+
+
