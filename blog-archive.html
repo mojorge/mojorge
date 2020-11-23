@@ -107,7 +107,17 @@ header {
   text-decoration: none;
 }
 
+/* FOR BUTTONS */
+.active, .collapsible:hover {
+  background-color: #999;
+}
 
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
 
 
 </style>
@@ -155,6 +165,8 @@ header {
 
 This is an archive of my blog posts.
 
+
+<h2>Popular posts</h2>
 <ul>
 <li>
 <a href="2019/07/so-you-want-to-launch-a-board-game-on-kickstarter-read-this-first-2019/index.html" class="wpp-post-title" target="_self">So, you want to launch a board game on Kickstarter? Read this first. (2019)</a>
@@ -191,6 +203,58 @@ This is an archive of my blog posts.
 </ul>
 
 
+
+<h2>All posts</h2>
+
+<button type="button" class="collapsible">2018</button>
+<div class="content">
+<ul>
+  <li><button type="button" class="collapsible">May</button>
+    <div class="content">
+      <ul>
+        <li><a href="2018/05/hello-world/index.html">Hello World</a></li>
+        <li><a href="2018/05/how-much-luck-is-good/index.html">How much luck is good?</a></li>
+        <li><a href="2018/05/newly-drafted-events/index.html">Newly Drafted Events</a></li>
+      </ul>
+    </div>
+  </li>
+  <li><button type="button" class="collapsible">June</button>
+    <div class="content">
+      <ul>
+        <li><a href="2018/06/origin-of-dagers-high/index.html">Origins of Dagers High</a></li>
+      </ul>
+    </div>
+  </li>
+  <li><button type="button" class="collapsible">July</button>
+    <div class="content">
+      <ul>
+        <li><a href="2018/07/adjusting-cards-part-one/index.html">Adjusting Cards Part One</a></li>
+        <li><a href="2018/07/adjusting-cards-part-two/index.html">Adjusting Cards Part Two</a></li>
+        <li><a href="2018/07/adjusting-cards-part-three/index.html">Adjusting Cards Part Three</a></li>
+        <li><a href="2018/07/adjusting-cards-part-four/index.html">Adjusting Cards Part Four</a></li>
+        <li><a href="2018/07/adjusting-cards-part-five/index.html">Adjusting Cards Part Five</a></li>
+        <li><a href="2018/07/advantages-of-board-games-over-video-games/index.html">Advantages of Board Games over Video Games</a></li>
+        <li><a href="2018/07/changes-to-essays/index.html">Changes to Essays</a></li>
+        <li><a href="2018/07/cheating-in-games/index.html">Cheating in Games</a></li>
+        <li><a href="2018/07/creating-cards/index.html">Creating Cards</a></li>
+        <li><a href="2018/07/event-cards-next-steps/index.html">Event Cards Next Steps</a></li>
+        <li><a href="2018/07/glorious-ascendency-full-game/index.html">Glorious Ascendency Full Game</a></li>
+        <li><a href="2018/07/more-playtests/index.html">More Playtests</a></li>
+        <li><a href="2018/07/my-favorite-board-game/index.html">My Favorite Board Game</a></li>
+        <li><a href="2018/07/new-essay-mechanic/index.html">New Essay Mechanic</a></li>
+        <li><a href="2018/07/new-teacher-board/index.html">New Teacher Board</a></li>
+        <li><a href="2018/07/player-boards/index.html">Player Boards</a></li>
+        <li><a href="2018/07/playtest-photo/index.html">Playtest Photo</a></li>
+        <li><a href="2018/07/rulebook/index.html">Rulebook</a></li>
+      </ul>
+    </div>
+  </li>
+</ul>
+</div>
+
+
+
+
 </div>
 <div class="col-1">
 </div>
@@ -208,6 +272,26 @@ This is an archive of my blog posts.
 <div class="col-1">
 </div>
 </div>
+
+
+<!--This is the code to make a button -->
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
+
 
 
 </body>
