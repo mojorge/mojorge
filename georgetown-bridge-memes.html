@@ -109,6 +109,93 @@ header {
 }
 
 
+.mySlides1, .mySlides2 {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  min-width: 450px;
+  max-width: 600px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 100px;
+  width: auto;
+  padding: 16px;
+  margin-top: 0px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a grey background color */
+.prev:hover, .next:hover {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+
+
+.image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .01s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: .01s ease;
+  opacity: 0;
+  position: absolute;
+  top: 110%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.middletwo {
+  transition: .01s ease;
+  opacity: 0;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.container:hover .image {
+  opacity: 0.3;
+}
+
+.container:hover .middle {
+  opacity: 1;
+}
+
+.text {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
+}
+
 
 
 </style>
@@ -158,7 +245,91 @@ header {
 
 <h2>Georgetown Bridge Memes</h2>
 
+<p>These are just a bunch of bridge memes I made. For context, Professor Sandefur is the person who runs Georgetown University's Bridge Club. He is referenced in a few of these memes.</p>
 
+
+
+<p>Slideshow:</p>
+<div class="container">
+<div class="slideshow-container">
+<div class="mySlides1">
+  <img src="images/bridge-memes/bid-meme.gif" alt="Avatar class="image" style="width:100%">
+    <div class="middle2">
+      <div class="text">When you don't know what partner's bid means</div>
+    </div>
+    <div class="middle">
+      <div class="text">1/8</div>
+    </div>
+  </div>
+<div class="mySlides1">
+  <img src="images/bridge-memes/Gru-with-opening-hand.png" alt="Avatar class="image" style="width:100%">
+    <div class="middle2">
+      <div class="text">Gru with Opening Hand</div>
+    </div>
+    <div class="middle">
+      <div class="text">2/8</div>
+    </div>
+  </div>
+<div class="mySlides1">
+  <img src="images/bridge-memes/Stayman-bridge-meme.png" alt="Avatar class="image" style="width:100%">
+    <div class="middle2">
+      <div class="text">Stayman</div>
+    </div>
+    <div class="middle">
+      <div class="text">3/8</div>
+    </div>
+  </div>
+<div class="mySlides1">
+  <img src="images/bridge-memes/endgame-portal-meme.png" alt="Avatar class="image" style="width:100%">
+    <div class="middle2">
+      <div class="text">3NT without a club stopper</div>
+    </div>
+    <div class="middle">
+      <div class="text">4/8</div>
+    </div>
+  </div>
+<div class="mySlides1">
+  <img src="images/bridge-memes/Bridge-Meme-Length-not-Strength.png" alt="Avatar class="image" style="width:100%">
+    <div class="middle2">
+      <div class="text">Length not strength</div>
+    </div>
+    <div class="middle">
+      <div class="text">5/8</div>
+    </div>
+  </div>
+<div class="mySlides1">
+  <img src="images/bridge-memes/3nt-meme.png" alt="Avatar class="image" style="width:100%">
+    <div class="middle2">
+      <div class="text">Why play 3 clubs when you could just play 3NT?</div>
+    </div>
+    <div class="middle">
+      <div class="text">6/8</div>
+    </div>
+  </div>
+<div class="mySlides1">
+  <img src="images/bridge-memes/suprised-pikachu-meme.jpg" alt="Avatar class="image" style="width:100%">
+    <div class="middle2">
+      <div class="text">When you aren't paying attention on Bridge Base</div>
+    </div>
+    <div class="middle">
+      <div class="text">7/8</div>
+    </div>
+  </div>
+<div class="mySlides1">
+  <img src="images/bridge-memes/sandefur-vs-pink-guy-meme.png" alt="Avatar class="image" style="width:100%">
+    <div class="middle2">
+      <div class="text">When you play vs. the professors</div>
+    </div>
+    <div class="middle">
+      <div class="text">6/8</div>
+    </div>
+  </div>
+  <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
+</div>
+</div>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 </div>
 <div class="col-1">
@@ -178,6 +349,30 @@ header {
 </div>
 </div>
 
+
+<script>
+var slideIndex = [1,1];
+var slideId = ["mySlides1", "mySlides2"]
+showSlides(1, 0);
+showSlides(1, 1);
+
+function plusSlides(n, no) {
+  showSlides(slideIndex[no] += n, no);
+}
+
+function showSlides(n, no) {
+  var i;
+  var x = document.getElementsByClassName(slideId[no]);
+  if (n > x.length) {slideIndex[no] = 1}    
+  if (n < 1) {slideIndex[no] = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";  
+  }
+  x[slideIndex[no]-1].style.display = "block";  
+}
+
+
+</script>
 
 </body>
 </html>
