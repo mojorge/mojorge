@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+<head>
+<meta charset="UTF-8">
+
+<title>Jorge Zhang &#8211; Personal website</title>
+		
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 1px;
+}
+
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+
+ul.main_menu{
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li.main_menu {
+  float: left;
+}
+
+li.main_menu a, .dropbtn {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li.main_menu a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+header {
+  background-color: #ffffff;
+  padding: 10px;
+  text-align: center;
+  color: black;
+}
+
+
+.main-title a{
+  color:#222222;
+  margin:0;
+  font-size:35px;
+  line-height:1.2em;
+  word-wrap:break-word;
+  font-weight:700;
+  text-decoration: none;
+}
+
+
+
+body {text-align:center;}
+canvas { border:5px dotted #ccc; }
+
+</style>
+
+</head>
+
+
+<header>
+
+<h1 class="main-title"><a href="../index.html">Jorge Zhang</a></h1>
+<p class="site-description" itemprop="description">Personal website</p>
+
+</header>
+
+
+<div class="row">
+<div class="col-1">
+</div>
+<div class="col-10">
+<ul class="main_menu">
+  <li class="main_menu"><a href="../daggers-highschool.html">About Daggers High</a></li>
+  <li class="main_menu"><a href="../puzzles/index.html">Puzzles</a></li>
+  <li class="main_menu"><a href="../tutoring/index.html">Tutoring</a></li>
+  <li class="dropdown">
+    <a href="../blog-archive.html" class="dropbtn">Blog Archive</a>
+    <div class="dropdown-content">
+      <a href="../category/reviews/index.html">Reviews</a>
+      <a href="../tag/education/index.html">Education</a>
+      <a href="../category/funny/index.html">Funny</a>
+      <a href="../category/politics/index.html">Politics</a>
+    </div>
+  </li>
+</ul>
+</div>
+<div class="col-1">
+</div>
+</div>
+
+<p></p>
+
+<div class="row">
+<div class="col-1">
+</div>
+<div class="col-10">
+
+
+
+
+
+<script type="text/javascript">
+
+var played=0;
+
+function play_game()
+{
+var level = 1; // Game level, by decreasing will speed up
+var rect_w = 40; // Width
+var rect_h = 40; // Height
+var inc_score = 1; // Score
+var snake_color = "#006699"; // Snake Color
+var other_color = "#996600";
+var worm_color = "#990000";
+var ctx; // Canvas attributes
+var tn = []; // temp directions storage
+var x_dir = -4; 
+var y_dir = 1;  
+var queue = [];
+var frog = 1; // defalut food
+var map = [];
+var secondmap = [];
+var MR = Math.random;
+var X = 19; //Starting positions
+var Y = 4; // Calculate positions
+var wormX = 0;
+var wormY = -1;
+var direction = 1  //MR() * 3 | 0;
+var interval = 0;
+var score = 0;
+var sum = 0, easy = 0;
+var i, dir;
+var wait = 0;
+var entered =0;
+var doom = 40;
+
+// getting play area 
+var c = document.getElementById('playArea');
+ctx = c.getContext('2d');
+
+
+// Map positions
+for (i = 0; i < rect_w; i++){
+  map[i] = [];
+  secondmap[i] = [];
+}
+
+// random placement blocks
+function rand_frog(){
+  var x, y;
+
+  for(i = 0; i < 500; i++){
+    do{
+      x = MR() * rect_w|0;
+      y = 5 + MR() * (rect_h-5)|0;
+    }
+    while (map[x][y]);
+
+    map[x][y] = 1;
+    ctx.fillStyle = other_color;
+    ctx.fillRect(x * 10+1, y * 10+1, 8, 8);  //unbreakable blocks
+  }
+
+
+  for (i = 0; i < rect_w; i++){
+    for (u = 5; u < rect_h; u++){
+      secondmap[i][u] = 1;
+      ctx.strokeRect(i * 10+1, u * 10+1, 8, 8);  //breakable blocks
+    }
+  }
+
+
+}
+
+// Default somewhere placement
+rand_frog();
+
+if (played >=1){
+doom = prompt("How long until doom? Enter a positive number. Average difficulty = 40.");
+}
+
+
+function set_game_speed(){
+
+  if (tn.length){
+    dir = tn.pop();
+    if ((dir % 2) !== (direction % 2)){
+      direction = dir;
+    }
+  }
+  if ((easy || (0 <= X && 0 <= Y && X < rect_w && Y < rect_h)) && 2 !== map[X][Y]){
+    if (1 === secondmap[X][Y]){
+      score -=1;
+      secondmap[X][Y] = 0;
+      //rand_frog();
+      //frog++;
+      }
+
+    //ctx.fillStyle("#ffffff");
+    ctx.fillStyle = snake_color;
+    ctx.fillRect(X * 10, Y * 10, 9, 9);
+
+    if (Y>=5){
+      entered = 1;
+    }
+
+    if(entered == 1){
+      wait+=1;
+    }
+    if ( ((wait % 2) == 0)&&(entered == 1)){
+      wormY += y_dir;
+      ctx.fillStyle = worm_color;
+      ctx.fillRect(wormX * 10, wormY * 10, 400, 10);
+    }
+    if (wait >= doom){
+      wormY += y_dir;
+      ctx.fillStyle = worm_color;
+      ctx.fillRect(wormX * 10, wormY * 10, 400, 10);
+    }
+    map[X][Y] = 2;
+    queue.unshift([X, Y]);
+    
+    var msg_score = document.getElementById("msg");
+    var time = doom-wait;
+    msg_score.innerHTML = "Time until certain destruction: <b>"+time+"</b>";
+
+
+    if (frog < queue.length){
+      dir = queue.pop()
+      map[dir[0]][dir[1]] = 0;
+      ctx.clearRect(dir[0] * 10, dir[1] * 10, 10, 10);
+    }
+  }
+  if (Y > rect_h - 1){
+    var msg_score = document.getElementById("msg");
+    msg_score.innerHTML = "You win!<br /> Your Score : <b>"+score+"</b><br /><br /><input type='button' value='Play Again' onclick='window.location.reload();' />";
+    document.getElementById("playArea").style.display = 'none';
+    window.clearInterval(interval);
+    played+=1;
+  }
+  if (Y <= wormY){
+    var msg_score = document.getElementById("msg");
+    msg_score.innerHTML = "You lose!<br /> <br /><br /><input type='button' value='Play Again' onclick='window.location.reload();' />";
+    document.getElementById("playArea").style.display = 'none';
+    window.clearInterval(interval);
+    played+=1;
+  }
+}
+
+interval = window.setInterval(set_game_speed, level);
+
+document.onkeydown = function(e) {
+  var code = e.keyCode - 37;
+  if ((code == 0)&&(X>0)&&(map[X-1][Y] != 1) ){
+    X-=1;
+  }
+  if (code == 2 &&(X<rect_w -1) &&(map[X+1][Y] != 1) ){
+    X+=1
+  }
+  if (code == 1 &&(Y>0)&&(map[X][Y-1] != 1) ){
+    Y-=1
+  }
+  if (code == 3 &&(map[X][Y+1] != 1)){
+    Y+=1
+  }
+}
+}
+
+
+
+</script>
+</head>
+<body onload="play_game()">
+<h1>A Snake Game</h1>
+<div id="msg"></div>
+<canvas id="playArea" width="400" height="400">Sorry, your browser does not support HTML5</canvas>
+
+
+
+
+<div class="row">
+<div class="col-1">
+</div>
+<div class="col-10">
+<footer>
+<span>&copy; 2020 Jorge Zhang</span> 
+</footer>
+</div>
+<div class="col-1">
+</div>
+</div>
+
+
+</body>
+</html>
+
