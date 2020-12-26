@@ -109,7 +109,7 @@ header {
 
 
 
-body {text-align:center;}
+.gameportion {text-align:center;}
 canvas { border:5px dotted #ccc; }
 
 </style>
@@ -331,10 +331,14 @@ document.onkeydown = function(e) {
 </script>
 </head>
 <body onload="play_game()">
-<h1>A Snake Game</h1>
+<h1>The Sky is Falling</h1>
+<p>The sky is falling and you have to dig deep underground to escape! You control the blue square with the arrow keys. You cannot mine through brown blocks. Once you start mining, the doom clock starts. When it reaches 0, the sky will begin falling twice as fast. Based on a mining game called Interdimensional Worm Gold Rush that I made with a bunch of friends for a hackathon, except this one has fixed the mining bugs. This was mostly just a test to see how feasible it would be to put home-brewed video games on my website. Note that the brown blocks are placed randomly, so it is occasionally impossible to win.</p>
+
+
+<div class="gameportion">
 <div id="msg"></div>
 <canvas id="playArea" width="400" height="400">Sorry, your browser does not support HTML5</canvas>
-
+</div>
 
 
 
