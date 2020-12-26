@@ -109,8 +109,6 @@ header {
 
 
 
-.gameportion {text-align:center;}
-canvas { border:5px dotted #ccc; }
 
 </style>
 
@@ -159,187 +157,17 @@ canvas { border:5px dotted #ccc; }
 
 
 
-<script type="text/javascript">
 
-var played=0;
+<h1>Games</h1>				
+<p>This page is where you can play some games that I made!</p>
 
-function play_game()
-{
-var level = 1; // Game level, by decreasing will speed up
-var rect_w = 40; // Width
-var rect_h = 40; // Height
-var inc_score = 1; // Score
-var snake_color = "#006699"; // Snake Color
-var other_color = "#996600";
-var worm_color = "#990000";
-var ctx; // Canvas attributes
-var tn = []; // temp directions storage
-var x_dir = -4; 
-var y_dir = 1;  
-var queue = [];
-var frog = 1; // defalut food
-var map = [];
-var secondmap = [];
-var MR = Math.random;
-var X = 19; //Starting positions
-var Y = 4; // Calculate positions
-var wormX = 0;
-var wormY = -1;
-var direction = 1  //MR() * 3 | 0;
-var interval = 0;
-var score = 0;
-var sum = 0, easy = 0;
-var i, dir;
-var wait = 0;
-var entered =0;
-var doom = 40;
-
-// getting play area 
-var c = document.getElementById('playArea');
-ctx = c.getContext('2d');
+<p><a href="the-sky-is-falling/index.html">The sky is falling</a></p>
 
 
-// Map positions
-for (i = 0; i < rect_w; i++){
-  map[i] = [];
-  secondmap[i] = [];
-}
-
-// random placement blocks
-function rand_frog(){
-  var x, y;
-
-  for(i = 0; i < 500; i++){
-    do{
-      x = MR() * rect_w|0;
-      y = 5 + MR() * (rect_h-5)|0;
-    }
-    while (map[x][y]);
-
-    map[x][y] = 1;
-    ctx.fillStyle = other_color;
-    ctx.fillRect(x * 10+1, y * 10+1, 8, 8);  //unbreakable blocks
-  }
-
-
-  for (i = 0; i < rect_w; i++){
-    for (u = 5; u < rect_h; u++){
-      secondmap[i][u] = 1;
-      ctx.strokeRect(i * 10+1, u * 10+1, 8, 8);  //breakable blocks
-    }
-  }
-
-
-}
-
-// Default somewhere placement
-rand_frog();
-
-if (played >=1){
-doom = prompt("How long until doom? Enter a positive number. Average difficulty = 40.");
-}
-
-
-function set_game_speed(){
-
-  if (tn.length){
-    dir = tn.pop();
-    if ((dir % 2) !== (direction % 2)){
-      direction = dir;
-    }
-  }
-  if ((easy || (0 <= X && 0 <= Y && X < rect_w && Y < rect_h)) && 2 !== map[X][Y]){
-    if (1 === secondmap[X][Y]){
-      score -=1;
-      secondmap[X][Y] = 0;
-      //rand_frog();
-      //frog++;
-      }
-
-    //ctx.fillStyle("#ffffff");
-    ctx.fillStyle = snake_color;
-    ctx.fillRect(X * 10, Y * 10, 9, 9);
-
-    if (Y>=5){
-      entered = 1;
-    }
-
-    if(entered == 1){
-      wait+=1;
-    }
-    if ( ((wait % 2) == 0)&&(entered == 1)){
-      wormY += y_dir;
-      ctx.fillStyle = worm_color;
-      ctx.fillRect(wormX * 10, wormY * 10, 400, 10);
-    }
-    if (wait >= doom){
-      wormY += y_dir;
-      ctx.fillStyle = worm_color;
-      ctx.fillRect(wormX * 10, wormY * 10, 400, 10);
-    }
-    map[X][Y] = 2;
-    queue.unshift([X, Y]);
-    
-    var msg_score = document.getElementById("msg");
-    var time = doom-wait;
-    msg_score.innerHTML = "Time until certain destruction: <b>"+time+"</b>";
-
-
-    if (frog < queue.length){
-      dir = queue.pop()
-      map[dir[0]][dir[1]] = 0;
-      ctx.clearRect(dir[0] * 10, dir[1] * 10, 10, 10);
-    }
-  }
-  if (Y > rect_h - 1){
-    var msg_score = document.getElementById("msg");
-    msg_score.innerHTML = "You win!<br /> Your Score : <b>"+score+"</b><br /><br /><input type='button' value='Play Again' onclick='window.location.reload();' />";
-    document.getElementById("playArea").style.display = 'none';
-    window.clearInterval(interval);
-    played+=1;
-  }
-  if (Y <= wormY){
-    var msg_score = document.getElementById("msg");
-    msg_score.innerHTML = "You lose!<br /> <br /><br /><input type='button' value='Play Again' onclick='window.location.reload();' />";
-    document.getElementById("playArea").style.display = 'none';
-    window.clearInterval(interval);
-    played+=1;
-  }
-}
-
-interval = window.setInterval(set_game_speed, level);
-
-document.onkeydown = function(e) {
-  var code = e.keyCode - 37;
-  if ((code == 0)&&(X>0)&&(map[X-1][Y] != 1) ){
-    X-=1;
-  }
-  if (code == 2 &&(X<rect_w -1) &&(map[X+1][Y] != 1) ){
-    X+=1
-  }
-  if (code == 1 &&(Y>0)&&(map[X][Y-1] != 1) ){
-    Y-=1
-  }
-  if (code == 3 &&(map[X][Y+1] != 1)){
-    Y+=1
-  }
-}
-}
-
-
-
-</script>
-</head>
-<body onload="play_game()">
-<h1>The Sky is Falling</h1>
-<p>The sky is falling and you have to dig deep underground to escape! You control the blue square with the arrow keys. You cannot mine through brown blocks. Once you start mining, the doom clock starts. When it reaches 0, the sky will begin falling twice as fast. Based on a mining game called Interdimensional Worm Gold Rush that I made with a bunch of friends for a hackathon, except this one has fixed the mining bugs. This was mostly just a test to see how feasible it would be to put home-brewed video games on my website. Note that the brown blocks are placed randomly, so it is occasionally impossible to win.</p>
-
-
-<div class="gameportion">
-<div id="msg"></div>
-<canvas id="playArea" width="400" height="400">Sorry, your browser does not support HTML5</canvas>
 </div>
-
+<div class="col-1">
+</div>
+</div>
 
 
 <div class="row">
