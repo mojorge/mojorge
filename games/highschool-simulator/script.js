@@ -484,8 +484,6 @@ function end_of_game_message(){
 }
 
 function do_effect() {
-
-
   if (currentEffect ==1){english_stat++}
   if (currentEffect ==2){math_stat++}
   if (currentEffect ==3){history_stat++}
@@ -1323,7 +1321,7 @@ var questions = [
     ]
   },
   {
-    room: 'Tea and Meditation: 40 minutes of peace and quiet... the perfect environment to get some homework done. Leading this club reduces your stress by 2 and gives you 1 Resume Point. It also reduces your stress at the end of each year by 2. It costs 5 friends.', //40
+    room: 'Tea and Meditation: 40 minutes of peace and quiet... the perfect environment to get some homework done. Leading this club reduces your stress by 4 and gives you 1 Resume Point. It also reduces your stress at the end of each year by 2. It costs 5 friends.', //40
     answers: [
       { text: 'Buy leadership (-5 friends)', correct: 0, effect: 94, possible: 0, cost: 5 },
       { text: 'Never mind', correct: 0, effect: 0 }
