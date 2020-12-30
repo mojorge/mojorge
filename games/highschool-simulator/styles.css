@@ -175,4 +175,8 @@ p {
   display: none;
 }
 
+/* FOR BUTTONS */
+.active, .collapsible:hover {
+  background-color: #999;
+}
 
