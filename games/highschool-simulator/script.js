@@ -474,7 +474,7 @@ function end_of_game_message(){
   questions[58].room += 'You mentally broke down '+mental_breakdowns+' times. \n'
   questions[58].room += 'You led '+clubs_led+'/25 clubs. \n'
   questions[58].room += 'You got '+recs_gotten+'/8 Teacher Recommendation letters. \n'
-  questions[58].room += 'You acquired '+currentPanderingDeckIndex+'/8 Pandering abilities. \n'
+  questions[58].room += 'You acquired '+currentPanderingDeckIndex+'/7 Pandering abilities. \n'
   questions[58].room += 'You acquired '+currentCheatingDeckIndex+'/8 Cheating abilities. \n'
   questions[58].room += 'You saw '+finalFreshmanIndex+'/35 Freshman events. \n'
   questions[58].room += 'You saw '+finalSophomoreIndex+'/32 Sophomore events. \n'
@@ -2562,6 +2562,7 @@ var pandering_deck = [
       { text: 'Discard this ability (no effect)', effect: 0 , cost: 0}
     ]
   },
+/*
   {
     event: 'Extra credit: By asking your teachers for extra credit opportunities, you can get an A in a class! This ability will only give you the resume points for getting an A, and you will not receive the teacher influence bonus. This costs 3 happiness. ', //7
     options: [
@@ -2569,6 +2570,7 @@ var pandering_deck = [
       { text: 'Discard this ability (no effect)', effect: 0 , cost: 0}
     ]
   }
+*/
 ]
 
 var cheating_deck = [
@@ -2628,6 +2630,7 @@ var cheating_deck = [
       { text: 'Discard this ability (no effect)', effect: 0, cost: 0 }
     ]
   },
+/*
   {
     event: 'Get Answer Keys: If you are looking for them, you can find them. This ability lets you get an A in any class. You will get the Resume Point bonus, but your teacher will suspect something is up, and you will receive no teacher influence bonus. It costs 1 integrity.', //7
     options: [
@@ -2635,6 +2638,7 @@ var cheating_deck = [
       { text: 'Discard this ability (no effect)', effect: 0, cost: 0 }
     ]
   },
+*/
   {
     event: 'Cheat on the FUN: Cheating on the FUN can increase your chance of getting a good score significantly. It costs 2 integrity.', //8
     options: [
