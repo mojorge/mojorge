@@ -1501,7 +1501,7 @@ var freshman_events = [
       { text: 'Act cool (+2 friends)', effect: 6 },
       { text: 'Appreciate missing class (-2 stress)', effect: 12 },
     ],
-    source: "freshman/fire drill.png"
+    source: "freshman/Fire Drill.png"
   },
   {
     event: 'Minecraft becomes cool again.', //1
@@ -1546,7 +1546,7 @@ var freshman_events = [
       { text: 'Yes mom (-2 Happiness, +1 stress)', effect: 23 },
       { text: 'No! (+4 stress)', effect: 22 }
     ],
-    source: "freshman/do your homework.png"
+    source: "freshman/Do Your Homework.png"
   },
   {
     event: 'It is Pizza Day in the lunchroom.', //7
@@ -1584,7 +1584,7 @@ var freshman_events = [
       { text: 'Show off (+2 friends)', effect: 6 },
       { text: 'Skip it (-2 stress)', effect: 12 }
     ],
-    source: "freshman/talent show.png"
+    source: "freshman/Talent Show.png"
   },
   {
     event: 'There is a substitute teacher today in physics class. You can sleep in class with impunity', //12
@@ -1592,7 +1592,7 @@ var freshman_events = [
       { text: 'Sleep (-2 stress)', effect: 12 },
       { text: 'Study (+1 science)', effect: 4 }
     ],
-    source: "freshman/free class period.png"
+    source: "freshman/Free Class Period.png"
   },
   {
     event: 'It is Halloween!', //13
@@ -1600,7 +1600,7 @@ var freshman_events = [
       { text: 'Trick (-2 stress)', effect: 12 },
       { text: 'Treat (+2 friends)', effect: 6 }
     ],
-    source: "freshman/halloween day.png"
+    source: "freshman/Halloween Day.png"
   },
   {
     event: 'It is school spirit week, and today you can wear your pajamas to school! It is very relaxing to attend school in pajamas. But wait: you have a test today! Now you are stressed.', //14
@@ -1629,7 +1629,7 @@ var freshman_events = [
       { text: 'Take a nap (-3 Stress)', effect: 29 },
       { text: 'The grind never ends (+2 History stat)', effect: 30 }
     ],
-    source: "freshman/columbus.png"
+    source: "freshman/Columbus.png"
   },
   {
     event: 'There is a lockdown drill today. You huddle in the corner with the rest of the class.', //18
@@ -1665,7 +1665,7 @@ var freshman_events = [
     options: [
       { text: 'aww (-study)', effect: 32 }
     ],
-    source: "freshman/crushing on someone.png"
+    source: "freshman/Crushing on Someone.png"
   },
   {
     event: 'A friend offers to teach you a pandering skill. These are powerful abilities that you may acquire at the cost of happiness.', //23
@@ -1704,7 +1704,7 @@ var freshman_events = [
       { text: 'Cram (+3 stress)', effect: 28 },
       { text: 'Wing it (-2 Math stat)', effect: 39 }
     ],
-    source: "freshman/standardized testing.png"
+    source: "freshman/Standardized Testing.png"
   },
   {
     event: 'You have a test for Art class. Wait, what?', //28
@@ -1719,7 +1719,7 @@ var freshman_events = [
       { text: 'Do it all (+3 stress)', effect: 28 },
       { text: 'No way! (-2 Science stat)', effect: 40 }
     ],
-    source: "freshman/crappy-physics-group.png"
+    source: "freshman/Crappy-physics-group.png"
   },
   {
     event: 'The FitnessGram Pacer Test is a multistage aerobic capacity test that progressively gets more difficult as it continues. The 20 meter pacer test will begin in 30 seconds. Line up at the start. The running speed starts slowly, but gets faster each minute after you hear this signal. A single lap should be completed each time you hear this sound.  Remember to run in a straight line, and run as long as possible. The second time you fail to complete a lap before the sound, your test is over. The test will begin on the word start. On your mark, get ready, start.', //30
@@ -1742,7 +1742,7 @@ var freshman_events = [
       { text: 'House of Cards has prepared me for this moment (+Stud Gov)', effect: 43 },
       { text: 'Relax instead (-2 stress)', effect: 12 }
     ],
-    source: "freshman/stud gov election.png"
+    source: "freshman/Stud Gov Election.png"
   },
   {
     event: 'Today, you received an email from the principal. \"Academic dishonesty is not tolerated,\" the email reads. You may acquire Curiosity, one of the 4 c\'s (Curiosity, Compassion, Character, and Courage). If you do so, you will permanently lose 1 hour of sleep/night, but gain an upgrade to your chat action. Alternatively, you may acquire a powerful cheating skill at the cost of integrity. ', //33
@@ -1771,7 +1771,7 @@ var sophomore_events = [
     options: [
       { text: 'Doubts (-2 Happiness)', effect: 101 }
     ],
-    source: "sophomore/doubts.png"
+    source: "sophomore/Doubts.png"
   },
   {
     event: 'You can request an upperclassman tutor in a subject you are struggling in. ', //1
@@ -1828,7 +1828,7 @@ var sophomore_events = [
     options: [
       { text: 'yikes (+1 stress, -1 happiness)', effect: 20 },
     ],
-    source: "sophomore/doubts.png"
+    source: "sophomore/Doubts.png"
   },
   {
     event: 'You have a doctor appointment and get out of school! You are diagnosed with a severe allergy to homework.', //8
@@ -1871,14 +1871,14 @@ var sophomore_events = [
     options: [
       { text: 'You think physics is hard, just wait until you take TOP Chem! (+2 friends, -1 stress)', effect: 119 },
     ],
-    source: "sophomore/scare the freshmen.png"
+    source: "sophomore/Scare the Freshmen.png"
   },
   {
     event: 'As a sophomore, you have moved up the social ladder!', //14
     options: [
       { text: 'Great! (+3 friends)', effect: 55 },
     ],
-    source: "sophomore/posting flyers.png"
+    source: "sophomore/Posting Flyers.png"
   },
   {
     event: 'You talk to your councillor. Your councillor tells you that you should not have taken so many difficult classes.', //15
@@ -1914,7 +1914,7 @@ var sophomore_events = [
     options: [
       { text: 'Hopefully you have good grades (+stress)', effect: 120 },
     ],
-    source: "sophomore/progress reports.png"
+    source: "sophomore/Progress Reports.png"
   },
   {
     event: 'You have the opportunity to represent the school this Saturday for the annual Open House. You would guide prospective students around the building and tell them how great your school is. Doing so will win you brownie points with the principal. You can choose to relax instead, giving you -3 stress.', //20
@@ -1930,7 +1930,7 @@ var sophomore_events = [
       { text: 'Tell them that it is great (+3 Franklin influence)', effect: 56 },
       { text: 'Tell them to stay away! (-3 stress)', effect: 29 },
     ],
-    source: "sophomore/shadow students.png"
+    source: "sophomore/Shadow Students.png"
   },
   {
     event: 'You have to write a 30 page paper for your English class. If you take the L, your grade in English will become unchangeable (if you already have an A, you do not lose it.).', //22
@@ -1948,7 +1948,7 @@ var sophomore_events = [
       { text: 'Avoid studying History (-3 History stat)', effect: 125 },
       { text: 'Avoid studying Science (-3 Science stat)', effect: 126 },
     ],
-    source: "sophomore/final exams.png"
+    source: "sophomore/Final Exams.png"
   },
   {
     event: 'It is now the Drivers Ed unit of gym class, which means that you now have tests in gym class.)', //24
@@ -1978,7 +1978,7 @@ var sophomore_events = [
       { text: 'Time to brew some potions (+4 science, -1 integrity)', effect: 128 },
       { text: 'Not a Harry Potter fan (+2 stress)', effect: 25 },
     ],
-    source: "sophomore/top chem chapter tests.png"
+    source: "sophomore/TOP Chem Chapter Tests.png"
   },
   {
     event: 'You can allow other people to copy your TOP Chem lab report to gain friends equal to your science stat, at the cost of 1 integrity.', //28
@@ -1986,14 +1986,14 @@ var sophomore_events = [
       { text: 'Let others copy (+friends, -1 integrity)', effect: 129 },
       { text: 'I hate freeloaders (no effect)', effect: 0 },
     ],
-    source: "sophomore/letting others copy.png"
+    source: "sophomore/Letting Others Copy.png"
   },
   {
     event: 'You have a chapter test for TOP Chem this week. If you fail it, your teacher will force you to do 100 homework problems as punishment.', //29
     options: [
       { text: 'That\'s sadistic (+5 stress)', effect: 110 },
     ],
-    source: "sophomore/top chem chapter tests.png"
+    source: "sophomore/TOP Chem Chapter Tests.png"
   },
   {
     event: 'The principal announces that, due to a budget surplus, the school will be funding additional activities.', //30
@@ -2007,7 +2007,16 @@ var sophomore_events = [
     options: [
       { text: 'More clubs! (+1 club added to the pool)', effect: 130 },
     ],
-    source: "sophomore/start some clubs.png"
+    source: "sophomore/Start Some Clubs.png"
+  },
+  {
+    event: 'Legend says that you can only have two out of a social life, good grades, and sleep. Which one will you choose to lose?', //18
+    options: [
+      { text: 'No social life (-socialize)', effect: 111 },
+      { text: 'Bad grades (-study)', effect: 32 },
+      { text: 'No sleep (-2 sleep)', effect: 207 },
+    ],
+    source: "sophomore/you can only have two.png"
   },
 
 ]
