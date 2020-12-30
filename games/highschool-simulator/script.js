@@ -753,7 +753,7 @@ function do_effect() {
   if (friends<0){friends=0}
   if (stress<0){stress=0}
   if (happiness<0){happiness=0}
-  if (happiness>0){happiness=10}
+  if (happiness>10){happiness=10}
   if (integrity<0){integrity=0}
 }
 
