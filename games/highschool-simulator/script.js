@@ -797,6 +797,10 @@ function selectOption(e) {
     setNextCheating()
     currentEffect=0
   }
+  else if ((currentEffect == 98) || (currentEffect == 226)|| (currentEffect == 227)){
+    set_A()
+    currentEffect=0
+  }
   else{
     currentEffect=0
     setNextQuestion()
@@ -850,7 +854,7 @@ function selectAnswer(e) {
     setNextCheating()
     currentEffect=0
   }
-  else if (currentEffect == 98 || currentEffect == 226|| currentEffect == 227){
+  else if ((currentEffect == 98) || (currentEffect == 226)|| (currentEffect == 227)){
     set_A()
     currentEffect=0
   }
@@ -865,7 +869,7 @@ function do_pandering(thing) {
     button.innerText = option.text
     button.classList.add('btn')
     button.dataset.effect = option.effect
-    if (happiness > option.cost){
+    if (happiness >= option.cost){
       button.addEventListener('click', selectPandering)}
     if (happiness < option.cost){
       setStatusClass(button)
@@ -884,6 +888,10 @@ function selectPandering(e) {
   currentPanderingDeckIndex++
   currentEffect = effect
   do_effect()
+  if ((currentEffect == 98) || (currentEffect == 226)|| (currentEffect == 227)){
+    set_A()
+    currentEffect=0
+  }
   currentEffect=0
   setNextQuestion()
 }
@@ -895,7 +903,7 @@ function do_cheating(thing) {
     button.innerText = option.text
     button.classList.add('btn')
     button.dataset.effect = option.effect
-    if (integrity > option.cost){
+    if (integrity >= option.cost){
       button.addEventListener('click', selectCheating)}
     if (integrity < option.cost){
       setStatusClass(button)
@@ -914,6 +922,10 @@ function selectCheating(e) {
   currentCheatingDeckIndex++
   currentEffect = effect
   do_effect()
+  if ((currentEffect == 98) || (currentEffect == 226)|| (currentEffect == 227)){
+    set_A()
+    currentEffect=0
+  }
   currentEffect=0
   setNextQuestion()
 }
@@ -2617,14 +2629,14 @@ var cheating_deck = [
     ]
   },
   {
-    event: 'Get Answer Keys: If you are looking for them, you can find them. This ability lets you get an A in any class. You will get the Resume Point bonus, but your teacher will suspect something is up, and you will receive no teacher influence bonus. It costs 1 integrity.', //6
+    event: 'Get Answer Keys: If you are looking for them, you can find them. This ability lets you get an A in any class. You will get the Resume Point bonus, but your teacher will suspect something is up, and you will receive no teacher influence bonus. It costs 1 integrity.', //7
     options: [
       { text: 'Get the Answer Keys (+A in a class, -1 integrity)', effect: 227, cost: 1 },
       { text: 'Discard this ability (no effect)', effect: 0, cost: 0 }
     ]
   },
   {
-    event: 'Cheat on the FUN: Cheating on the FUN can increase your chance of getting a good score significantly. It costs 2 integrity.', //7
+    event: 'Cheat on the FUN: Cheating on the FUN can increase your chance of getting a good score significantly. It costs 2 integrity.', //8
     options: [
       { text: 'Cheat on the FUN (+good FUN score chance, -2 integrity)', effect: 242, cost: 2 },
       { text: 'Discard this ability (no effect)', effect: 0, cost: 0 }
@@ -2643,6 +2655,7 @@ var get_A =  {
       { text: 'History class', effect: 224, possible: 0 },
       { text: 'Science class', effect: 225, possible: 0 },
       { text: 'None.', effect: 0, cost: 0 },
-    ]
+    ],
+    source: "freshman/get answer keys.png"
   }
 
