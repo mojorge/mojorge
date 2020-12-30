@@ -774,7 +774,7 @@ function do_event(thing) {
   })
   var img = document.createElement('img')
   img.src = thing.source
-  img.style.width = "400px"
+  img.style.width = "350px"
   imageElement.appendChild(img)
 
 }
