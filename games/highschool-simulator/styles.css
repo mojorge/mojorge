@@ -85,6 +85,9 @@ header {
   color: black;
 }
 
+p {
+  font-size: 21px;
+}
 
 .main-title a{
   color:#222222;
