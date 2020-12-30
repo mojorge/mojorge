@@ -850,7 +850,7 @@ function selectAnswer(e) {
     setNextCheating()
     currentEffect=0
   }
-  else if (currentEffect == 98){
+  else if (currentEffect == 98 || currentEffect == 226|| currentEffect == 227){
     set_A()
     currentEffect=0
   }
