@@ -797,7 +797,11 @@ function selectOption(e) {
     setNextCheating()
     currentEffect=0
   }
-  else if ((currentEffect == 98) || (currentEffect == 226)|| (currentEffect == 227)){
+  else if ((currentEffect == 98) || (currentEffect == 226)){
+    set_A()
+    currentEffect=0
+  }
+  else if (currentEffect == 227){
     set_A()
     currentEffect=0
   }
@@ -854,7 +858,11 @@ function selectAnswer(e) {
     setNextCheating()
     currentEffect=0
   }
-  else if ((currentEffect == 98) || (currentEffect == 226)|| (currentEffect == 227)){
+  else if ((currentEffect == 98) || (currentEffect == 226)){
+    set_A()
+    currentEffect=0
+  }
+  else if (currentEffect == 227){
     set_A()
     currentEffect=0
   }
@@ -888,7 +896,11 @@ function selectPandering(e) {
   currentPanderingDeckIndex++
   currentEffect = effect
   do_effect()
-  if ((currentEffect == 98) || (currentEffect == 226)|| (currentEffect == 227)){
+  if ((currentEffect == 98) || (currentEffect == 226)){
+    set_A()
+    currentEffect=0
+  }
+  else if (currentEffect == 227){
     set_A()
     currentEffect=0
   }
@@ -922,7 +934,11 @@ function selectCheating(e) {
   currentCheatingDeckIndex++
   currentEffect = effect
   do_effect()
-  if ((currentEffect == 98) || (currentEffect == 226)|| (currentEffect == 227)){
+  if ((currentEffect == 98) || (currentEffect == 226)){
+    set_A()
+    currentEffect=0
+  }
+  else if (currentEffect == 227){
     set_A()
     currentEffect=0
   }
@@ -2626,7 +2642,7 @@ var cheating_deck = [
   {
     event: 'Parents Bribe Administration: Your parents exert their influence to ensure that you can lead some exclusive clubs. This ability starts a club and gives you 8 friends. It costs 2 integrity.', //6
     options: [
-      { text: 'Bribe the Administration (+8 friends, -2 integrity)', effect: 65, cost: 1 },
+      { text: 'Bribe the Administration (+8 friends, -2 integrity)', effect: 199, cost: 1 },
       { text: 'Discard this ability (no effect)', effect: 0, cost: 0 }
     ]
   },
