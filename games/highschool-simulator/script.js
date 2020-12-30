@@ -2633,7 +2633,7 @@ var cheating_deck = [
     ]
   },
   {
-    event: 'Fake Illness: By not showing up to school, you get a much needed break! Your friends don\'t remember you though. Doing this reduces your stress to 0, but makes you lose 2 friends. This ability costs 2 Integrity.', //5
+    event: 'Fake Illness: By not showing up to school, you get a much needed break! Your friends don\'t remember you though. Doing this reduces your stress to 0, but makes you lose 2 friends. This ability costs 1 Integrity.', //5
     options: [
       { text: 'Fake an illness (-ALL stress, -2 friends, -1 integrity)', effect: 65, cost: 1 },
       { text: 'Discard this ability (no effect)', effect: 0, cost: 0 }
@@ -2642,7 +2642,7 @@ var cheating_deck = [
   {
     event: 'Parents Bribe Administration: Your parents exert their influence to ensure that you can lead some exclusive clubs. This ability starts a club and gives you 8 friends. It costs 2 integrity.', //6
     options: [
-      { text: 'Bribe the Administration (+8 friends, -2 integrity)', effect: 199, cost: 1 },
+      { text: 'Bribe the Administration (+8 friends, -2 integrity)', effect: 199, cost: 2 },
       { text: 'Discard this ability (no effect)', effect: 0, cost: 0 }
     ]
   },
