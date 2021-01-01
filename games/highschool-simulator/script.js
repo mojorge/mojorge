@@ -443,8 +443,8 @@ function end_of_senior_year(){
   if (questions[49].answers[0].taken==1){resume_points+=10}
   else if (questions[49].answers[1].taken==1){resume_points+=8}
   else if (questions[49].answers[2].taken==1){resume_points+=4}
-  if (integrity == 10){questions[58].answers[0].taken=1}
-  if (happiness == 10){questions[58].answers[1].taken=1}
+  if (integrity >= 10){questions[58].answers[0].taken=1}
+  if (happiness >= 10){questions[58].answers[1].taken=1}
   if (questions[49].answers[0].taken==1){questions[58].answers[2].taken=1} //perfect FUN
   if (questions[47].answers[0].taken==1){questions[58].answers[3].taken=1}
   if (questions[48].answers[0].taken==1){questions[58].answers[4].taken=1}
