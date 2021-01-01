@@ -149,7 +149,7 @@ function set_A() {
 function drawClub() {
   number = shuffledClubDeck[clubDeckIndex]
   questions[18].answers[number].possible = 1
-  if (clubDeckIndex <=25){clubDeckIndex++} //Makes sure you stop when you run out of clubs
+  if (clubDeckIndex <=24){clubDeckIndex++} //Makes sure you stop when you run out of clubs
 }
 
 function checkClubCost_8() {
@@ -750,19 +750,19 @@ function do_effect() {
   if (currentEffect ==250){if (integrity<3){resume_points-=10}}
   if (currentEffect ==251){finalSeniorIndex=currentFreshmanEventIndex, end_of_senior_year(), end_of_game_message()}
 
-  if (english_stat<0){english_stat=0}
-  if (math_stat<0){math_stat=0}
-  if (history_stat<0){history_stat=0}
-  if (science_stat<0){science_stat=0}
-  if (knovel_influence<0){knovel_influence=0}
-  if (mathew_influence<0){mathew_influence=0}
-  if (terry_influence<0){terry_influence=0}
-  if (hectare_influence<0){hectare_influence=0}
-  if (yasse_influence<0){yasse_influence=0}
-  if (graff_influence<0){graff_influence=0}
-  if (fizzix_influence<0){fizzix_influence=0}
-  if (franklin_influence<0){franklin_influence=0}
-  if (friends<0){friends=0}
+  //if (english_stat<0){english_stat=0}
+  //if (math_stat<0){math_stat=0}
+  //if (history_stat<0){history_stat=0}
+  //if (science_stat<0){science_stat=0}
+  //if (knovel_influence<0){knovel_influence=0}
+  //if (mathew_influence<0){mathew_influence=0}
+  //if (terry_influence<0){terry_influence=0}
+  //if (hectare_influence<0){hectare_influence=0}
+  //if (yasse_influence<0){yasse_influence=0}
+  //if (graff_influence<0){graff_influence=0}
+  //if (fizzix_influence<0){fizzix_influence=0}
+  //if (franklin_influence<0){franklin_influence=0}
+  //if (friends<0){friends=0}
   if (stress<0){stress=0}
   if (happiness<0){happiness=0}
   if (happiness>10){happiness=10}
