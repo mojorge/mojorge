@@ -191,7 +191,7 @@ function checkSpecial(){
     } 
   } 
   for (i=0; i<3; i++){ //PHYSICS OLYMPIAD
-    if ((science_stat >= questions[59].answers[i].cost) && (questions[59].answers[i].taken==0)&&(questions[59].answers[i].unlocked==1)){  
+    if ((science_stat >= questions[59].answers[i].cost)&&(questions[59].answers[i].taken==0)&&(questions[59].answers[i].unlocked==1)){  
       questions[59].answers[i].possible=1
     } 
     if ((science_stat < questions[59].answers[i].cost) || (questions[59].answers[i].taken==1)){  
@@ -227,6 +227,7 @@ function take_FUN() {
 
 function checkPossibleGrades() {
   if (english_stat >=questions[5].answers[0].cost && english_grade =="F"){questions[5].answers[0].possible = 1}
+  if (questions[5].answers[0].destroyed==1){questions[5].answers[0].possible = 0}
   if (english_stat <questions[5].answers[0].cost || english_grade =="A"){questions[5].answers[0].possible = 0}
   if (math_stat >=questions[5].answers[1].cost && math_grade =="F"){questions[5].answers[1].possible = 1}
   if (math_stat <questions[5].answers[1].cost || math_grade =="A"){questions[5].answers[1].possible = 0}
@@ -345,6 +346,7 @@ function end_of_year(){
   questions[5].answers[1].taken = 0
   questions[5].answers[2].taken = 0
   questions[5].answers[3].taken = 0
+  questions[5].answers[0].destroyed=0 //Makes English correctable again
 
 }
 
@@ -618,7 +620,7 @@ function do_effect() {
   if (currentEffect ==118){friends-=2}
   if (currentEffect ==119){friends+=2, stress--}
   if (currentEffect ==120){if (english_grade=="F"){stress++} if (math_grade=="F"){stress++} if (history_grade=="F"){stress++} if (science_grade=="F"){stress++} }
-  if (currentEffect ==121){questions[5].answers[0].possible=0}
+  if (currentEffect ==121){questions[5].answers[0].possible=0, questions[5].answers[0].destroyed=1}
   if (currentEffect ==122){stress+=5, english_stat+=2}
   if (currentEffect ==123){english_stat-=3}
   if (currentEffect ==124){math_stat-=3}
@@ -651,7 +653,7 @@ function do_effect() {
   if (currentEffect ==151){mathew_influence+=5}
   if (currentEffect ==152){terry_influence+=5}
   if (currentEffect ==153){fizzix_influence+=5}
-  if (currentEffect ==154){questions[48].answers[4].possible=1, questions[0].answers[5].possible=1} //D1 Athlete
+  if (currentEffect ==154){questions[46].answers[4].possible=1, questions[0].answers[5].possible=1} //D1 Athlete
   if (currentEffect ==155){if (integrity<5){questions[0].answers[1].possible=0}} //NO Teacher abilities
   if (currentEffect ==156){math_stat+=2,english_stat+=1}
   if (currentEffect ==157){friends+=3,stress-=3}
@@ -725,8 +727,8 @@ function do_effect() {
   if (currentEffect ==225){science_grade="A", resume_points+=questions[5].answers[3].reward, questions[5].answers[0].possible=0}
   if (currentEffect ==226){checkForF(), happiness-=3}
   if (currentEffect ==227){checkForF(), integrity-=1}
-  if (currentEffect ==228){resume_points+=3, science_stat-=4, questions[59].answers[1].unlocked=1, questions[59].answers[2].possible=0, questions[59].answers[3].taken=1}
-  if (currentEffect ==229){resume_points+=6, science_stat-=8, questions[59].answers[0].unlocked=1, questions[59].answers[1].possible=0, questions[59].answers[2].taken=1}
+  if (currentEffect ==228){resume_points+=3, science_stat-=4, questions[59].answers[1].unlocked=1, questions[59].answers[2].possible=0, questions[59].answers[2].taken=1}
+  if (currentEffect ==229){resume_points+=6, science_stat-=8, questions[59].answers[0].unlocked=1, questions[59].answers[1].possible=0, questions[59].answers[1].taken=1}
   if (currentEffect ==230){resume_points+=15, science_stat-=12, questions[59].answers[0].possible=0, questions[59].answers[0].taken=1}
   if (currentEffect ==231){resume_points+=15, friends-=30, questions[60].answers[0].possible=0, questions[60].answers[0].taken=1}
   if (currentEffect ==232){questions[61].answers[0].possible=0, questions[61].answers[0].taken=1} //VALEDICTORIAN
@@ -1048,7 +1050,7 @@ var questions = [
   {
     room: 'Which class do you want to improve your grade in?', //5
     answers: [
-      { text: 'English I (-2 English Stat, +1 Resume Point, +3 Yasse influence)', correct: 6, effect: 8, possible: 0, cost: 2, taken: 0, reward: 1 },
+      { text: 'English I (-2 English Stat, +1 Resume Point, +3 Yasse influence)', correct: 6, effect: 8, possible: 0, cost: 2, taken: 0, reward: 1, destroyed: 0 },
       { text: 'Algebra II (-2 Math Stat, +1 Resume Point, +3 Mathew influence)', correct: 6, effect: 9, possible: 0, cost: 2, taken: 0, reward: 1 },
       { text: 'TOP Human Geo (-3 History Stat, +2 Resume Points, +3 Terry influence)', correct: 6, effect: 10, possible: 0, cost: 3, taken: 0, reward: 2 },
       { text: 'Physics (-2 Science Stat, +1 Resume Point, +3 Fizzix influence)', correct: 6, effect: 11, possible: 0, cost: 2, taken: 0, reward: 1 },
