@@ -149,7 +149,7 @@ function set_A() {
 function drawClub() {
   number = shuffledClubDeck[clubDeckIndex]
   questions[18].answers[number].possible = 1
-  if (clubDeckIndex <=24){clubDeckIndex++} //Makes sure you stop when you run out of clubs
+  if (clubDeckIndex <24){clubDeckIndex++} //Makes sure you stop when you run out of clubs
 }
 
 function checkClubCost_8() {
