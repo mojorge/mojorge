@@ -31,6 +31,10 @@ var english_grade = "F";
 var math_grade = "F";
 var history_grade = "F";
 var science_grade = "F";
+var english_A = 0;
+var math_A = 0;
+var history_A = 0;
+var science_A = 0;
 var happiness=10;
 var happiness_delta=0
 var integrity=10
@@ -61,6 +65,14 @@ var graff_influence_delta=0;
 var hectare_influence_delta=0;
 var FUN_bonus=0;
 var clubs_led = 0;
+var relax_counter = 0;
+var chat_counter = 0;
+var socialize_counter = 0;
+var study_counter = 0;
+var academic_counter = 0;
+var sport_counter = 0;
+var art_counter = 0;
+var recreation_counter = 0;
 var recs_gotten = 0;
 var straight_A_bonuses = 0;
 var resume_points=0;
@@ -70,6 +82,8 @@ var finalSophomoreIndex=0;
 var finalJuniorIndex=0;
 var finalSeniorIndex=0;
 var club_deck = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24]
+var essay_deck = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27]
+
 
 var freshman_end_year = 'yes'
 
@@ -95,8 +109,12 @@ function startGame() {
   shuffledCheatingDeck = cheating_deck.sort(() => Math.random() - .5)
   currentCheatingDeckIndex=0
   shuffledClubDeck = club_deck.sort(() => Math.random() - .5)
+  shuffledEssayDeck = essay_deck.sort(() => Math.random() - .5)
   clubDeckIndex=0
+  essayDeckIndex=0
   drawClub()
+  drawEssay()
+  drawEssay()
   currentQuestionIndex = 0
   currentEffect = 0 
   questionContainerElement.classList.remove('hide')
@@ -152,6 +170,12 @@ function drawClub() {
   if (clubDeckIndex <24){clubDeckIndex++} //Makes sure you stop when you run out of clubs
 }
 
+function drawEssay() {
+  number = shuffledEssayDeck[essayDeckIndex]
+  questions[63].answers[number].possible = 1
+  if (essayDeckIndex < 27){essayDeckIndex++} //Makes sure you stop when you run out of essays
+}
+
 function checkClubCost_8() {
   if (friends < 8){
     questions[17].answers[0].possible=0
@@ -171,6 +195,46 @@ function checkClubCost_8() {
       questions[i].answers[0].possible=1
     }
   }
+}
+
+function checkEssayPossible() {
+  if (integrity < 4){questions[64].answers[0].possible=1}
+  if (friends >= 15){questions[65].answers[0].possible=1}
+  if (friends < 15){questions[65].answers[0].possible=0}
+  if (knovel_influence >= 10){questions[66].answers[0].possible=1}
+  if (knovel_influence < 10){questions[66].answers[0].possible=0}
+  if (mental_breakdowns_served >= 1){questions[67].answers[0].possible=1}
+  if (science_stat >= 3){questions[68].answers[0].possible=1}
+  if (science_stat < 3){questions[68].answers[0].possible=0}
+  if (relax_counter >= 7){questions[69].answers[0].possible=1}
+  if (current_year=="Senior"){questions[70].answers[1].possible=1}
+  if (yasse_influence>=1 && graff_influence>=1 && franklin_influence>=1 && hectare_influence>=1 && knovel_influence>=1 && mathew_influence>=1 && terry_influence>=1 && fizzix_influence>=1){questions[71].answers[0].possible=1}
+  else {questions[71].answers[0].possible=0}
+  if (history_stat >= 6){questions[72].answers[0].possible=1}
+  if (history_stat < 6){questions[72].answers[0].possible=0}
+  if (happiness < 2){questions[73].answers[0].possible=1}
+  if (happiness >= 2){questions[73].answers[0].possible=0}
+  if (stress == 9){questions[74].answers[0].possible=1}
+  else {questions[74].answers[0].possible=0}
+  if (math_stat >= 8){questions[75].answers[0].possible=1}
+  else {questions[75].answers[0].possible=0}
+  if (currentPanderingDeckIndex>=3){questions[76].answers[0].possible=1}
+  if (recs_gotten>=2){questions[77].answers[0].possible=1}
+  if (happiness<5){questions[78].answers[0].possible=1}
+  if (english_A>=3){questions[79].answers[0].possible=1}
+  if (math_A>=2){questions[80].answers[0].possible=1}
+  if (history_A>=2){questions[81].answers[0].possible=1}
+  if (science_A>=2){questions[82].answers[0].possible=1}
+  if (study_counter>=7){questions[83].answers[0].possible=1}
+  if (socialize_counter>=7){questions[84].answers[0].possible=1}
+  if (chat_counter>=7){questions[85].answers[0].possible=1}
+  if (clubs_led>=5){questions[86].answers[0].possible=1}
+  if (recreation_counter>=2){questions[87].answers[0].possible=1}
+  if (art_counter>=1){questions[88].answers[0].possible=1}
+  if (sport_counter>=2){questions[89].answers[0].possible=1}
+  if (academic_counter>=2){questions[90].answers[0].possible=1}
+  if (academic_counter>=1 && sport_counter>=1 && art_counter>=1 && recreation_counter>=1){questions[91].answers[0].possible=1}
+
 }
 
 function checkSpecial(){
@@ -507,10 +571,10 @@ function do_effect() {
   if (currentEffect ==5){sleep--}
   if (currentEffect ==6){friends+=2}
   if (currentEffect ==7){checkPossibleGrades()}
-  if (currentEffect ==8){yasse_influence+=3, english_stat-=2, resume_points+=1, english_grade="A", questions[5].answers[0].taken = 1}
-  if (currentEffect ==9){mathew_influence+=3, math_stat-=2, resume_points+=1, math_grade="A", questions[5].answers[1].taken = 1}
-  if (currentEffect ==10){terry_influence+=3, history_stat-=3, resume_points+=2, history_grade="A", questions[5].answers[2].taken = 1}
-  if (currentEffect ==11){fizzix_influence+=3, science_stat-=2, resume_points+=1, science_grade="A", questions[5].answers[3].taken = 1}
+  if (currentEffect ==8){yasse_influence+=3, english_stat-=2, resume_points+=1, english_grade="A", questions[5].answers[0].taken = 1, english_A++}
+  if (currentEffect ==9){mathew_influence+=3, math_stat-=2, resume_points+=1, math_grade="A", questions[5].answers[1].taken = 1, math_A++}
+  if (currentEffect ==10){terry_influence+=3, history_stat-=3, resume_points+=2, history_grade="A", questions[5].answers[2].taken = 1, history_A++}
+  if (currentEffect ==11){fizzix_influence+=3, science_stat-=2, resume_points+=1, science_grade="A", questions[5].answers[3].taken = 1, science_A++}
   if (currentEffect ==12){stress-=2}
   if (currentEffect ==13){franklin_influence+=2}
   if (currentEffect ==14){knovel_influence+=2}
@@ -540,8 +604,8 @@ function do_effect() {
   if (currentEffect ==38){knovel_influence-=3}
   if (currentEffect ==39){math_stat-=2}
   if (currentEffect ==40){science_stat-=2}
-  if (currentEffect ==41){questions[1].answers[1].text = "Courage (+3 friends)", questions[1].answers[1].effect = 55, sleep-=1, perm_sleep_loss+=1} //COURAGE
-  if (currentEffect ==42){questions[1].answers[3].text = "Compassion (-3 stress)", questions[1].answers[3].effect = 29, sleep-=1, perm_sleep_loss+=1} //COMPASSION
+  if (currentEffect ==41){questions[1].answers[1].text = "Courage (+3 friends)", questions[1].answers[1].effect = 277, sleep-=1, perm_sleep_loss+=1} //COURAGE
+  if (currentEffect ==42){questions[1].answers[3].text = "Compassion (-3 stress)", questions[1].answers[3].effect = 259, sleep-=1, perm_sleep_loss+=1} //COMPASSION
   if (currentEffect ==43){questions[46].answers[0].possible=1, questions[0].answers[5].possible=1} //STUD GOV PRES
   if (currentEffect ==44){questions[1].answers[2].text = "Character (+3 Teacher Influence)", questions[1].answers[2].correct = 15, sleep-=1, perm_sleep_loss+=1} //CHARACTER
   if (currentEffect ==45){franklin_influence+=10, happiness-=5}
@@ -564,11 +628,11 @@ function do_effect() {
   if (currentEffect ==62){sleep+=3, happiness-=4}
   if (currentEffect ==63){english_stat+=1, math_stat+=1, history_stat+=1, science_stat+=1, integrity-=2}
   if (currentEffect ==64){perm_sleep_loss-=4, integrity-=6}
-  if (currentEffect ==65){stress-=10, friends-=2, integrity-=1}
+  if (currentEffect ==65){stress-=10, integrity-=1}
   if (currentEffect ==66){mental_breakdowns_served+=1, resume_points-=5,sleep-=1,perm_sleep_loss+=1}
-  if (currentEffect ==67){math_stat_delta+=2, mathew_influence+=6, resume_points+=3, friends-=8, questions[18].answers[0].possible=0, questions[18].answers[0].taken=1, clubs_led++}
-  if (currentEffect ==68){history_stat_delta+=2, terry_influence+=6, resume_points+=3, friends-=8, questions[18].answers[1].possible=0, questions[18].answers[1].taken=1, clubs_led++}
-  if (currentEffect ==69){english_stat_delta+=2, knovel_influence+=6, resume_points+=3, friends-=8, questions[18].answers[2].possible=0, questions[18].answers[2].taken=1, clubs_led++}
+  if (currentEffect ==67){math_stat_delta+=2, mathew_influence+=6, resume_points+=3, friends-=8, questions[18].answers[0].possible=0, questions[18].answers[0].taken=1, clubs_led++, academic_counter++}
+  if (currentEffect ==68){history_stat_delta+=2, terry_influence+=6, resume_points+=3, friends-=8, questions[18].answers[1].possible=0, questions[18].answers[1].taken=1, clubs_led++, academic_counter++}
+  if (currentEffect ==69){english_stat_delta+=2, knovel_influence+=6, resume_points+=3, friends-=8, questions[18].answers[2].possible=0, questions[18].answers[2].taken=1, clubs_led++, academic_counter++}
   if (currentEffect ==70){checkClubCost_8()}
   if (currentEffect ==71){checkPossibleInfluence()}
   if (currentEffect ==72){drawClub(), franklin_influence-=3, friends+=2}
@@ -576,28 +640,28 @@ function do_effect() {
   if (currentEffect ==74){mathew_influence-=3, math_stat+=2}
   if (currentEffect ==75){fizzix_influence-=2, stress-=2}
   if (currentEffect ==76){terry_influence-=3}
-  if (currentEffect ==77){friends_delta+=3, happiness+=1, resume_points+=2, friends-=7, questions[18].answers[3].possible=0, questions[18].answers[3].taken=1, clubs_led++}
-  if (currentEffect ==78){friends_delta+=2, stress-=4, math_stat+=1, resume_points+=1, friends-=6, questions[18].answers[4].possible=0, questions[18].answers[4].taken=1, clubs_led++}
-  if (currentEffect ==79){friends_delta+=4, resume_points+=1, friends-=6, drawClub(), questions[18].answers[5].possible=0, questions[18].answers[5].taken=1}
-  if (currentEffect ==80){franklin_influence_delta+=1, knovel_influence_delta+=1, mathew_influence_delta +=1, terry_influence_delta+=1, fizzix_influence_delta+=1, yasse_influence_delta+=1, graff_influence_delta+=1, hectare_influence_delta++, resume_points+=3, friends-=12, stress+=4, questions[18].answers[6].possible=0, questions[18].answers[6].taken=1, clubs_led++}
-  if (currentEffect ==81){happiness_delta+=1, friends-=3, stress-=3, questions[18].answers[7].possible=0, questions[18].answers[7].taken=1, clubs_led++}
-  if (currentEffect ==82){stress_delta+=1, stress+=1, friends-=3, resume_points+=3, questions[18].answers[8].possible=0, questions[18].answers[8].taken=1, clubs_led++}
-  if (currentEffect ==83){science_stat_delta+=2, friends-=6, resume_points+=3, questions[18].answers[9].possible=0, questions[18].answers[9].taken=1, clubs_led++}
-  if (currentEffect ==84){english_stat_delta+=2, yasse_influence+=6, friends-=8, resume_points+=3, questions[18].answers[10].possible=0, questions[18].answers[10].taken=1, clubs_led++}
-  if (currentEffect ==85){history_stat_delta+=2, franklin_influence+=6, friends-=8, resume_points+=3, questions[18].answers[11].possible=0, questions[18].answers[11].taken=1, clubs_led++}
-  if (currentEffect ==86){science_stat_delta+=2, hectare_influence+=6, friends-=8, resume_points+=3, questions[18].answers[12].possible=0, questions[18].answers[12].taken=1, clubs_led++}
-  if (currentEffect ==87){science_stat_delta+=2, fizzix_influence+=6, friends-=8, resume_points+=3, questions[18].answers[13].possible=0, questions[18].answers[13].taken=1, clubs_led++}
-  if (currentEffect ==88){math_stat_delta+=2, graff_influence+=6, friends-=8, resume_points+=3, questions[18].answers[14].possible=0, questions[18].answers[14].taken=1, clubs_led++}
-  if (currentEffect ==89){stress_delta+=2, friends_delta+=2, math_stat+=3, friends-=3, resume_points-=1, questions[18].answers[15].possible=0, questions[18].answers[15].taken=1, clubs_led++} //POKER. CHANGE?
-  if (currentEffect ==90){happiness_delta-=2, friends_delta+=2, happiness+=6, friends-=5, resume_points-=1, questions[18].answers[16].possible=0, questions[18].answers[16].taken=1, clubs_led++}
-  if (currentEffect ==91){friends_delta-=4, friends+=4, resume_points-=1, questions[18].answers[17].possible=0, questions[18].answers[17].taken=1, clubs_led++}
-  if (currentEffect ==92){friends-=5, resume_points+=1, happiness+=3, questions[18].answers[18].possible=0, questions[18].answers[18].taken=1, clubs_led++}
-  if (currentEffect ==93){history_stat+=1, history_stat_delta+=1, friends-=3, resume_points+=0, questions[18].answers[19].possible=0, questions[18].answers[19].taken=1, clubs_led++}
-  if (currentEffect ==94){stress-=4, stress_delta-=2, friends-=5, resume_points+=1, questions[18].answers[20].possible=0, questions[18].answers[20].taken=1, clubs_led++}
-  if (currentEffect ==95){stress-=2, friends_delta+=3, friends-=5, resume_points+=1, questions[18].answers[21].possible=0, questions[18].answers[21].taken=1, clubs_led++}
-  if (currentEffect ==96){math_stat+=2, friends_delta+=3, friends-=8, resume_points+=2, questions[18].answers[22].possible=0, questions[18].answers[22].taken=1, clubs_led++}
-  if (currentEffect ==97){yasse_influence+=1, graff_influence+=1, franklin_influence+=1, hectare_influence+=1, knovel_influence+=1, mathew_influence+=1, terry_influence+=1, fizzix_influence+=1, friends_delta+=5, math_stat_delta-=1, friends-=9, resume_points+=3, questions[18].answers[23].possible=0, questions[18].answers[23].taken=1, clubs_led++}
-  if (currentEffect ==98){math_stat_delta+=1, integrity-=2, friends-=3, questions[18].answers[24].possible=0, questions[18].answers[24].taken=1, clubs_led++, checkForF()} //CODING CLUB
+  if (currentEffect ==77){friends_delta+=3, happiness+=1, resume_points+=2, friends-=7, questions[18].answers[3].possible=0, questions[18].answers[3].taken=1, clubs_led++, sport_counter++}
+  if (currentEffect ==78){friends_delta+=2, stress-=4, math_stat+=1, resume_points+=1, friends-=6, questions[18].answers[4].possible=0, questions[18].answers[4].taken=1, clubs_led++, sport_counter++}
+  if (currentEffect ==79){friends_delta+=4, resume_points+=1, friends-=6, drawClub(), questions[18].answers[5].possible=0, questions[18].answers[5].taken=1, sport_counter++}
+  if (currentEffect ==80){franklin_influence_delta+=1, knovel_influence_delta+=1, mathew_influence_delta +=1, terry_influence_delta+=1, fizzix_influence_delta+=1, yasse_influence_delta+=1, graff_influence_delta+=1, hectare_influence_delta++, resume_points+=3, friends-=12, stress+=4, questions[18].answers[6].possible=0, questions[18].answers[6].taken=1, clubs_led++, art_counter++}
+  if (currentEffect ==81){happiness_delta+=1, friends-=3, stress-=3, questions[18].answers[7].possible=0, questions[18].answers[7].taken=1, clubs_led++, recreation_counter++}
+  if (currentEffect ==82){stress_delta+=1, stress+=1, friends-=3, resume_points+=3, questions[18].answers[8].possible=0, questions[18].answers[8].taken=1, clubs_led++, recreation_counter++}
+  if (currentEffect ==83){science_stat_delta+=2, friends-=6, resume_points+=3, questions[18].answers[9].possible=0, questions[18].answers[9].taken=1, clubs_led++, academic_counter++}
+  if (currentEffect ==84){english_stat_delta+=2, yasse_influence+=6, friends-=8, resume_points+=3, questions[18].answers[10].possible=0, questions[18].answers[10].taken=1, clubs_led++, academic_counter++}
+  if (currentEffect ==85){history_stat_delta+=2, franklin_influence+=6, friends-=8, resume_points+=3, questions[18].answers[11].possible=0, questions[18].answers[11].taken=1, clubs_led++, academic_counter++}
+  if (currentEffect ==86){science_stat_delta+=2, hectare_influence+=6, friends-=8, resume_points+=3, questions[18].answers[12].possible=0, questions[18].answers[12].taken=1, clubs_led++, academic_counter++}
+  if (currentEffect ==87){science_stat_delta+=2, fizzix_influence+=6, friends-=8, resume_points+=3, questions[18].answers[13].possible=0, questions[18].answers[13].taken=1, clubs_led++, academic_counter++}
+  if (currentEffect ==88){math_stat_delta+=2, graff_influence+=6, friends-=8, resume_points+=3, questions[18].answers[14].possible=0, questions[18].answers[14].taken=1, clubs_led++, academic_counter++}
+  if (currentEffect ==89){stress_delta+=2, friends_delta+=2, math_stat+=3, friends-=3, resume_points-=1, questions[18].answers[15].possible=0, questions[18].answers[15].taken=1, clubs_led++, recreation_counter++} //POKER. CHANGE?
+  if (currentEffect ==90){happiness_delta-=2, friends_delta+=2, happiness+=6, friends-=5, resume_points-=1, questions[18].answers[16].possible=0, questions[18].answers[16].taken=1, clubs_led++, recreation_counter++}
+  if (currentEffect ==91){friends_delta-=4, friends+=4, resume_points-=1, questions[18].answers[17].possible=0, questions[18].answers[17].taken=1, clubs_led++, recreation_counter++}
+  if (currentEffect ==92){friends-=5, resume_points+=1, happiness+=3, questions[18].answers[18].possible=0, questions[18].answers[18].taken=1, clubs_led++, art_counter++}
+  if (currentEffect ==93){history_stat+=1, history_stat_delta+=1, friends-=3, resume_points+=0, questions[18].answers[19].possible=0, questions[18].answers[19].taken=1, clubs_led++, recreation_counter++}
+  if (currentEffect ==94){stress-=4, stress_delta-=2, friends-=5, resume_points+=1, questions[18].answers[20].possible=0, questions[18].answers[20].taken=1, clubs_led++, art_counter++}
+  if (currentEffect ==95){stress-=2, friends_delta+=3, friends-=5, resume_points+=1, questions[18].answers[21].possible=0, questions[18].answers[21].taken=1, clubs_led++, sport_counter++}
+  if (currentEffect ==96){math_stat+=2, friends_delta+=3, friends-=8, resume_points+=2, questions[18].answers[22].possible=0, questions[18].answers[22].taken=1, clubs_led++, sport_counter++}
+  if (currentEffect ==97){yasse_influence+=1, graff_influence+=1, franklin_influence+=1, hectare_influence+=1, knovel_influence+=1, mathew_influence+=1, terry_influence+=1, fizzix_influence+=1, friends_delta+=5, math_stat_delta-=1, friends-=9, resume_points+=3, questions[18].answers[23].possible=0, questions[18].answers[23].taken=1, clubs_led++, sport_counter++}
+  if (currentEffect ==98){math_stat_delta+=1, integrity-=2, friends-=3, questions[18].answers[24].possible=0, questions[18].answers[24].taken=1, clubs_led++, checkForF(), recreation_counter++} //CODING CLUB
   if (currentEffect ==99){questions[45].room = 'Freshman year is finally over! No time to relax though, because Sophomore year is about to begin. You got the following bonuses: \n English Stat Added:' +english_stat_delta+' \n Math Stat Added: '+math_stat_delta+' \n History Stat Added: '+history_stat_delta+' \n Science Stat Added: '+science_stat_delta+' \n Franklin Influence Added: '+franklin_influence_delta+' \n Knovel Influence Added: '+knovel_influence_delta+' \n Mathew Influence Added: '+mathew_influence_delta+' \n Terry Influence Added: '+terry_influence_delta+' \n Fizzix Influence Added: '+fizzix_influence_delta+' \n Happiness Change: '+happiness_delta+' \n Friends Change: '+friends_delta+' \n Stress Change: '+stress_delta+' \n Low sleep stress penalty:' +(10-sleep)+' \n Low Happiness stress penalty:' +Math.floor((10-happiness)/2)+ ''}
   if (currentEffect ==100){end_of_year(), end_of_frosh_year(), shuffledFreshmanEvents=shuffledSophomoreEvents, finalFreshmanIndex=currentFreshmanEventIndex, currentFreshmanEventIndex=0, questions[0].answers[4].correct=50} //CHANGE JUNIOR: 
   if (currentEffect ==101){happiness-=2}
@@ -612,10 +676,10 @@ function do_effect() {
   if (currentEffect ==110){stress+=5}
   if (currentEffect ==111){questions[1].answers[1].possible = 0}
   if (currentEffect ==112){sleep-=1, perm_sleep_loss+=1}
-  if (currentEffect ==113){yasse_influence+=5, english_stat-=3, resume_points+=1, english_grade="A", questions[5].answers[0].taken = 1}
-  if (currentEffect ==114){graff_influence+=5, math_stat-=3, resume_points+=1, math_grade="A", questions[5].answers[1].taken = 1}
-  if (currentEffect ==115){terry_influence+=6, history_stat-=4, resume_points+=2, history_grade="A", questions[5].answers[2].taken = 1}
-  if (currentEffect ==116){hectare_influence+=6, science_stat-=5, resume_points+=3, science_grade="A", questions[5].answers[3].taken = 1}
+  if (currentEffect ==113){yasse_influence+=5, english_stat-=3, resume_points+=1, english_grade="A", questions[5].answers[0].taken = 1, english_A++}
+  if (currentEffect ==114){graff_influence+=5, math_stat-=3, resume_points+=1, math_grade="A", questions[5].answers[1].taken = 1, math_A++}
+  if (currentEffect ==115){terry_influence+=6, history_stat-=4, resume_points+=2, history_grade="A", questions[5].answers[2].taken = 1, history_A++}
+  if (currentEffect ==116){hectare_influence+=6, science_stat-=5, resume_points+=3, science_grade="A", questions[5].answers[3].taken = 1, science_A++}
   if (currentEffect ==117){sleep--, english_stat++}
   if (currentEffect ==118){friends-=2}
   if (currentEffect ==119){friends+=2, stress--}
@@ -635,15 +699,15 @@ function do_effect() {
   if (currentEffect ==133){resume_points+=4, friends-=5, questions[47].answers[0].unlocked=1, questions[47].answers[1].possible=0, questions[47].answers[1].taken=1}
   if (currentEffect ==134){resume_points+=6, friends-=5, questions[47].answers[0].possible=0, questions[47].answers[0].taken=1}
   if (currentEffect ==135){checkSpecial()}
-  if (currentEffect ==136){knovel_influence+=6, english_stat-=4, resume_points+=2, english_grade="A", questions[5].answers[0].taken = 1}
-  if (currentEffect ==137){mathew_influence+=6, math_stat-=4, resume_points+=2, math_grade="A", questions[5].answers[1].taken = 1}
-  if (currentEffect ==138){franklin_influence+=6, history_stat-=4, resume_points+=2, history_grade="A", questions[5].answers[2].taken = 1}
-  if (currentEffect ==139){fizzix_influence+=6, science_stat-=5, resume_points+=3, science_grade="A", questions[5].answers[3].taken = 1}
+  if (currentEffect ==136){knovel_influence+=6, english_stat-=4, resume_points+=2, english_grade="A", questions[5].answers[0].taken = 1, english_A++}
+  if (currentEffect ==137){mathew_influence+=6, math_stat-=4, resume_points+=2, math_grade="A", questions[5].answers[1].taken = 1, math_A++}
+  if (currentEffect ==138){franklin_influence+=6, history_stat-=4, resume_points+=2, history_grade="A", questions[5].answers[2].taken = 1, history_A++}
+  if (currentEffect ==139){fizzix_influence+=6, science_stat-=5, resume_points+=3, science_grade="A", questions[5].answers[3].taken = 1, science_A++}
   if (currentEffect ==140){end_of_year(),end_of_soph_year(), shuffledFreshmanEvents=shuffledJuniorEvents, finalSophomoreIndex=currentFreshmanEventIndex, currentFreshmanEventIndex=0, questions[0].answers[4].correct=57}
   if (currentEffect ==141){questions[50].room = 'Sophomore year is finally over! No time to relax though, because Junior year is about to begin. This year is special: starting now, you will be able to take the FUN, a standardized test used in the college admissions process. You got the following bonuses: \n English Stat Added:' +english_stat_delta+' \n Math Stat Added: '+math_stat_delta+' \n History Stat Added: '+history_stat_delta+' \n Science Stat Added: '+science_stat_delta+' \n Franklin Influence Added: '+franklin_influence_delta+' \n Knovel Influence Added: '+knovel_influence_delta+' \n Mathew Influence Added: '+mathew_influence_delta+' \n Terry Influence Added: '+terry_influence_delta+' \n Fizzix Influence Added: '+fizzix_influence_delta+' \n Happiness Change: '+happiness_delta+' \n Friends Change: '+friends_delta+' \n Stress Change: '+stress_delta+' \n Low sleep stress penalty:' +(10-sleep)+' \n Low Happiness stress penalty:' +Math.floor((10-happiness)/2)+ ''}
-  if (currentEffect ==142){resume_points+=4, math_stat-=7, questions[48].answers[2].unlocked=1, questions[48].answers[3].possible=0, questions[47].answers[3].taken=1}
-  if (currentEffect ==143){resume_points+=8, math_stat-=11, questions[48].answers[1].unlocked=1, questions[48].answers[2].possible=0, questions[47].answers[2].taken=1}
-  if (currentEffect ==144){resume_points+=12, math_stat-=13, questions[48].answers[0].unlocked=1, questions[48].answers[1].possible=0, questions[47].answers[1].taken=1}
+  if (currentEffect ==142){resume_points+=4, math_stat-=7, questions[48].answers[2].unlocked=1, questions[48].answers[3].possible=0, questions[48].answers[3].taken=1}
+  if (currentEffect ==143){resume_points+=8, math_stat-=11, questions[48].answers[1].unlocked=1, questions[48].answers[2].possible=0, questions[48].answers[2].taken=1}
+  if (currentEffect ==144){resume_points+=12, math_stat-=13, questions[48].answers[0].unlocked=1, questions[48].answers[1].possible=0, questions[48].answers[1].taken=1}
   if (currentEffect ==145){resume_points+=20, math_stat-=17, questions[48].answers[0].possible=0, questions[48].answers[0].taken=1}
   if (currentEffect ==146){math_stat+=3, history_stat-=3}
   if (currentEffect ==147){science_stat+=3, history_stat-=3}
@@ -658,7 +722,7 @@ function do_effect() {
   if (currentEffect ==156){math_stat+=2,english_stat+=1}
   if (currentEffect ==157){friends+=3,stress-=3}
   if (currentEffect ==158){sleep-=3,math_stat+=3,english_stat+=3}
-  if (currentEffect ==159){if(english_grade=="F"){english_grade="A", resume_points+=2, knovel_influence+=6}}
+  if (currentEffect ==159){if(english_grade=="F"){english_grade="A", resume_points+=2, knovel_influence+=6, english_A++}}
   if (currentEffect ==160){questions[0].answers[2].possible=0}
   if (currentEffect ==161){stress+=5,happiness++}
   if (currentEffect ==162){questions[8].answers[7].possible=0, questions[4].answers[7].possible=0, questions[15].answers[7].possible=0} //TEACHER FIRED
@@ -701,10 +765,10 @@ function do_effect() {
   if (currentEffect ==199){friends+=8, drawClub(), integrity-=2}
   if (currentEffect ==200){questions[57].room = 'Junior year is finally over! No time to relax though, because Senior year is about to begin. You got the following bonuses: \n English Stat Added:' +english_stat_delta+' \n Math Stat Added: '+math_stat_delta+' \n History Stat Added: '+history_stat_delta+' \n Science Stat Added: '+science_stat_delta+' \n Franklin Influence Added: '+franklin_influence_delta+' \n Knovel Influence Added: '+knovel_influence_delta+' \n Mathew Influence Added: '+mathew_influence_delta+' \n Terry Influence Added: '+terry_influence_delta+' \n Fizzix Influence Added: '+fizzix_influence_delta+' \n Happiness Change: '+happiness_delta+' \n Friends Change: '+friends_delta+' \n Stress Change: '+stress_delta+' \n Low sleep stress penalty:' +(10-sleep)+' \n Low Happiness stress penalty:' +Math.floor((10-happiness)/2)+ ''}
   if (currentEffect ==201){end_of_year(),end_of_junior_year(), shuffledFreshmanEvents=shuffledSeniorEvents, finalJuniorIndex=currentFreshmanEventIndex, currentFreshmanEventIndex=0}
-  if (currentEffect ==202){yasse_influence+=6, english_stat-=4, resume_points+=2, english_grade="A", questions[5].answers[0].taken = 1}
-  if (currentEffect ==203){graff_influence+=6, math_stat-=4, resume_points+=2, math_grade="A", questions[5].answers[1].taken = 1}
-  if (currentEffect ==204){terry_influence+=6, history_stat-=4, resume_points+=2, history_grade="A", questions[5].answers[2].taken = 1}
-  if (currentEffect ==205){hectare_influence+=8, science_stat-=6, resume_points+=3, science_grade="A", questions[5].answers[3].taken = 1}
+  if (currentEffect ==202){yasse_influence+=6, english_stat-=4, resume_points+=2, english_grade="A", questions[5].answers[0].taken = 1, english_A++}
+  if (currentEffect ==203){graff_influence+=6, math_stat-=4, resume_points+=2, math_grade="A", questions[5].answers[1].taken = 1, math_A++}
+  if (currentEffect ==204){terry_influence+=6, history_stat-=4, resume_points+=2, history_grade="A", questions[5].answers[2].taken = 1, history_A++}
+  if (currentEffect ==205){hectare_influence+=8, science_stat-=6, resume_points+=3, science_grade="A", questions[5].answers[3].taken = 1, science_A++}
   if (currentEffect ==206){friends+=7}
   if (currentEffect ==207){sleep-=2}
   if (currentEffect ==208){yasse_influence+=1, graff_influence+=1, franklin_influence+=1, hectare_influence+=1, knovel_influence+=1, mathew_influence+=1, terry_influence+=1, fizzix_influence+=1}
@@ -721,10 +785,10 @@ function do_effect() {
   if (currentEffect ==219){science_stat+=3}
   if (currentEffect ==220){if (clubs_led > 5){resume_points-=5}}
   if (currentEffect ==221){friends-=4}
-  if (currentEffect ==222){english_grade="A", resume_points+=questions[5].answers[0].reward, questions[5].answers[0].possible=0}
-  if (currentEffect ==223){math_grade="A", resume_points+=questions[5].answers[1].reward, questions[5].answers[0].possible=0}
-  if (currentEffect ==224){history_grade="A", resume_points+=questions[5].answers[2].reward, questions[5].answers[0].possible=0}
-  if (currentEffect ==225){science_grade="A", resume_points+=questions[5].answers[3].reward, questions[5].answers[0].possible=0}
+  if (currentEffect ==222){english_grade="A", resume_points+=questions[5].answers[0].reward, questions[5].answers[0].possible=0, english_A++}
+  if (currentEffect ==223){math_grade="A", resume_points+=questions[5].answers[1].reward, questions[5].answers[0].possible=0, math_A++}
+  if (currentEffect ==224){history_grade="A", resume_points+=questions[5].answers[2].reward, questions[5].answers[0].possible=0, history_A++}
+  if (currentEffect ==225){science_grade="A", resume_points+=questions[5].answers[3].reward, questions[5].answers[0].possible=0, science_A++}
   if (currentEffect ==226){checkForF(), happiness-=3}
   if (currentEffect ==227){checkForF(), integrity-=1}
   if (currentEffect ==228){resume_points+=3, science_stat-=4, questions[59].answers[1].unlocked=1, questions[59].answers[2].possible=0, questions[59].answers[2].taken=1}
@@ -751,6 +815,47 @@ function do_effect() {
   if (currentEffect ==249){math_stat+=5, integrity-=1}
   if (currentEffect ==250){if (integrity<3){resume_points-=10}}
   if (currentEffect ==251){finalSeniorIndex=currentFreshmanEventIndex, end_of_senior_year(), end_of_game_message()}
+  if (currentEffect ==252){checkEssayPossible()}
+  if (currentEffect ==253){drawEssay(),resume_points+=2,questions[63].answers[0].taken=1,questions[63].answers[0].possible=0}
+  if (currentEffect ==254){drawEssay(),resume_points+=3,friends-=5,questions[63].answers[1].taken=1,questions[63].answers[1].possible=0}
+  if (currentEffect ==255){drawEssay(),resume_points+=2,knovel_influence-=5,questions[63].answers[2].taken=1,questions[63].answers[2].possible=0}
+  if (currentEffect ==256){drawEssay(),resume_points+=5,questions[63].answers[3].taken=1,questions[63].answers[3].possible=0}
+  if (currentEffect ==257){drawEssay(),resume_points+=2,science_stat-=3,questions[63].answers[4].taken=1,questions[63].answers[4].possible=0}
+  if (currentEffect ==258){stress-=2,relax_counter++}
+  if (currentEffect ==259){stress-=3,relax_counter++}
+  if (currentEffect ==260){checkEssayPossible(),questions[69].room='You write about something pointless and random. College admission officers love it! You must have relaxed at least 7 times this game to complete this essay. You have relaxed '+relax_counter+'/7 times so far.'}
+  if (currentEffect ==261){drawEssay(),resume_points+=1,questions[63].answers[5].taken=1,questions[63].answers[5].possible=0}
+  if (currentEffect ==262){drawEssay(), questions[63].answers[6].taken=1, questions[63].answers[6].possible=0}
+  if (currentEffect ==263){drawEssay(), resume_points+=3, questions[63].answers[6].taken=1, questions[63].answers[6].possible=0}
+  if (currentEffect ==264){drawEssay(), resume_points+=2, yasse_influence-=1, graff_influence-=1, franklin_influence-=1, hectare_influence-=1, knovel_influence-=1, mathew_influence-=1, terry_influence-=1, fizzix_influence-=1, questions[63].answers[7].taken=1, questions[63].answers[7].possible=0}
+  if (currentEffect ==265){drawEssay(),resume_points+=4, history_stat-=4, questions[63].answers[8].taken=1,questions[63].answers[8].possible=0}
+  if (currentEffect ==266){drawEssay(),resume_points+=4, questions[63].answers[9].taken=1,questions[63].answers[9].possible=0}
+  if (currentEffect ==267){drawEssay(),resume_points+=3, questions[63].answers[10].taken=1,questions[63].answers[10].possible=0}
+  if (currentEffect ==268){drawEssay(),resume_points+=2, questions[63].answers[11].taken=1,questions[63].answers[11].possible=0}
+  if (currentEffect ==269){drawEssay(),resume_points+=1, questions[63].answers[12].taken=1,questions[63].answers[12].possible=0}
+  if (currentEffect ==270){drawEssay(),resume_points+=2, questions[63].answers[13].taken=1,questions[63].answers[13].possible=0}
+  if (currentEffect ==271){drawEssay(),resume_points-=2, happiness+=3, questions[63].answers[14].taken=1,questions[63].answers[14].possible=0}
+  if (currentEffect ==272){drawEssay(),resume_points+=3, questions[63].answers[15].taken=1,questions[63].answers[15].possible=0}
+  if (currentEffect ==273){drawEssay(),resume_points+=2, questions[63].answers[16].taken=1,questions[63].answers[16].possible=0}
+  if (currentEffect ==274){drawEssay(),resume_points+=2, questions[63].answers[17].taken=1,questions[63].answers[17].possible=0}
+  if (currentEffect ==275){drawEssay(),resume_points+=2, questions[63].answers[18].taken=1,questions[63].answers[18].possible=0}
+  if (currentEffect ==276){friends+=2, socialize_counter++}
+  if (currentEffect ==277){friends+=3, socialize_counter++}
+  if (currentEffect ==278){chat_counter++}
+  if (currentEffect ==279){study_counter++}
+  if (currentEffect ==280){drawEssay(),resume_points+=1, questions[63].answers[19].taken=1,questions[63].answers[19].possible=0}
+  if (currentEffect ==281){drawEssay(),resume_points+=1, questions[63].answers[20].taken=1,questions[63].answers[20].possible=0}
+  if (currentEffect ==282){drawEssay(),resume_points+=1, questions[63].answers[21].taken=1,questions[63].answers[21].possible=0}
+  if (currentEffect ==283){checkEssayPossible(),questions[83].room='Just in case they forgot, you remind your Admission officer that you are very smart. If you have studied 7 times during this game, you may complete this essay. You have studied '+study_counter+'/7 times so far.'}
+  if (currentEffect ==284){checkEssayPossible(),questions[84].room='You brag about starting a company. You neglect to mention that your lemonade stand has not yet turned a profit. If you have socialized 7 times during this game, you may complete this essay. You have socialized '+socialize_counter+'/7 times so far.'}
+  if (currentEffect ==285){checkEssayPossible(),questions[85].room='You write about how much time you spend volunteering. You neglect to mention that the mandatory graduation requirement is the only reason you volunteered at all. If you have chatted 7 times during this game, you may complete this essay. You have chatted '+chat_counter+'/7 times so far.'}
+  if (currentEffect ==286){drawEssay(),resume_points+=2, questions[63].answers[22].taken=1,questions[63].answers[22].possible=0}
+  if (currentEffect ==287){drawEssay(),resume_points+=1, questions[63].answers[23].taken=1,questions[63].answers[23].possible=0}
+  if (currentEffect ==288){drawEssay(),resume_points+=1, questions[63].answers[24].taken=1,questions[63].answers[24].possible=0}
+  if (currentEffect ==289){drawEssay(),resume_points+=1, questions[63].answers[25].taken=1,questions[63].answers[25].possible=0}
+  if (currentEffect ==290){drawEssay(),resume_points+=1, questions[63].answers[26].taken=1,questions[63].answers[26].possible=0}
+  if (currentEffect ==291){drawEssay(),resume_points+=2, questions[63].answers[27].taken=1,questions[63].answers[27].possible=0}
+
 
   //if (english_stat<0){english_stat=0}
   //if (math_stat<0){math_stat=0}
@@ -1005,16 +1110,17 @@ var questions = [
       { text: 'View clubs', correct: 18, effect: 0 },
       { text: 'Mental Breakdown', correct: 16, effect: 66, possible: 0, red: 0 },
       { text: 'End the year', correct: 45, effect: 99, possible: 0, red: 1 },
-      { text: 'Special', correct: 46, effect: 0, possible: 0 }
+      { text: 'Special', correct: 46, effect: 0, possible: 0 },
+      { text: 'College Essays', correct: 63, effect: 0, possible: 1 }
     ]
   },
   {
     room: 'You are at school.', //1
     answers: [
-      { text: 'Study (+1 stat)', correct: 2, possible: 1 },
-      { text: 'Socialize (+2 friends)', correct: 0, effect: 6 },
-      { text: 'Chat with Teacher (+2 Teacher Influence)', correct: 4 },
-      { text: 'Relax (-2 stress)', correct: 0, effect: 12 },
+      { text: 'Study (+1 stat)', correct: 2, effect: 279, possible: 1 },
+      { text: 'Socialize (+2 friends)', correct: 0, effect: 276, possible: 1 },
+      { text: 'Chat with Teacher (+2 Teacher Influence)', correct: 4, effect: 278, possible: 1 },
+      { text: 'Relax (-2 stress)', correct: 0, effect: 258 },
       { text: 'Improve Grade (Get an A)', correct: 5, effect: 7 }
     ]
   },
@@ -1162,31 +1268,31 @@ var questions = [
   {
     room: 'You are viewing a list of the clubs at your school. If one is currently unavailable, try starting it! The easiest way to start a club is to talk with Franklin, the principal.', //18
     answers: [
-      { text: 'Math Team', correct: 17, effect: 70, possible: 0, taken: 0 },
-      { text: 'Debate', correct: 19, effect: 70, possible: 0, taken: 0 },
-      { text: 'Model UN', correct: 20, effect: 70, possible: 0, taken: 0 },
-      { text: 'Soccer', correct: 23, effect: 70, possible: 0, taken: 0 },
-      { text: 'Ultimate Frisbee', correct: 24, effect: 0, possible: 0, taken: 0 },
-      { text: 'Ping Pong', correct: 25, effect: 70, possible: 0, taken: 0},
-      { text: 'Theater', correct: 26, effect: 70, possible: 0, taken: 0 },
-      { text: 'Video Gaming Society', correct: 27, effect: 70, possible: 0, taken: 0 },
-      { text: 'Investing Club', correct: 28, effect: 70, possible: 0, taken: 0 },
-      { text: 'Environmental Club', correct: 29, effect: 70, possible: 0, taken: 0 },
-      { text: 'Poetry Slam', correct: 30, effect: 70, possible: 0, taken: 0 },
-      { text: 'Scholastic Bowl', correct: 31, effect: 70, possible: 0, taken: 0 },
-      { text: 'Science Olympiad', correct: 32, effect: 70, possible: 0, taken: 0 },
-      { text: 'Robotics', correct: 33, effect: 70, possible: 0, taken: 0 },
-      { text: 'Chess Team', correct: 34, effect: 70, possible: 0, taken: 0 },
-      { text: 'Poker', correct: 35, effect: 70, possible: 0, taken: 0 },
-      { text: 'Personal Fan Club', correct: 36, effect: 70, possible: 0, taken: 0 },
-      { text: 'Meme Connoisseurs', correct: 37, effect: 70, possible: 0, taken: 0 },
-      { text: 'Yoga', correct: 38, effect: 70, possible: 0, taken: 0 },
-      { text: 'TV and Film Appreciation', correct: 39, effect: 70, possible: 0, taken: 0 },
-      { text: 'Tea and Meditation', correct: 40, effect: 70, possible: 0, taken: 0 },
-      { text: 'Cross Country', correct: 41, effect: 70, possible: 0, taken: 0 },
-      { text: 'Basketball', correct: 42, effect: 70, possible: 0, taken: 0 },
-      { text: 'Football', correct: 43, effect: 70, possible: 0, taken: 0 },
-      { text: 'Coding Club', correct: 44, effect: 70, possible: 0, taken: 0 },
+      { text: 'Math Team (Academic, +2 math/year)', correct: 17, effect: 70, possible: 0, taken: 0 },
+      { text: 'Debate (Academic, +2 history/year)', correct: 19, effect: 70, possible: 0, taken: 0 },
+      { text: 'Model UN (Academic, +2 english/year)', correct: 20, effect: 70, possible: 0, taken: 0 },
+      { text: 'Soccer (Sport, +3 friends/year)', correct: 23, effect: 70, possible: 0, taken: 0 },
+      { text: 'Ultimate Frisbee (Sport, +2 friends/year)', correct: 24, effect: 0, possible: 0, taken: 0 },
+      { text: 'Ping Pong (Sport, +4 friends/year)', correct: 25, effect: 70, possible: 0, taken: 0},
+      { text: 'Theater (Arts, +8 influence/year)', correct: 26, effect: 70, possible: 0, taken: 0 },
+      { text: 'Video Gaming Society (Recreation, +1 happiness/year)', correct: 27, effect: 70, possible: 0, taken: 0 },
+      { text: 'Investing Club (Recreation, +1 stress/year)', correct: 28, effect: 70, possible: 0, taken: 0 },
+      { text: 'Environmental Club (Academic, +2 science/year)', correct: 29, effect: 70, possible: 0, taken: 0 },
+      { text: 'Poetry Slam (Academic, +2 english/year)', correct: 30, effect: 70, possible: 0, taken: 0 },
+      { text: 'Scholastic Bowl (Academic, +2 history/year)', correct: 31, effect: 70, possible: 0, taken: 0 },
+      { text: 'Science Olympiad (Academic, +2 science/year)', correct: 32, effect: 70, possible: 0, taken: 0 },
+      { text: 'Robotics (Academic, +2 science/year)', correct: 33, effect: 70, possible: 0, taken: 0 },
+      { text: 'Chess Team (Academic, +2 math/year)', correct: 34, effect: 70, possible: 0, taken: 0 },
+      { text: 'Poker (Recreation, ???/year)', correct: 35, effect: 70, possible: 0, taken: 0 },
+      { text: 'Personal Fan Club (Recreation, -2 happiness +2 friends/year)', correct: 36, effect: 70, possible: 0, taken: 0 },
+      { text: 'Meme Connoisseurs (Recreation, -4 friends/year)', correct: 37, effect: 70, possible: 0, taken: 0 },
+      { text: 'Yoga (Arts)', correct: 38, effect: 70, possible: 0, taken: 0 },
+      { text: 'TV and Film Appreciation (Recreation, +1 history/year)', correct: 39, effect: 70, possible: 0, taken: 0 },
+      { text: 'Tea and Meditation (Arts, -2 stress/year)', correct: 40, effect: 70, possible: 0, taken: 0 },
+      { text: 'Cross Country (Sport, +3 friends/year)', correct: 41, effect: 70, possible: 0, taken: 0 },
+      { text: 'Basketball (Sport, +3 friends/year)', correct: 42, effect: 70, possible: 0, taken: 0 },
+      { text: 'Football (Sport, +5 friends -1 math/year)', correct: 43, effect: 70, possible: 0, taken: 0 },
+      { text: 'Coding Club (Recreation, +1 math/year)', correct: 44, effect: 70, possible: 0, taken: 0 },
       { text: 'Never mind', correct: 0, effect: 0 }
     ]
   },
@@ -1527,6 +1633,237 @@ var questions = [
     room: 'Through blood, sweat, and tears, you reign on top. Nobody else has a GPA as high as yours. You became the valedictorian!!! \n \n For some reason, you feel empty inside...', //62
     answers: [
       { text: 'I worked so hard, yet gained nothing (+0 resume points)', correct: 0, effect: 0}
+    ]
+  },
+  {
+    room: 'You must write college essays as a part of your college application. You are encouraged to write them as soon as possible! Completing an essay gives you Resume Points and allows you to begin writing another essay.', //63
+    answers: [
+      { text: 'Plagiarized Essay (+2 resume points)', correct: 64, effect: 252, possible: 0, taken: 0},
+      { text: 'Submit Picture (+3 resume points)', correct: 65, effect: 252, possible: 0, taken: 0},
+      { text: 'Brilliant Satire (+2 resume points)', correct: 66, effect: 252, possible: 0, taken: 0},
+      { text: 'Hardship (+5 resume points)', correct: 67, effect: 252, possible: 0, taken: 0},
+      { text: 'Belief Challenged (+2 resume points)', correct: 68, effect: 252, possible: 0, taken: 0},
+      { text: 'Banana Essay (+1 resume points)', correct: 69, effect: 260, possible: 0, taken: 0},
+      { text: 'Writer\'s Block (+0/+3 resume points)', correct: 70, effect: 252, possible: 0, taken: 0},
+      { text: 'Edited Essay (+2 resume points)', correct: 71, effect: 252, possible: 0, taken: 0},
+      { text: 'Favorite Color (+4 resume points)', correct: 72, effect: 252, possible: 0, taken: 0},
+      { text: 'Magnum Opus (+4 resume points)', correct: 73, effect: 252, possible: 0, taken: 0},
+      { text: '11:59 Essay (+3 resume points)', correct: 74, effect: 252, possible: 0, taken: 0},
+      { text: 'Bribe (+2 resume points)', correct: 75, effect: 252, possible: 0, taken: 0},
+      { text: 'Found Bigfoot! (+1 resume point)', correct: 76, effect: 252, possible: 0, taken: 0},
+      { text: 'I Love Learning (+2 resume points)', correct: 77, effect: 252, possible: 0, taken: 0},
+      { text: 'Long Rant (-2 resume points)', correct: 78, effect: 252, possible: 0, taken: 0},
+      { text: 'A Poem (+3 resume points)', correct: 79, effect: 252, possible: 0, taken: 0},
+      { text: 'Wrong Name (+2 resume points)', correct: 80, effect: 252, possible: 0, taken: 0},
+      { text: 'Political Essay (+2 resume points)', correct: 81, effect: 252, possible: 0, taken: 0},
+      { text: 'Favorite Book (+2 resume points)', correct: 82, effect: 252, possible: 0, taken: 0},
+      { text: 'I am Smart (+1 resume point)', correct: 83, effect: 283, possible: 0, taken: 0},
+      { text: 'Started a Company (+1 resume point)', correct: 84, effect: 284, possible: 0, taken: 0},
+      { text: 'Volunteering (+1 resume point)', correct: 85, effect: 285, possible: 0, taken: 0},
+      { text: 'Leadership (+2 resume points)', correct: 86, effect: 252, possible: 0, taken: 0},
+      { text: 'Braggart\'s Essay (+1 resume point)', correct: 87, effect: 252, possible: 0, taken: 0},
+      { text: 'Artsy (+1 resume point)', correct: 88, effect: 252, possible: 0, taken: 0},
+      { text: 'Team Player (+1 resume point)', correct: 89, effect: 252, possible: 0, taken: 0},
+      { text: 'Boring Essay (+1 resume point)', correct: 90, effect: 252, possible: 0, taken: 0},
+      { text: 'Well Rounded (+2 resume points)', correct: 91, effect: 252, possible: 0, taken: 0},
+      { text: 'Go back', correct: 0, effect: 0}
+    ]
+  },
+  {
+    room: 'This essay is plagiarized from online. You must have less than 4 integrity to complete this essay.', //64
+    answers: [
+      { text: 'Complete Plagiarized Essay (+2 resume points)', correct: 0, effect: 253, possible: 0},
+      { text: 'Never mind', correct: 63, effect: 0, possible: 1}
+    ]
+  },
+  {
+    room: 'A picture is worth 1000 words. Too bad the word limit is 650. You must have 15 friends to complete this essay. 5 friends are spent upon completion.', //65
+    answers: [
+      { text: 'Complete Submit Picture (+3 resume points, - 5 friends)', correct: 0, effect: 254, possible: 0},
+      { text: 'Never mind', correct: 63, effect: 0, possible: 1}
+    ]
+  },
+  {
+    room: 'You write something genuinely funny and brilliant. College admission officers do not appreciate it. You must have 10 Knovel influence to complete this essay. 5 influence are spent upon completion.', //66
+    answers: [
+      { text: 'Complete Brilliant Satire (+2 resume points, - 5 Knovel influence)', correct: 0, effect: 255, possible: 0},
+      { text: 'Never mind', correct: 63, effect: 0, possible: 1}
+    ]
+  },
+  {
+    room: 'You try to gain sympathy points by writing about your hardships. College admission officers think you are a wimp. You must have mentally broken down at least once to complete this essay.', //67
+    answers: [
+      { text: 'Complete Hardship (+5 resume points)', correct: 0, effect: 256, possible: 0},
+      { text: 'Never mind', correct: 63, effect: 0, possible: 1}
+    ]
+  },
+  {
+    room: 'You write about a time that you challenged your beliefs. College admission officers think you are indecisive. You must have at least 3 science stat to complete this essay. 3 Science stat are spent upon completion.', //68
+    answers: [
+      { text: 'Complete Belief Challenged (+2 resume points, -3 science stat)', correct: 0, effect: 257, possible: 0},
+      { text: 'Never mind', correct: 63, effect: 0, possible: 1}
+    ]
+  },
+  {
+    room: 'You write about something pointless and random. College admission officers love it! But you didn\'t answer the prompt... You must have relaxed at least 7 times this game to complete this essay. You have relaxed '+relax_counter+'/7 times so far.', //69
+    answers: [
+      { text: 'Complete Banana Essay (+1 resume points)', correct: 0, effect: 261, possible: 0},
+      { text: 'Never mind', correct: 63, effect: 0, possible: 1}
+    ]
+  },
+  {
+    room: 'You have writer\'s block and can\'t think of anything to write! You can give up on this essay at any time to complete it, but you will not get any resume points for it. You can complete this essay during senior year for 3 resume points.', //70
+    answers: [
+      { text: 'Give up on Writer\'s block (+0 resume points)', correct: 0, effect: 262, possible: 1},
+      { text: 'Complete Writer\'s block (+3 resume points)', correct: 0, effect: 263, possible: 0},
+      { text: 'Never mind', correct: 63, effect: 0, possible: 1}
+    ]
+  },
+  {
+    room: 'You have as many teachers edit your essay as possible. You are pretty sure it got worse. You must have at least 1 influence with every teacher to complete this essay. 1 teacher influence per teacher is spent upon completion.', //71
+    answers: [
+      { text: 'Complete Edited Essay (+2 resume points)', correct: 0, effect: 264, possible: 0},
+      { text: 'Never mind', correct: 63, effect: 0, possible: 1}
+    ]
+  },
+  {
+    room: 'You write about your favorite color. Wow! Lucky for you, the admission officer who read your essay happens to have the same favorite color. If you have at least 6 History stats, you may complete this essay. 4 history stats are spent upon completion.', //72
+    answers: [
+      { text: 'Complete Favorite Color (+4 resume points)', correct: 0, effect: 265, possible: 0},
+      { text: 'Never mind', correct: 63, effect: 0, possible: 1}
+    ]
+  },
+  {
+    room: 'You worked day and night for two months, but have created a masterpiece! If you have less than 2 Happiness, you may complete this essay.', //73
+    answers: [
+      { text: 'Complete Magnum Opus (+4 resume points)', correct: 0, effect: 266, possible: 0},
+      { text: 'Never mind', correct: 63, effect: 0, possible: 1}
+    ]
+  },
+  {
+    room: 'You submitted this essay at 11:59pm. If you have exactly 9 stress, you may complete this essay.', //74
+    answers: [
+      { text: 'Complete 11:59 Essay (+3 resume points)', correct: 0, effect: 267, possible: 0},
+      { text: 'Never mind', correct: 63, effect: 0, possible: 1}
+    ]
+  },
+  {
+    room: 'You attach a ten dollar bill to your essay. Admission officers feel offended: they wanted at least a 20. If you have 8 or more math stat, you may complete this essay.', //75
+    answers: [
+      { text: 'Complete Bribe (+2 resume points)', correct: 0, effect: 268, possible: 0},
+      { text: 'Never mind', correct: 63, effect: 0, possible: 1}
+    ]
+  },
+  {
+    room: 'You write a humorous essay about finding Bigfoot! Admission officers do not believe you. If you have seen 3 or more pandering abilities this game, you may complete this essay.', //76
+    answers: [
+      { text: 'Complete Bigfoot (+1 resume point)', correct: 0, effect: 269, possible: 0},
+      { text: 'Never mind', correct: 63, effect: 0, possible: 1}
+    ]
+  },
+  {
+    room: 'You write about how you do not have a favorite subject. Admission officers already knew you were undecided. If you have 2 or more Teacher recommendation letters, you may complete this essay.', //77
+    answers: [
+      { text: 'Complete I Love Learning (+2 resume points)', correct: 0, effect: 270, possible: 0},
+      { text: 'Never mind', correct: 63, effect: 0, possible: 1}
+    ]
+  },
+  {
+    room: 'You write a long rant about what is on your mind. Admission officers see this as a red flag. If you have less than 5 happiness, you may complete this essay. Upon completion, you gain 3 happiness.', //78
+    answers: [
+      { text: 'Complete Rant (-2 resume points)', correct: 0, effect: 271, possible: 0},
+      { text: 'Never mind', correct: 63, effect: 0, possible: 1}
+    ]
+  },
+  {
+    room: 'You take a risk. Unfortunately, Admission officers do not appreciate it. If you have gotten 3 A\'s in English classes during this game, you may complete this essay.', //79
+    answers: [
+      { text: 'Complete A Poem (+3 resume points)', correct: 0, effect: 272, possible: 0},
+      { text: 'Never mind', correct: 63, effect: 0, possible: 1}
+    ]
+  },
+  {
+    room: 'You write the wrong college name in your essay. If you have gotten 2 A\'s in Math classes during this game, you may complete this essay.', //80
+    answers: [
+      { text: 'Complete Wrong Name (+2 resume points)', correct: 0, effect: 273, possible: 0},
+      { text: 'Never mind', correct: 63, effect: 0, possible: 1}
+    ]
+  },
+  {
+    room: 'You write about politics. Unfortunately, the admission officer who read your essay politically disagrees with you. If you have gotten 2 A\'s in History classes during this game, you may complete this essay.', //81
+    answers: [
+      { text: 'Complete Political Essay (+2 resume points)', correct: 0, effect: 274, possible: 0},
+      { text: 'Never mind', correct: 63, effect: 0, possible: 1}
+    ]
+  },
+  {
+    room: 'You write about your favorite book. Unfortunately, the admission officer who read your essay has not read it. If you have gotten 2 A\'s in Science classes during this game, you may complete this essay.', //82
+    answers: [
+      { text: 'Complete Favorite Book (+2 resume points)', correct: 0, effect: 275, possible: 0},
+      { text: 'Never mind', correct: 63, effect: 0, possible: 1}
+    ]
+  },
+  {
+    room: 'Just in case they forgot, you remind your Admission officer that you are very smart. If you have studied 7 times during this game, you may complete this essay.', //83
+    answers: [
+      { text: 'Complete I am Smart (+1 resume points)', correct: 0, effect: 280, possible: 0},
+      { text: 'Never mind', correct: 63, effect: 0, possible: 1}
+    ]
+  },
+  {
+    room: 'You brag about starting a company. You neglect to mention that your lemonade stand has not yet turned a profit. If you have socialized 7 times during this game, you may complete this essay.', //84
+    answers: [
+      { text: 'Complete Started a Company (+1 resume points)', correct: 0, effect: 281, possible: 0},
+      { text: 'Never mind', correct: 63, effect: 0, possible: 1}
+    ]
+  },
+  {
+    room: 'You write about how much time you spend volunteering. You neglect to mention that the mandatory graduation requirement is the only reason you volunteered at all. If you have chatted 7 times during this game, you may complete this essay.', //85
+    answers: [
+      { text: 'Complete Volunteering (+1 resume points)', correct: 0, effect: 282, possible: 0},
+      { text: 'Never mind', correct: 63, effect: 0, possible: 1}
+    ]
+  },
+  {
+    room: 'You write about your stellar leadership skills. If you lead 5 or more clubs, you may complete this essay.', //86
+    answers: [
+      { text: 'Complete Leadership (+2 resume points)', correct: 0, effect: 286, possible: 0},
+      { text: 'Never mind', correct: 63, effect: 0, possible: 1}
+    ]
+  },
+  {
+    room: 'You write about how great you are. If you lead at least 2 recreational clubs, you may complete this essay.', //87
+    answers: [
+      { text: 'Complete Braggart\'s Essay (+1 resume points)', correct: 0, effect: 287, possible: 0},
+      { text: 'Never mind', correct: 63, effect: 0, possible: 1}
+    ]
+  },
+  {
+    room: 'You show off your creative side... with an essay. If you lead at least 1 arts clubs, you may complete this essay.', //88
+    answers: [
+      { text: 'Complete Artsy (+1 resume points)', correct: 0, effect: 288, possible: 0},
+      { text: 'Never mind', correct: 63, effect: 0, possible: 1}
+    ]
+  },
+  {
+    room: 'You write about how playing sports made you realize the value of teamwork. If you lead at least 2 sports clubs, you may complete this essay.', //89
+    answers: [
+      { text: 'Complete Team Player (+1 resume points)', correct: 0, effect: 289, possible: 0},
+      { text: 'Never mind', correct: 63, effect: 0, possible: 1}
+    ]
+  },
+  {
+    room: 'You write a boring essay. If you lead at least 2 academic clubs, you may complete this essay.', //90
+    answers: [
+      { text: 'Complete Boring Essay (+1 resume points)', correct: 0, effect: 290, possible: 0},
+      { text: 'Never mind', correct: 63, effect: 0, possible: 1}
+    ]
+  },
+  {
+    room: 'You write about how well rounded you are. If you lead at least 1 of every type of club, you may complete this essay.', //91
+    answers: [
+      { text: 'Complete Well Rounded (+2 resume points)', correct: 0, effect: 291, possible: 0},
+      { text: 'Never mind', correct: 63, effect: 0, possible: 1}
     ]
   },
 ]
@@ -2647,9 +2984,9 @@ var cheating_deck = [
     ]
   },
   {
-    event: 'Fake Illness: By not showing up to school, you get a much needed break! Your friends don\'t remember you though. Doing this reduces your stress to 0, but makes you lose 2 friends. This ability costs 1 Integrity.', //5
+    event: 'Fake Illness: By not showing up to school, you get a much needed break! Doing this reduces your stress to 0. This ability costs 1 Integrity.', //5
     options: [
-      { text: 'Fake an illness (-ALL stress, -2 friends, -1 integrity)', effect: 65, cost: 1 },
+      { text: 'Fake an illness (-ALL stress, -1 integrity)', effect: 65, cost: 1 },
       { text: 'Discard this ability (no effect)', effect: 0, cost: 0 }
     ]
   },
