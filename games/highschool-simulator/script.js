@@ -555,16 +555,16 @@ function end_of_game_message(){
   questions[58].room += 'You led '+clubs_led+'/25 clubs. \n'
   questions[58].room += 'You saw '+essayDeckIndex+'/28 essays. \n'
   questions[58].room += 'You got '+recs_gotten+'/8 Teacher Recommendation letters. \n'
-  questions[58].room += 'You acquired '+currentPanderingDeckIndex+'/7 Pandering abilities. \n'
-  questions[58].room += 'You acquired '+currentCheatingDeckIndex+'/8 Cheating abilities. \n'
+  questions[58].room += 'You saw '+currentPanderingDeckIndex+'/8 Pandering abilities. \n'
+  questions[58].room += 'You saw '+currentCheatingDeckIndex+'/8 Cheating abilities. \n'
   questions[58].room += 'You studied '+study_counter+' times. \n'
   questions[58].room += 'You chatted '+chat_counter+' times. \n'
   questions[58].room += 'You socialized '+socialize_counter+' times. \n'
   questions[58].room += 'You relaxed '+relax_counter+' times. \n'
   questions[58].room += 'You saw '+finalFreshmanIndex+'/35 Freshman events. \n'
-  questions[58].room += 'You saw '+finalSophomoreIndex+'/32 Sophomore events. \n'
+  questions[58].room += 'You saw '+finalSophomoreIndex+'/33 Sophomore events. \n'
   questions[58].room += 'You saw '+finalJuniorIndex+'/32 Junior events. \n'
-  questions[58].room += 'You saw '+finalSeniorIndex+'/25 Senior events. \n'
+  questions[58].room += 'You saw '+finalSeniorIndex+'/30 Senior events. \n'
   questions[58].room += 'You achieved the following achievements (highlighted in green): \n'
 }
 
@@ -860,8 +860,16 @@ function do_effect() {
   if (currentEffect ==289){drawEssay(),resume_points+=1, questions[63].answers[25].taken=1,questions[63].answers[25].possible=0}
   if (currentEffect ==290){drawEssay(),resume_points+=1, questions[63].answers[26].taken=1,questions[63].answers[26].possible=0}
   if (currentEffect ==291){drawEssay(),resume_points+=2, questions[63].answers[27].taken=1,questions[63].answers[27].possible=0}
-
-
+  if (currentEffect ==292){questions[46].answers[5].possible=1, questions[0].answers[5].possible=1}
+  if (currentEffect ==293){drawEssay()}
+  if (currentEffect ==294){drawEssay(),happiness-=3}
+  if (currentEffect ==295){temp=0, temp=science_stat,science_stat=history_stat,history_stat=math_stat,math_stat=english_stat,english_stat=temp}
+  if (currentEffect ==296){math_stat+=2,english_stat+=2,sleep-=1}
+  if (currentEffect ==297){
+    roll_result = Math.floor(Math.random()*2)
+    if (roll_result == 0){english_stat+=6,math_stat+=6,history_stat+=6}
+    if (roll_result == 1){stress+=20}  
+  } 
   //if (english_stat<0){english_stat=0}
   //if (math_stat<0){math_stat=0}
   //if (history_stat<0){history_stat=0}
@@ -1901,7 +1909,7 @@ var freshman_events = [
       { text: 'Have fun (+1 friend)', effect: 18 },
       { text: 'Do the optional assignment on Rollercoaster physics (+1 Science Stat, +2 Stress)', effect: 19 },
     ],
-    source: "default.png"
+    source: "Crappy-physics-group.png"
   },
   {
     event: 'You have an epiphany: school sucks.', //3
@@ -1938,7 +1946,7 @@ var freshman_events = [
       { text: 'Cool! (+1 friend)', effect: 18 },
       { text: 'Pack lunch anyway (-1 stress)', effect: 24 }
     ],
-    source: "default.png"
+    source: "MONOPOLIZE lunch tables.png"
   },
   {
     event: 'You lost your wallet!', //8
@@ -1997,7 +2005,7 @@ var freshman_events = [
     event: 'You recall how awkward you were during freshmen connection.', //15
     options: [
       { text: 'Yikes (-2 friends)', effect: 26 }    ],
-    source: "default.png"
+    source: "freshman/make fun of someone.png"
   },
   {
     event: 'Today is homecoming, but you aren\'t sure if you want to go. Everyone is saying that it will be fun', //16
@@ -2064,7 +2072,7 @@ var freshman_events = [
       { text: 'Come to the dark side (+Cheating)', effect: 34 },
       { text: 'No way! (-1 friend)', effect: 35 }
     ],
-    source: "default.png"
+    source: "freshman/discover the answer key.png"
   },
   {
     event: 'You may acquire Curiosity, one of the 4 c\'s (Curiosity, Compassion, Character, and Courage). If you do so, you will permanently lose 1 hour of sleep/night, but gain an upgrade to your study action. Alternatively, you may acquire a powerful pandering skill at the cost of happiness.', //25
@@ -2072,7 +2080,7 @@ var freshman_events = [
       { text: 'Learn for learning\'s sake (+Curiosity)', effect: 36 },
       { text: 'I hate learning (+Pandering)', effect: 33 }
     ],
-    source: "default.png"
+    source: "freshman/compass.png"
   },
   {
     event: 'You have an important essay due for English class!', //26
@@ -2080,7 +2088,7 @@ var freshman_events = [
       { text: 'Do it (-1 English stat)', effect: 37 },
       { text: 'Disappoint your teacher (-3 Knovel influence)', effect: 38 }
     ],
-    source: "default.png"
+    source: "sophomore/30 page paper.png"
   },
   {
     event: 'Your math teacher announces that there will be a test tomorrow. Surprise!', //27
@@ -2095,7 +2103,7 @@ var freshman_events = [
     options: [
       { text: 'That sucks (+1 stress)', effect: 21 }
     ],
-    source: "default.png"
+    source: "freshman/Standardized Testing.png"
   },
   {
     event: 'You have a group project for physics, but nobody wants to work on it. You realize that you either have to do it yourself or take a hit on your grades.', //29
@@ -2134,7 +2142,7 @@ var freshman_events = [
       { text: 'I will never, ever cheat (+Character)', effect: 44 },
       { text: 'Playing by the rules is for suckers (+Cheating)', effect: 34 }
     ],
-    source: "default.png"
+    source: "freshman/compass.png"
   },
   {
     event: 'You may acquire Compassion, one of the 4 c\'s (Curiosity, Compassion, Character, and Courage). If you do so, you will permanently lose 1 hour of sleep/night, but gain an upgrade to your relax action. ', //34
@@ -2142,7 +2150,7 @@ var freshman_events = [
       { text: 'Be compassionate in everything you do (+Compassion)', effect: 42 },
       { text: 'Nah, I am not that compassionate (no effect)', effect: 0 }
     ],
-    source: "default.png"
+    source: "freshman/compass.png"
   }
 ///////Missing: Eagle Scout, Bullying cards?
 ]
@@ -2306,7 +2314,7 @@ var sophomore_events = [
       { text: 'Represent your school (+3 Franklin influence)', effect: 56 },
       { text: 'Relax (-3 stress)', effect: 29 },
     ],
-    source: "default.png"
+    source: "sophomore/meeting the principal.png"
   },
   {
     event: 'Prospective students show up at your school today to get a better idea of what it is really like.', //21
@@ -2339,7 +2347,7 @@ var sophomore_events = [
     options: [
       { text: 'The one class I didn\'t have tests in... (-1 sleep)', effect: 5 },
     ],
-    source: "default.png"
+    source: "freshman/Standardized Testing.png"
   },
   {
     event: 'Your math teacher encourages you to take the American Mathematics Competition (AMC). If you do really well, then you might be able to write about it on your resume. Your teacher figures that you need about 5 math stats to get a good score. He tells you that there is no downside to taking it if you do not qualify.', //25
@@ -2354,7 +2362,7 @@ var sophomore_events = [
     options: [
       { text: 'That is stressful (+3 stress)', effect: 28 },
     ],
-    source: "default.png"
+    source: "freshman/Standardized Testing.png"
   },
   {
     event: 'You discover a TOP Chemistry textbook that belonged to the half-blood prince. Using the textbook will give you 4 science stat, but reduce your integrity by 1, while refusing will increase your stress by 2. ', //27
@@ -2394,7 +2402,7 @@ var sophomore_events = [
     source: "sophomore/Start Some Clubs.png"
   },
   {
-    event: 'Legend says that you can only have two out of a social life, good grades, and sleep. Which one will you choose to lose?', //18
+    event: 'Legend says that you can only have two out of a social life, good grades, and sleep. Which one will you choose to lose?', //32
     options: [
       { text: 'No social life (-socialize)', effect: 111 },
       { text: 'Bad grades (-study)', effect: 32 },
@@ -2428,7 +2436,7 @@ var junior_events = [
     options: [
       { text: 'Be tardy (+2 stress)', effect: 25 }
     ],
-    source: "default.png"
+    source: "junior/shared misery.png"
   },
   {
     event: 'It is the new year! What is your new year\'s resolution?', //3
@@ -2444,7 +2452,7 @@ var junior_events = [
     options: [
       { text: 'Shouldn\'t a junior know better? (+2 stress)', effect: 25 }
     ],
-    source: "default.png"
+    source: "confrontation.png"
   },
   {
     event: 'It is international night and there is FREE FOOD!', //5
@@ -2623,7 +2631,7 @@ var junior_events = [
     options: [
       { text: 'Isn\'t this extortion? (+3 stress)', effect: 28 }
     ],
-    source: "default.png"
+    source: "senior/last minute FUN prep.png"
   },
   {
     event: 'You see someone using their phone during an important exam!', //28
@@ -2631,7 +2639,7 @@ var junior_events = [
       { text: 'Tattle on them (-5 friends)', effect: 163 },
       { text: 'I am no snitch (-1 integrity, +5 friends)', effect: 164 }
     ],
-    source: "default.png"
+    source: "sophomore/cheating problems.png"
   },
   {
     event: 'Some of your classmates are forming a study group, and invite you to join. It would mean having less time to do other things, though.', //29
@@ -2691,7 +2699,7 @@ var senior_events = [
     options: [
       { text: 'Perks of being a senior (+3 friends)', effect: 55 },
     ],
-    source: "default.png"
+    source: "senior/top dog.png"
   },
   {
     event: 'The website that you are supposed to use to upload your college essays crashes.', //2
@@ -2707,7 +2715,7 @@ var senior_events = [
       { text: 'A focused student (-socialize)', effect: 111 },
       { text: 'A sleep-deprived student (-2 sleep)', effect: 207 },
     ],
-    source: "default.png"
+    source: "senior slacking.png"
   },
   {
     event: 'You have senioritis! You do not want to do any work.', //4
@@ -2722,7 +2730,7 @@ var senior_events = [
     options: [
       { text: 'Alright then (no effect)', effect: 0 },
     ],
-    source: "senior/teacher edits your essays.png"
+    source: "senior/teacher edits your essay.png"
   },
   {
     event: 'Your teachers begin to get sentimental once they realize that you will be graduating soon. You get 1 influence with every teacher.', //6
@@ -2753,7 +2761,8 @@ var senior_events = [
     options: [
       { text: 'Wow, sunlight! (+2 happiness)', effect: 213 },
       { text: 'I am a good student (+2 math, +1 stress)', effect: 52 },
-    ]
+    ],
+    source: "senior/senior slacking.png"
   },
   {
     event: 'You got a concussion! This sets all of your stats in two categories to zero.', //10
@@ -2790,7 +2799,7 @@ var senior_events = [
   {
     event: 'Your principal announces that a Valedictorian will be selected at the end of the year. You can claim this title if you have gotten A\'s in every single class you have taken.', //14
     options: [
-      { text: 'Valedictorian time (+valedictorian)', effect: 219 }
+      { text: 'Valedictorian time (+valedictorian)', effect: 292 }
     ],
     source: "senior/valedictorian.png"
   },
@@ -2868,6 +2877,48 @@ var senior_events = [
     ],
     source: "freshman/mandatory volunteering.png"
   },
+  {
+    event: 'You have the opportunity to complete an optional supplemental essay. Side effects may include dizziness, nausea, and rejection from your dream college.', //25
+    options: [
+      { text: 'Try to complete it (+incomplete essay)', effect: 293 },
+      { text: 'I am too lazy for that (+1 sleep)', effect: 165 }
+    ],
+    source: "senior/supplemental essay.png"
+  },
+  {
+    event: 'You regret all the opportunities that you past up over your four years. Maybe it is not too late!', //26
+    options: [
+      { text: 'Sign up to run for Student Government (+stud gov)', effect: 43 },
+      { text: 'Sign up to take the AMC (+AMC)', effect: 127 },
+      { text: 'Sign up to take the F=MA (+physics olympiad)', effect: 148 },
+      { text: 'Try to obtain a sports scholarship (+sports scholarship)', effect: 154 },
+      { text: 'Relax instead (-4 stress)', effect: 106 }
+    ],
+    source: "senior/a day in the life of.png"
+  },
+  {
+    event: 'Something weird happens to you. All of your stats are swapped!', //27
+    options: [
+      { text: '??? (+Swap Stats)', effect: 295 }
+    ],
+    source: "senior/swap stats.png"
+  },
+  {
+    event: 'If you are not satisfied with your FUN score, you will only have a few more chances to take it!', //28
+    options: [
+      { text: 'Hit the books (+2 english, +2 math, -1 sleep)', effect: 296 },
+      { text: 'No need, I have a good score already (no effect)', effect: 0 }
+    ],
+    source: "senior/last minute FUN prep.png"
+  },
+  {
+    event: 'Are you feeling lucky? ', //29
+    options: [
+      { text: 'I am always lucky (+6 english, +6 math, +6 history OR +20 stress)', effect: 297 },
+      { text: 'No way! (no effect)', effect: 0 }
+    ],
+    source: "senior/lucky gamble.png"
+  },
 ]
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////INFLUENCE/////////////////////////////////////////////////////////////////////////
@@ -2931,6 +2982,13 @@ var pandering_deck = [
       { text: 'Math tutor (-3 Happiness, +3 math stat every year)', effect: 188 , possible:1, cost: 3 },
       { text: 'History tutor (-3 Happiness, +3 history stat every year)', effect: 189 , possible:1, cost: 3 },
       { text: 'Science tutor (-3 Happiness, +3 science stat every year)', effect: 190 , possible:1, cost: 3 },
+      { text: 'Discard this ability (no effect)', effect: 0 , cost: 0}
+    ]
+  },
+  {
+    event: 'Brainstorming: You can spend the weekend brainstorming for essay ideas. Doing so gives you an incomplete essay. This costs 3 happiness. ', //7
+    options: [
+      { text: 'Brainstorming (-3 Happiness, +incomplete essay)', effect: 294 , possible:1, cost: 3 },
       { text: 'Discard this ability (no effect)', effect: 0 , cost: 0}
     ]
   },
