@@ -1909,7 +1909,7 @@ var freshman_events = [
       { text: 'Have fun (+1 friend)', effect: 18 },
       { text: 'Do the optional assignment on Rollercoaster physics (+1 Science Stat, +2 Stress)', effect: 19 },
     ],
-    source: "Crappy-physics-group.png"
+    source: "freshman/Crappy-physics-group.png"
   },
   {
     event: 'You have an epiphany: school sucks.', //3
@@ -1946,7 +1946,7 @@ var freshman_events = [
       { text: 'Cool! (+1 friend)', effect: 18 },
       { text: 'Pack lunch anyway (-1 stress)', effect: 24 }
     ],
-    source: "MONOPOLIZE lunch tables.png"
+    source: "freshman/MONOPOLIZE lunch tables.png"
   },
   {
     event: 'You lost your wallet!', //8
@@ -2005,7 +2005,7 @@ var freshman_events = [
     event: 'You recall how awkward you were during freshmen connection.', //15
     options: [
       { text: 'Yikes (-2 friends)', effect: 26 }    ],
-    source: "freshman/make fun of someone.png"
+    source: "freshman/makefunofsomeone.png"
   },
   {
     event: 'Today is homecoming, but you aren\'t sure if you want to go. Everyone is saying that it will be fun', //16
