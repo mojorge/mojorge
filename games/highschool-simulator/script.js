@@ -2422,7 +2422,7 @@ var junior_events = [
       { text: 'Start a club (+club)', effect: 130 },
       { text: 'Aquire a Pandering skill (+pandering)', effect: 33 }
     ],
-    source: "sophomore/start some clubs.png"
+    source: "sophomore/Start Some Clubs.png"
   },
   {
     event: 'You burn an old textbook for fun.', //1
@@ -2548,7 +2548,7 @@ var junior_events = [
     options: [
       { text: 'I wonder what they are saying about me (???)', effect: 155 }
     ],
-    source: "junior/teacher gossip.png"
+    source: "junior/teacher-gossip.png"
   },
   {
     event: 'It is Martin Luther King day. You can spend the day on FUN prep or hang out with friends', //17
@@ -2631,7 +2631,7 @@ var junior_events = [
     options: [
       { text: 'Isn\'t this extortion? (+3 stress)', effect: 28 }
     ],
-    source: "senior/last minute FUN prep.png"
+    source: "senior/last-minute-FUN-prep.png"
   },
   {
     event: 'You see someone using their phone during an important exam!', //28
