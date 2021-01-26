@@ -2205,7 +2205,7 @@ var sophomore_events = [
       { text: 'neat (+1 happiness)', effect: 108 },
       { text: 'capitalize on this to your advantage (+pandering)', effect: 33 },
     ],
-    source: "junior/your favorite teacher.png"
+    source: "junior/your-favorite-teacher.png"
   },
   {
     event: 'It is the history fair! You can make your partner do everything for 1 integrity and 1 friend. Alternatively, you may grind it out, but gain 5 stress for doing so.', //6
@@ -2249,7 +2249,7 @@ var sophomore_events = [
     options: [
       { text: 'Thanks I guess (+2 stress)', effect: 25 },
     ],
-    source: "junior/your favorite teacher.png"
+    source: "junior/your-favorite-teacher.png"
   },
   {
     event: 'Everyone has forgotten that the Sophomores exist.', //12
@@ -2541,7 +2541,7 @@ var junior_events = [
     options: [
       { text: 'Friends are unnecessary (-socialize)', effect: 111 }
     ],
-    source: "junior/friends are unnecessary.png"
+    source: "junior/friends-are-unnecessary.png"
   },
   {
     event: 'Teachers love to gossip! Hopefully they aren\'t saying bad things about you... If your integrity is less than 5, you cannot talk to teachers for the rest of the year. .', //16
@@ -2692,14 +2692,14 @@ var senior_events = [
     options: [
       { text: 'I am on top now (+7 friends)', effect: 206 },
     ],
-    source: "senior/top dog.png"
+    source: "senior/top-dog.png"
   },
   {
     event: 'From now on, you can go off campus for lunch.', //1
     options: [
       { text: 'Perks of being a senior (+3 friends)', effect: 55 },
     ],
-    source: "senior/top dog.png"
+    source: "senior/top-dog.png"
   },
   {
     event: 'The website that you are supposed to use to upload your college essays crashes.', //2
@@ -2715,7 +2715,7 @@ var senior_events = [
       { text: 'A focused student (-socialize)', effect: 111 },
       { text: 'A sleep-deprived student (-2 sleep)', effect: 207 },
     ],
-    source: "senior slacking.png"
+    source: "senior/senior-slacking.png"
   },
   {
     event: 'You have senioritis! You do not want to do any work.', //4
@@ -2730,14 +2730,14 @@ var senior_events = [
     options: [
       { text: 'Alright then (no effect)', effect: 0 },
     ],
-    source: "senior/teacher edits your essay.png"
+    source: "senior/teacher-edits-your-essay.png"
   },
   {
     event: 'Your teachers begin to get sentimental once they realize that you will be graduating soon. You get 1 influence with every teacher.', //6
     options: [
       { text: 'Sentimental teachers (+teacher influence)', effect: 208 },
     ],
-    source: "senior/sentimental teacher.png"
+    source: "senior/sentimental-teacher.png"
   },
   {
     event: 'It is rec letter season! You get influence with one teacher equal to your integrity.', //7
@@ -2747,7 +2747,7 @@ var senior_events = [
       { text: 'Terry influence', effect: 211 },
       { text: 'Hectare influence', effect: 212 },
     ],
-    source: "senior/rec letter season.png"
+    source: "senior/rec-letter-season.png"
   },
   {
     event: 'You have an interview with an alumni of the university you are applying to coming up soon. You are nervous for it.', //8
@@ -2762,7 +2762,7 @@ var senior_events = [
       { text: 'Wow, sunlight! (+2 happiness)', effect: 213 },
       { text: 'I am a good student (+2 math, +1 stress)', effect: 52 },
     ],
-    source: "senior/senior slacking.png"
+    source: "senior/senior-slacking.png"
   },
   {
     event: 'You got a concussion! This sets all of your stats in two categories to zero.', //10
@@ -2794,7 +2794,7 @@ var senior_events = [
     options: [
       { text: 'Why are these people all so impressive? (+3 stress)', effect: 28 }
     ],
-    source: "senior/online college forum.png"
+    source: "senior/online-college-forum.png"
   },
   {
     event: 'Your principal announces that a Valedictorian will be selected at the end of the year. You can claim this title if you have gotten A\'s in every single class you have taken.', //14
@@ -2808,14 +2808,14 @@ var senior_events = [
     options: [
       { text: 'But it isn\'t true... yet! (-2 friends)', effect: 26 }
     ],
-    source: "senior/college gossip.png"
+    source: "senior/college-gossip.png"
   },
   {
     event: 'Due to certain students who fluff their resumes up with a bunch of clubs yet do not commit much time to any of them, colleges have begun penalizing students who list more than 5 clubs on their resume. If you lead more than 5 clubs, lose 5 resume points.', //16
     options: [
       { text: 'This is completely unfair! (-resume points)', effect: 220 }
     ],
-    source: "senior/cap on extracurriculars.png"
+    source: "senior/cap-on-extracurriculars.png"
   },
   {
     event: 'You feel the need to leave a legacy at your school.', //17
@@ -2861,7 +2861,7 @@ var senior_events = [
       { text: 'Steal their notes (-1 integrity, +5 math stat)', effect: 249 },
       { text: 'Never mind (no effect)', effect: 0 }
     ],
-    source: "senior/steal essay.png"
+    source: "senior/steal-essay.png"
   },
   {
     event: 'A massive cheating scandal was unveiled today, and over 100 students were suspended from school on charges of cheating. If you have less than 3 integrity, it is only a matter of time before they bust you. This will leave a permanent mark on your record, reducing your resume points by 10. ', //23
@@ -2875,7 +2875,7 @@ var senior_events = [
     options: [
       { text: 'That is an oxymoron if I ever heard one (-1 sleep)', effect: 5 }
     ],
-    source: "freshman/mandatory volunteering.png"
+    source: "freshman/mandatory-volunteering.png"
   },
   {
     event: 'You have the opportunity to complete an optional supplemental essay. Side effects may include dizziness, nausea, and rejection from your dream college.', //25
@@ -2883,7 +2883,7 @@ var senior_events = [
       { text: 'Try to complete it (+incomplete essay)', effect: 293 },
       { text: 'I am too lazy for that (+1 sleep)', effect: 165 }
     ],
-    source: "senior/supplemental essay.png"
+    source: "senior/supplemental-essay.png"
   },
   {
     event: 'You regret all the opportunities that you past up over your four years. Maybe it is not too late!', //26
@@ -3090,6 +3090,6 @@ var get_A =  {
       { text: 'Science class', effect: 225, possible: 0 },
       { text: 'None.', effect: 0, cost: 0 },
     ],
-    source: "freshman/get answer keys.png"
+    source: "freshman/discover the answer key.png"
   }
 
