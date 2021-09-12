@@ -1,0 +1,273 @@
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+<head>
+<meta charset="UTF-8">
+
+<title>Jorge Zhang &#8211; Personal website</title>
+		
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 1px;
+}
+
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+
+ul.main_menu{
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li.main_menu {
+  float: left;
+}
+
+li.main_menu a, .dropbtn {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li.main_menu a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+header {
+  background-color: #ffffff;
+  padding: 10px;
+  text-align: center;
+  color: black;
+}
+
+
+.main-title a{
+  color:#222222;
+  margin:0;
+  font-size:35px;
+  line-height:1.2em;
+  word-wrap:break-word;
+  font-weight:700;
+  text-decoration: none;
+}
+
+
+
+
+</style>
+
+</head>
+
+
+<header>
+
+<h1 class="main-title"><a href="../../../index.html">Jorge Zhang</a></h1>
+<p class="site-description" itemprop="description">Personal website</p>
+
+</header>
+
+
+<div class="row">
+<div class="col-1">
+</div>
+<div class="col-10">
+<ul class="main_menu">
+  <li class="main_menu"><a href="../../../daggers-highschool.html">About Daggers High</a></li>
+  <li class="main_menu"><a href="../../../puzzles/index.html">Puzzles</a></li>
+  <li class="main_menu"><a href="../../../tutoring/index.html">Tutoring</a></li>
+  <li class="dropdown">
+    <a href="../../../blog-archive.html" class="dropbtn">Blog Archive</a>
+    <div class="dropdown-content">
+      <a href="../../../category/reviews/index.html">Reviews</a>
+      <a href="../../../tag/education/index.html">Education</a>
+      <a href="../../../category/funny/index.html">Funny</a>
+      <a href="../../../category/politics/index.html">Politics</a>
+    </div>
+  </li>
+</ul>
+</div>
+<div class="col-1">
+</div>
+</div>
+
+<p></p>
+
+<div class="row">
+<div class="col-1">
+</div>
+<div class="col-10">
+
+<h1>Naval Combat Game</h1>		<div>
+			<p>September 12, 2021 by Jorge Zhang</div>
+					</header>
+		
+			
+<p>This is a new game that I am working on that is currently unnamed. It is just 27 cards and you can make it yourself by printing page 1 twice and page 2 once.</p>
+
+<p>
+<p>Page 1 <a href="pdf/page1.pdf">download</a>.</p>
+
+</p>
+<p>
+<p>Page 2 <a href="pdf/page2.pdf">download</a>.</p>
+</p>
+<p>
+You should have the following cards once all is said and done: <br>
+27 total cards<br>
+2 Ammunition Ship<br>
+2 Patrol Ship<br>
+2 Speed Boat<br>
+2 Special Operations Craft<br>
+2 Salvage Ship<br>
+2 Missile Boat<br>
+2 Submarine<br>
+2 Frigate<br>
+2 Ramming Ship<br>
+2 Flag Ship<br>
+2 Fire Ship<br>
+2 Country<br>
+2 Island<br>
+1 Player Aid
+</p>
+
+<h2>RULES</h2>
+
+
+<b>Ways to win the game:</b> <br>
+1. Capture the opponent's country and hold it until the end of their turn.<br>
+2. Capture the opponent's flag ship.<br>
+3. If the players stalemate or agree to end the game, the player who captured the most units wins. The player who went second wins ties.<br>
+
+<b>Overview:</b><br>
+This game is a turn-based card game played on a 5x4 board. 
+<br>
+<b>Set Up:</b> <br>
+Place the portals and strategic points in the following configuration:
+<br>
+ player 1<br>
+- - p - -<br>
+s - - - -<br>
+- - - - s<br>
+- - p - -<br>
+ player 2<br>
+
+
+s = strategic point<br>
+p = portal<br>
+- = empty space large enough to accommodate a card<br>
+
+Each player takes one copy of each card (except the player aid, put this to the side) to make their deck. All players shuffle their decks and draw 3 cards. <br>
+
+<b>Turn structure:</b><br>
+-At the start of the turn, the turn player draws 2 card. (+1 if they have a unit on top of at least 1 island)<br>
+-The player may then take any number of the following actions:<br>
+1. Play a unit from the hand face-down on either the right or left side of their country (but not on the portal).<br>
+2. Move a unit to an adjacent square and discard 1 card. <br>
+
+<b>Attacking:</b><br>
+When a unit is moved onto a square occupied by an opponent's unit, an attack is initiated. The unit attempting to move into the square is the attacker and the unit currently in the square is the target.<br>
+
+1. The attacker may choose supports (add the attack value of adjacent units to the target by discarding 1 card per unit)<br>
+2. The defender may choose to retreat by discarding 1 card (the attacker moves the target to an empty adjacent square that the attack did not come from, then skip the next steps. No battle actually happens)<br>
+3. The defender may choose supports (add the attack value of adjacent units to the target by discarding 1 card per unit)<br>
+4. The attacker, target, and supporting cards are all revealed and the attack total of each side is computed. The side with the higher attack total wins. If the attackers win, they occupy the space and the target is captured. If the defense wins, nothing occurs. The defense wins ties.<br>
+
+<b>Capturing units:</b><br>
+A captured unit is removed from the game permanently. It should be placed face-up in a pile separate from the discard pile. [Reminder: normal discards are face-down.]
+<br>
+<b>Capturing islands:</b><br>
+An island is considered captured as long as a unit is on that same square. Players draw 1 card if they have captured an island at the start of their turn in addition to their normal draw. There is no direct benefit from controlling both islands, but it does deprive the opponent of controlling any islands, and thus impacts their draw.<br>
+
+<b>Capturing countries: </b><br>
+If an enemy unit is on the turn player's country at the end of the turn player's turn, the turn player loses.<br>
+
+<b>Running out of cards:</b><br>
+Shuffle your discards and make a new deck. Do not shuffle back in captured units.
+<br>
+<b>Face up vs. face down units:</b><br>
+A unit can only use its abilities if it is face up. You can flip your own units face-up at any time during either player's turn. They cannot be flipped back face-down once they are face-up. Units are also flipped face-up at the end of combat.
+
+
+
+
+
+</b>
+</p>
+</div></div>
+<div class="col-1">
+</div>
+</div>
+
+
+<div class="row">
+<div class="col-1">
+</div>
+<div class="col-10">
+<footer>
+<span>&copy; 2020 Jorge Zhang</span> 
+</footer>
+</div>
+<div class="col-1">
+</div>
+</div>
+
+
+</body>
+</html>
