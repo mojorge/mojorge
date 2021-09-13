@@ -229,7 +229,7 @@ Each player takes one copy of each other card (except the player aid, put this t
 When a unit is moved onto a square occupied by an opponent's unit, an attack is initiated. The unit attempting to move into the square is the attacker and the unit currently in the square is the target.<br>
 
 1. The attacker may choose supports (add the attack value of adjacent units to the target by discarding 1 card per unit)<br>
-2. The defender may choose to retreat by discarding 1 card (the attacker moves the target to an empty adjacent square that the attack did not come from, then skip the next steps. No battle actually happens)<br>
+2. The defender may choose to retreat by discarding 1 card if there is a valid space to retreat to (the attacker moves the target to an empty adjacent square that the attack did not come from, moves into the space the target was in, then skips the next steps. No battle actually happens)<br>
 3. The defender may choose supports (add the attack value of adjacent units to the target by discarding 1 card per unit)<br>
 4. The attacker, target, and supporting cards are all revealed and the attack total of each side is computed. The side with the higher attack total wins. If the attackers win, they occupy the space and the target is captured. If the defense wins, nothing occurs. The defense wins ties.<br>
 
@@ -247,8 +247,13 @@ Shuffle your discards and make a new deck. Do not shuffle back in captured units
 <br>
 <b>Face up vs. face down units:</b><br>
 A unit can only use its abilities if it is face up. You can flip your own units face-up at any time during either player's turn. They cannot be flipped back face-down once they are face-up. Units are also flipped face-up at the end of combat.
+<br>
+<b>Adjacency:</b><br>
+Adjacency is cardinal and not diagonal.
 
-
+<br>
+<h2>Change history: </h2>
+9/13/2021: Added clarification that a unit with no available retreats cannot retreat, and that the attacker occupies the space it is attacking if the defender chooses to retreat.
 
 
 
