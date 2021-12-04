@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 
-<title>Color Zero</title>
+<title>Number Line</title>
 
 <meta property="og:image" content="pdf/img.jpg"/>
 
@@ -166,16 +166,77 @@ header {
 </div>
 <div class="col-10">
 
-<h1>Color Zero</h1>		
+<h1>Number Line</h1>		
 
 </header>
 
 
 <p>November 22, 2021 by Jorge Zhang</p>
-			
-<p>Number Line is a competitive card game.
+		
+
+Idea behind this game: A friend and I were considering a situation in which 3 players had to guess a number between 1-10. The person who guessed the closest number won. What is the best strategy and how can each player maximize their chances of guessing the right number? Interestingly, the strategy here is somewhat complex. If the first person simply chooses 5, they can be "surrounded" by the other 2 players who guess 6 and 4. Thus, this game was born. Ultimately, I think this problem is technically solvable. In this game, round 1 is essentially this initial solvable state, which is somewhat unfortunate because solved games can be boring. Although with all multiplayer games collusion is generally possible, so I think there is still more to explore there. "Round 2" is a more gamified version where a decoy card can spice things up because this allows for bluffing.
+<br>
+<br>
+	
+<p>This game is a competitive game in which
+players try to earn the most points across two 
+rounds.
+<br>
+SET UP: Place the number cards 1-10 face-up
+in a row, ordered lowest to highest.
+The Starting Player is the player who can
+calculate 17 * 34 the fastest in their head.
+<br>
+Win when: At the end of round 2, have the
+most points.
+<br>
+Round 1: Each player chooses a color and gets
+those respective cards. Players take turns 
+starting with the starting player and continuing
+clockwise by playing 1 card on top of a number 
+card that does not already have a number on 
+top of it. The round ends when all players have 
+placed exactly 1 card. Score this round, then
+reset the game to the SET UP position.
+<br>
+Round 2: This is the same as round 1, except
+players now continue until they play 2 cards.
+Additionally, 1 card is a "decoy" that does not
+count during scoring.
+<br>
+Scoring: Players get 1 point for every number
+their card is closer to than any other's card. 
+This includes the number that their card is on.
+Neither player scores points for ties.
+<br>
+
+Changing the starting player: The starting
+player should rotate clockwise between 
+rounds, and you can keep track of this with
+the starting player card.
+<br>
+Ties: If 2 or more players are tied at the end
+of round 2, then play a third round.
+<br>
+Round 3: This is the same as round 1, except
+now the decoy card also counts during scoring.
+Additional rounds: If there continue to be 
+ties, play additional rounds under round 2 rules
+but remove the highest number each time. This 
+can make it so that a move is impossible 
+because there are no available numbers to play 
+a card on: in this case, immediately end the 
+round.
+
+
+
+
 
 </p>
+
+<p>Files: <a href="pdf/page1.pdf">download</a>.</p>
+
+(The files are not up yet, but will be added when ready)
 
 
 
