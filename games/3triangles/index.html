@@ -140,6 +140,7 @@ List of legal moves: <div id="legalmoves">
   <option value='3'>BT3,WS3,WD3 (goal: black spades)
 </select>
 <button onclick="resetgame()">Click me to RESET to selection</button>
+<button onclick="searchingattempt()">Click me to search with a depth of 7 from BT1,BD1,BS1</button>
 
 
     <div id="image-container"> 
@@ -151,7 +152,13 @@ Rotate right 1: rotates the top card to the right
 <br>
 Flip bottom 1: flips the top card along the vertical axis
 </div>
-  </div>
+
+<br>
+<br>
+LOG of SEARCH:<div id="searchlog"> 
+
+
+</div></div>
 
 
 </body>
