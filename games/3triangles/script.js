@@ -47,6 +47,7 @@ document.getElementById('flipbottom3').addEventListener('click', function(){flip
   //startButton.classList.add('hide')
   //questionContainerElement.classList.remove('hide')
 
+
 function swapElement(array, indexA, indexB) {
   var tmp = array[indexA];
   array[indexA] = array[indexB];
@@ -164,6 +165,8 @@ function loadstate() {
   document.getElementById('tbottom').src='triangles/'+bottom+'.png';
   document.getElementById('tmiddle').src='triangles/'+middle+'.png';
   document.getElementById('ttop').src='triangles/'+topt+'.png';
+  clearlegalmoves()
+  findlegalmoves()
 }
 
 
@@ -201,5 +204,127 @@ function resetgame() {
 }
 
 
+//LEGAL MOVES
+let BT1legalmoves = ['m','f','x','m','r','f']
+let BS3legalmoves = ['r','f','m','f','x','m']
+let WD2legalmoves = ['x','m','r','f','m','f']
 
+let BD1legalmoves = ['m','f','f','m2','r','x']
+let WT3legalmoves = ['r','x','m','f','f','m2']
+let BS2legalmoves = ['f','m2','r','x','m','f']
+
+let BS1legalmoves = ['m2','f','x','m2','r','f']
+let BT2legalmoves = ['r','f','m2','f','x','m2']
+let BD3legalmoves = ['x','m2','r','f','m2','f']
+
+
+function returnvalidmovearray(a){
+  if (a == "BT1"){return BT1legalmoves}
+  if (a == "BS3"){return BS3legalmoves}
+  if (a == "WD2"){return WD2legalmoves}
+  if (a == "BD1"){return BD1legalmoves}
+  if (a == "WT3"){return WT3legalmoves}
+  if (a == "BS2"){return BS2legalmoves}
+  if (a == "BS1"){return BS1legalmoves}
+  if (a == "BT2"){return BT2legalmoves}
+  if (a == "BD3"){return BD3legalmoves}
+  return ['0','0','0','0','0','0']
+}
+
+function findlegalmoves(){
+  for (let i = 0; i < 6; i++) {
+    findlegalmoves2(i)
+  }
+}
+
+function findlegalmoves2(a){
+//MOVE 1 OR 2
+  if (mor2m(returnvalidmovearray(topt)[a]) && !mor2m(returnvalidmovearray(middle)[a]) && nox(a)){
+    printstuff('move, ');
+  }
+  if (mor2m(returnvalidmovearray(topt)[a]) && mor2m(returnvalidmovearray(middle)[a]) && !mor2m(returnvalidmovearray(bottom)[a]) && nox(a)){
+    printstuff('move 2, ');
+  }
+//3 MOVES
+  if (returnvalidmovearray(topt)[a] == 'm' && returnvalidmovearray(middle)[a] =='m2' && mor2m(returnvalidmovearray(bottom)[a]) && nox(a)){
+    printstuff('move 1 (special linking case), ');
+  }
+  if (returnvalidmovearray(topt)[a] == 'm' && returnvalidmovearray(middle)[a] =='m' && returnvalidmovearray(bottom)[a] == 'm2' && nox(a)){
+    printstuff('move 2 (special linking case), ');
+  }
+  if (returnvalidmovearray(topt)[a] == 'm2' && returnvalidmovearray(middle)[a] =='m' && mor2m(returnvalidmovearray(bottom)[a]) && nox(a)){
+    printstuff('move 1 (special linking case), ');
+  }
+  if (returnvalidmovearray(topt)[a] == 'm2' && returnvalidmovearray(middle)[a] =='m2' && returnvalidmovearray(bottom)[a] == 'm' && nox(a)){
+    printstuff('move 2 (special linking case), ');
+  }
+//ROTATIONS
+  if ( returnvalidmovearray(topt)[a]== 'r' && returnvalidmovearray(middle)[a] != 'r' && nox(a)){
+    printstuff('rotate left, rotate right, ');
+  }
+  if ( returnvalidmovearray(topt)[a]== 'r' && returnvalidmovearray(middle)[a] == 'r' && returnvalidmovearray(bottom)[a] != 'r' && nox(a) ){
+    printstuff('rotate left 2, rotate right 2, ');
+  }
+  if ( returnvalidmovearray(topt)[a]== 'r' && returnvalidmovearray(middle)[a] == 'r' && returnvalidmovearray(bottom)[a] == 'r' && nox(a) ){
+    printstuff('rotate left 3, rotate right 3, ');
+  }
+//FLIPS
+  if ( returnvalidmovearray(topt)[a]== 'f' && returnvalidmovearray(middle)[a] != 'f' && nox(a)){
+    if (a<2 && a>=0){
+      printstuff('flip left, ');
+    }
+    if (a<4 && a>=2){
+      printstuff('flip right, ');
+    }
+    if (a<6 && a>=4){
+      printstuff('flip bottom, ');
+    }
+  }
+//FLIPS2
+  if ( returnvalidmovearray(topt)[a]== 'f' && returnvalidmovearray(middle)[a] == 'f' && returnvalidmovearray(bottom)[a] != 'f' && nox(a)){
+    if (a<2 && a>=0){
+      printstuff('flip left 2, ');
+    }
+    if (a<4 && a>=2){
+      printstuff('flip right 2, ');
+    }
+    if (a<6 && a>=4){
+      printstuff('flip bottom 2, ');
+    }
+  }
+//FLIPS3
+  if ( returnvalidmovearray(topt)[a]== 'f' && returnvalidmovearray(middle)[a] == 'f' && returnvalidmovearray(bottom)[a] == 'f' && nox(a)){
+    if (a<2 && a>=0){
+      printstuff('flip left 3, ');
+    }
+    if (a<4 && a>=2){
+      printstuff('flip right 3, ');
+    }
+    if (a<6 && a>=4){
+      printstuff('flip bottom 3, ');
+    }
+  }
+}
+
+function mor2m(a){
+  if (a == 'm'){return 1}
+  if (a == 'm2'){return 1}
+  return 0
+}
+
+function printstuff(a){
+   var text = document.createTextNode(a);
+   document.getElementById('legalmoves').appendChild(text)
+}
+
+function nox(a){
+  if (returnvalidmovearray(topt)[a] != 'x' && returnvalidmovearray(middle)[a] != 'x' && returnvalidmovearray(bottom)[a] != 'x'){return 1}
+  return 0
+}
+
+function clearlegalmoves(){
+  while (document.getElementById('legalmoves').firstChild) {
+    document.getElementById('legalmoves').removeChild(document.getElementById('legalmoves').firstChild)
+  }
+}
 
