@@ -45,6 +45,12 @@ document.getElementById('flipright3').addEventListener('click', function(){flip3
 document.getElementById('flipbottom1').addEventListener('click', function(){flip(0,0)})
 document.getElementById('flipbottom2').addEventListener('click', function(){flip2(0)})
 document.getElementById('flipbottom3').addEventListener('click', function(){flip3(0)})
+document.getElementById('viewcombined').addEventListener('click', function(){changeview()})
+document.getElementById('shrinkview').addEventListener('click', function(){changeviewallinone()})
+document.getElementById('leftview').addEventListener('click', function(){changeviewleft()})
+document.getElementById('rightview').addEventListener('click', function(){changeviewright()})
+document.getElementById('bottomview').addEventListener('click', function(){changeviewbottom()})
+
 
   //startButton.classList.add('hide')
   //questionContainerElement.classList.remove('hide')
@@ -172,6 +178,75 @@ function loadstate() {
   findlegalmoves()
 }
 
+function changeview() {
+  document.getElementById('tmiddle').width ="720"
+  document.getElementById('tmiddle').height ="720"
+  document.getElementById('tmiddle').style.top ="0px"
+  document.getElementById('tmiddle').style.left ="0px"
+
+  document.getElementById('ttop').width ="720"
+  document.getElementById('ttop').height ="720"
+  document.getElementById('ttop').style.top ="0px"
+  document.getElementById('ttop').style.left ="0px"
+
+  loadstate()
+}
+
+function changeviewallinone() {
+  document.getElementById('tmiddle').width ="300"
+  document.getElementById('tmiddle').height ="300"
+  document.getElementById('tmiddle').style.top ="260px"
+  document.getElementById('tmiddle').style.left ="220px"
+
+  document.getElementById('ttop').width ="100"
+  document.getElementById('ttop').height ="100"
+  document.getElementById('ttop').style.top ="400px"
+  document.getElementById('ttop').style.left ="320px"
+
+  loadstate()
+}
+
+function changeviewleft() {
+  document.getElementById('tmiddle').width ="700"
+  document.getElementById('tmiddle').height ="700"
+  document.getElementById('tmiddle').style.top ="0px"
+  document.getElementById('tmiddle').style.left ="200px"
+
+  document.getElementById('ttop').width ="700"
+  document.getElementById('ttop').height ="700"
+  document.getElementById('ttop').style.top ="0px"
+  document.getElementById('ttop').style.left ="370px"
+
+  loadstate()
+}
+
+function changeviewright() {
+  document.getElementById('tmiddle').width ="700"
+  document.getElementById('tmiddle').height ="700"
+  document.getElementById('tmiddle').style.top ="0px"
+  document.getElementById('tmiddle').style.left ="-180px"
+
+  document.getElementById('ttop').width ="700"
+  document.getElementById('ttop').height ="700"
+  document.getElementById('ttop').style.top ="0px"
+  document.getElementById('ttop').style.left ="-350px"
+
+  loadstate()
+}
+
+function changeviewbottom() {
+  document.getElementById('tmiddle').width ="700"
+  document.getElementById('tmiddle').height ="700"
+  document.getElementById('tmiddle').style.top ="-180px"
+  document.getElementById('tmiddle').style.left ="0px"
+
+  document.getElementById('ttop').width ="700"
+  document.getElementById('ttop').height ="700"
+  document.getElementById('ttop').style.top ="-350px"
+  document.getElementById('ttop').style.left ="0px"
+
+  loadstate()
+}
 
 function resetgame() {
   var x1 = document.getElementById("mySelect").value;
