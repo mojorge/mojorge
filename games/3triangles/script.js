@@ -55,6 +55,33 @@ document.getElementById('bottomview').addEventListener('click', function(){chang
   //startButton.classList.add('hide')
   //questionContainerElement.classList.remove('hide')
 
+function makeButtonGreen(element) {
+  element.classList.add('wrong')
+}
+
+function makeButtonClear(element) {
+    element.classList.remove('wrong')
+}
+
+function makeAllButtonsClear() {
+  makeButtonClear(document.getElementById('move1'))
+  makeButtonClear(document.getElementById('move2'))
+  makeButtonClear(document.getElementById('start-btn'))
+  makeButtonClear(document.getElementById('rotate-left-2'))
+  makeButtonClear(document.getElementById('rotate-left-3'))
+  makeButtonClear(document.getElementById('rotate-right'))
+  makeButtonClear(document.getElementById('rotate-right-2'))
+  makeButtonClear(document.getElementById('rotate-right-3'))
+  makeButtonClear(document.getElementById('flipleft1'))
+  makeButtonClear(document.getElementById('flipleft2'))
+  makeButtonClear(document.getElementById('flipleft3'))
+  makeButtonClear(document.getElementById('flipright1'))
+  makeButtonClear(document.getElementById('flipright2'))
+  makeButtonClear(document.getElementById('flipright3'))
+  makeButtonClear(document.getElementById('flipbottom1'))
+  makeButtonClear(document.getElementById('flipbottom2'))
+  makeButtonClear(document.getElementById('flipbottom3'))
+}
 
 function swapElement(array, indexA, indexB) {
   var tmp = array[indexA];
@@ -174,6 +201,7 @@ function loadstate() {
   document.getElementById('tbottom').src='triangles/'+bottom+'.png';
   document.getElementById('tmiddle').src='triangles/'+middle+'.png';
   document.getElementById('ttop').src='triangles/'+topt+'.png';
+makeAllButtonsClear()
   clearlegalmoves()
   findlegalmoves()
 }
@@ -323,9 +351,9 @@ function returnvalidmovearray(a){
   if (a == "BS1"){return BS1legalmoves}
   if (a == "BT2"){return BT2legalmoves}
   if (a == "BD3"){return BD3legalmoves}
-  if (a == "WS1"){return BS1legalmoves}
-  if (a == "WD3"){return BT2legalmoves}
-  if (a == "WT2"){return BD3legalmoves}
+  if (a == "WS1"){return WS1legalmoves}
+  if (a == "WD3"){return WD3legalmoves}
+  if (a == "WT2"){return WT2legalmoves}
   return ['0','0','0','0','0','0']
 }
 
@@ -337,60 +365,76 @@ function findlegalmoves(){
 
 function findlegalmoves2(a){
 //MOVE 1 OR 2
+
   if (mor2m(returnvalidmovearray(topt)[a]) && !mor2m(returnvalidmovearray(middle)[a]) && nox(a)){
     printstuff('move, ');
     searcharea.push("1");
+    makeButtonGreen(document.getElementById('move1'))
   }
   if (mor2m(returnvalidmovearray(topt)[a]) && mor2m(returnvalidmovearray(middle)[a]) && !mor2m(returnvalidmovearray(bottom)[a]) && nox(a)){
     printstuff('move 2, ');
     searcharea.push("2");
+    makeButtonGreen(document.getElementById('move2'))
   }
 //3 MOVES
   if (returnvalidmovearray(topt)[a] == 'm' && returnvalidmovearray(middle)[a] =='m2' && mor2m(returnvalidmovearray(bottom)[a]) && nox(a)){
     printstuff('move 1 (special linking case), ');
     searcharea.push("1");
+    makeButtonGreen(document.getElementById('move1'))
   }
   if (returnvalidmovearray(topt)[a] == 'm' && returnvalidmovearray(middle)[a] =='m' && returnvalidmovearray(bottom)[a] == 'm2' && nox(a)){
     printstuff('move 2 (special linking case), ');
     searcharea.push("2");
+    makeButtonGreen(document.getElementById('move2'))
   }
   if (returnvalidmovearray(topt)[a] == 'm2' && returnvalidmovearray(middle)[a] =='m' && mor2m(returnvalidmovearray(bottom)[a]) && nox(a)){
     printstuff('move 1 (special linking case), ');
     searcharea.push("1");
+    makeButtonGreen(document.getElementById('move1'))
   }
   if (returnvalidmovearray(topt)[a] == 'm2' && returnvalidmovearray(middle)[a] =='m2' && returnvalidmovearray(bottom)[a] == 'm' && nox(a)){
     printstuff('move 2 (special linking case), ');
     searcharea.push("2");
+    makeButtonGreen(document.getElementById('move2'))
   }
 //ROTATIONS
   if ( returnvalidmovearray(topt)[a]== 'r' && returnvalidmovearray(middle)[a] != 'r' && nox(a)){
     printstuff('rotate left, rotate right, ');
     searcharea.push("3");
     searcharea.push("4");
+    makeButtonGreen(document.getElementById('start-btn'))
+    makeButtonGreen(document.getElementById('rotate-right'))
   }
   if ( returnvalidmovearray(topt)[a]== 'r' && returnvalidmovearray(middle)[a] == 'r' && returnvalidmovearray(bottom)[a] != 'r' && nox(a) ){
     printstuff('rotate left 2, rotate right 2, ');
     searcharea.push("5");
     searcharea.push("6");
+    makeButtonGreen(document.getElementById('rotate-left-2'))
+    makeButtonGreen(document.getElementById('rotate-right-2'))
   }
   if ( returnvalidmovearray(topt)[a]== 'r' && returnvalidmovearray(middle)[a] == 'r' && returnvalidmovearray(bottom)[a] == 'r' && nox(a) ){
     printstuff('rotate left 3, rotate right 3, ');
     searcharea.push("7");
     searcharea.push("8");
+    makeButtonGreen(document.getElementById('rotate-left-3'))
+    makeButtonGreen(document.getElementById('rotate-right-3'))
   }
 //FLIPS
   if ( returnvalidmovearray(topt)[a]== 'f' && returnvalidmovearray(middle)[a] != 'f' && nox(a)){
     if (a<2 && a>=0){
       printstuff('flip left, ');
       searcharea.push("9");
+    makeButtonGreen(document.getElementById('flipleft1'))
     }
     if (a<4 && a>=2){
       printstuff('flip right, ');
       searcharea.push("10");
+    makeButtonGreen(document.getElementById('flipright1'))
     }
     if (a<6 && a>=4){
       printstuff('flip bottom, ');
       searcharea.push("11");
+    makeButtonGreen(document.getElementById('flipbottom1'))
     }
   }
 //FLIPS2
@@ -398,14 +442,17 @@ function findlegalmoves2(a){
     if (a<2 && a>=0){
       printstuff('flip left 2, ');
       searcharea.push("12");
+      makeButtonGreen(document.getElementById('flipleft2'))
     }
     if (a<4 && a>=2){
       printstuff('flip right 2, ');
       searcharea.push("13");
+      makeButtonGreen(document.getElementById('flipright2'))
     }
     if (a<6 && a>=4){
       printstuff('flip bottom 2, ');
       searcharea.push("14");
+      makeButtonGreen(document.getElementById('flipbottom2'))
     }
   }
 //FLIPS3
@@ -413,14 +460,17 @@ function findlegalmoves2(a){
     if (a<2 && a>=0){
       printstuff('flip left 3, ');
       searcharea.push("15");
+      makeButtonGreen(document.getElementById('flipleft3'))
     }
     if (a<4 && a>=2){
       printstuff('flip right 3, ');
       searcharea.push("16");
+      makeButtonGreen(document.getElementById('flipright3'))
     }
     if (a<6 && a>=4){
       printstuff('flip bottom 3, ');
       searcharea.push("17");
+      makeButtonGreen(document.getElementById('flipbottom3'))
     }
   }
 }
