@@ -133,11 +133,79 @@ header {
   position: relative;
 }
 
+.container2 {
+  width: 1040px;
+  height: 740px;
+  max-width: 80%;
+  background-color: grey;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 0 10px 2px;
+  font-size:20px;
+  position: relative;
+}
+
 .triangle1 {
   position: absolute;
   top: 10px;
   left: 10px;
   border: 0px red solid;
+}
+
+.triangle2 {
+  position: absolute;
+  top: 72px;
+  left: 50px;
+  border: 1px black solid;
+}
+
+.triangle3 {
+  position: absolute;
+  top: 72px;
+  left: 282px;
+  border: 1px black solid;
+}
+
+.triangle4 {
+  position: absolute;
+  top: 72px;
+  left: 514px;
+  border: 1px black solid;
+}
+
+.triangle5 {
+  position: absolute;
+  top: 72px;
+  left: 746px;
+  border: 1px black solid;
+}
+
+.back1 {
+  position: absolute;
+  top: 414px;
+  left: 50px;
+  border: 1px black solid;
+}
+
+.back2 {
+  position: absolute;
+  top: 414px;
+  left: 282px;
+  border: 1px black solid;
+}
+
+.back3 {
+  position: absolute;
+  top: 414px;
+  left: 514px;
+  border: 1px black solid;
+}
+
+.back4 {
+  position: absolute;
+  top: 414px;
+  left: 746px;
+  border: 1px black solid;
 }
 
 .textbox {
@@ -154,6 +222,66 @@ header {
   border: 0px red solid;
 }
 
+.textpage {
+  position: absolute;
+  top: 95px;
+  left: 63px;
+  border: 0px red solid;
+}
+
+.textpage2 {
+  position: absolute;
+  top: 97px;
+  left: 243px;
+  border: 0px red solid;
+}
+
+.textpage3 {
+  position: absolute;
+  top: 95px;
+  left: 295px;
+  border: 0px red solid;
+}
+
+.textpage4 {
+  position: absolute;
+  top: 97px;
+  left: 475px;
+  border: 0px red solid;
+}
+
+.textpage5 {
+  position: absolute;
+  top: 95px;
+  left: 527px;
+  border: 0px red solid;
+}
+
+.textpage6 {
+  position: absolute;
+  top: 97px;
+  left: 707px;
+  border: 0px red solid;
+}
+
+.textpage7 {
+  position: absolute;
+  top: 95px;
+  left: 759px;
+  border: 0px red solid;
+}
+
+.textpage8 {
+  position: absolute;
+  top: 97px;
+  left: 939px;
+  border: 0px red solid;
+}
+
+
+.specialhr {
+  margin-top: 404px;
+}
 
 .bigbutton {
   background-color: red; 
@@ -300,12 +428,12 @@ After you are done, click the button. Screenshot that card, then once you have e
   <option value='0'> of Emptiness
   <option value='-1'> of Milling
 </select>
-<span id="selectedmiddle">(0)</span> <button class="greenbutton" onclick = "GFG_Fun()"> CRAFT CARD</button> 
+<span id="selectedmiddle">(0)</span> <button class="greenbutton" onclick = "GFG_Fun('bottom','middle','front','creaturename','creaturecost')"> CRAFT CARD</button> 
 
 <br>
 <mark>TOTAL POINTS (must be >=0): <span id="totalcost"> 1</span></mark>
 
-<button class="bigbutton" onclick = "randomcard()"> RANDOM CARD</button> 
+<button class="bigbutton" onclick = "randomcard('bottom','middle','front','creaturename','creaturecost')"> RANDOM CARD</button> 
 
 
 <br><br><br>
@@ -326,7 +454,7 @@ After you are done, click the button. Screenshot that card, then once you have e
 <script> 
        
 
-function GFG_Fun() {
+function GFG_Fun(a, b, c, d, e) {
   var x1 = document.getElementById("select_background").selectedIndex +1;
   var x2 = document.getElementById("select_middle").selectedIndex+1;
   var x3 = document.getElementById("select_foreground").selectedIndex+1;
@@ -343,11 +471,11 @@ function GFG_Fun() {
   var sum = c1+c2+c3+c4
 
   if (sum >= 0){
-   // alert("Success! Your card was legally created.");
-    placeimage('bottom', x1)
-    placeimage('middle', x2)
-    placeimage('front', x3)
-    changetext(t1+' '+t2+' '+t3)
+    //alert("Success! Your card was legally created."+a+b+c+d);
+    placeimage("bottom", a, x1)
+    placeimage("middle", b, x2)
+    placeimage("front", c, x3)
+    changetext(t1+' '+t2+' '+t3, d, e)
   }
   else{
     alert("Failure! Your card was not legal due to being too powerful.");
@@ -367,24 +495,24 @@ function selectionchanged(){
 }
 
 
-function placeimage(a, b){
-  document.getElementById(a).src = 'pdf/'+a+b+'.png';
+function placeimage(c, a, b){
+  document.getElementById(a).src = 'pdf/'+c+b+'.png';
 }
 
 
-function changetext(a){
-   document.getElementById("creaturename").innerHTML = a;
+function changetext(a, b, c){
+   document.getElementById(b).innerHTML = a;
 
    var tempcost = document.getElementById("select_cost").value
    if (tempcost == -1){tempcost=0}
-   document.getElementById("creaturecost").innerHTML = tempcost;
+   document.getElementById(c).innerHTML = tempcost;
 }
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 
-function randomcard(){
+function randomcard(a,b,c,d,e){
 
    var maxrandom=10
    var random1 = getRandomInt(maxrandom)
@@ -413,27 +541,76 @@ function randomcard(){
        document.getElementById("select_cost").selectedIndex=12
      }
    }
-   GFG_Fun()
+   GFG_Fun(a,b,c,d,e)
    selectionchanged()
 }
 
+function randomfourcards() {
+     randomcard('bottom1','middle1','front1','creaturename1','creaturecost1')
+     randomcard('bottom2','middle2','front2','creaturename2','creaturecost2')
+     randomcard('bottom3','middle3','front3','creaturename3','creaturecost3')
+     randomcard('bottom4','middle4','front4','creaturename4','creaturecost4')
+}
+
+function printpage() {
+     var printContents = document.getElementById("card_here_2").innerHTML;
+     var originalContents = document.body.innerHTML;
+     document.body.innerHTML = printContents;
+     window.print();
+     document.body.innerHTML = originalContents;
+}
 
 </script> 
 
 <br>
 For advanced Print and Play enthusiasts, here is a card back: <a href="pdf/cardback.png">Download Card Back.</a> I would recommend using an 8 card layout for the best alignment.
 <br>
+<br>
+The following generator generates 4 cards at once in a configuration that is ready to print! It comes with card backs. Fold along the dividing line in order to make cards.
 
+<br>
+<button class="bigbutton" onclick = "randomfourcards()"> RANDOM PAGE</button> 
+<button class="bigbutton" onclick = "printpage()"> PRINT PAGE</button> 
+<br>
+<br>
+<div id = "card_here_2" class="container2">
+  <img id="bottom1" class="triangle2" src="pdf/bottom1.png" alt="triangle2" width="230" height="322" position=absolute>
+  <img id="middle1" class="triangle2" src="pdf/middle1.png" alt="triangle2" width="230" height="322" position=absolute>
+  <img id="front1" class="triangle2" src="pdf/front1.png" alt="triangle2" width="230" height="322" position=absolute>
+  <div id="creaturename1" style="font-size:10px" class="textpage">Super Long Creature Name</div>
+  <div id="creaturecost1" style="font-size:18px" class="textpage2">0</div>
 
+  <img id="bottom2" class="triangle3" src="pdf/bottom1.png" alt="triangle2" width="230" height="322" position=absolute>
+  <img id="middle2" class="triangle3" src="pdf/middle1.png" alt="triangle2" width="230" height="322" position=absolute>
+  <img id="front2" class="triangle3" src="pdf/front1.png" alt="triangle2" width="230" height="322" position=absolute>
+  <div id="creaturename2" style="font-size:10px" class="textpage3">Super Long Creature Name</div>
+  <div id="creaturecost2" style="font-size:18px" class="textpage4">0</div>
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-Congrats on scrolling all the way down to the bottom of this page. By the way, have you <a href="pdf/Bizarre-World-rulebook.pdf">read the rulebook?</a></p>
+  <img id="bottom3" class="triangle4" src="pdf/bottom1.png" alt="triangle2" width="230" height="322" position=absolute>
+  <img id="middle3" class="triangle4" src="pdf/middle1.png" alt="triangle2" width="230" height="322" position=absolute>
+  <img id="front3" class="triangle4" src="pdf/front1.png" alt="triangle2" width="230" height="322" position=absolute>
+  <div id="creaturename3" style="font-size:10px" class="textpage5">Super Long Creature Name</div>
+  <div id="creaturecost3" style="font-size:18px" class="textpage6">0</div>
+
+  <img id="bottom4" class="triangle5" src="pdf/bottom1.png" alt="triangle2" width="230" height="322" position=absolute>
+  <img id="middle4" class="triangle5" src="pdf/middle1.png" alt="triangle2" width="230" height="322" position=absolute>
+  <img id="front4" class="triangle5" src="pdf/front1.png" alt="triangle2" width="230" height="322" position=absolute>
+  <div id="creaturename4" style="font-size:10px" class="textpage7">Super Long Creature Name</div>
+  <div id="creaturecost4" style="font-size:18px" class="textpage8">0</div>
+<hr class="specialhr">
+
+  <img class="back1" src="pdf/cardback_down.png" alt="triangle2" width="230" height="322" position=absolute>
+  <img class="back2" src="pdf/cardback_down.png" alt="triangle2" width="230" height="322" position=absolute>
+  <img class="back3" src="pdf/cardback_down.png" alt="triangle2" width="230" height="322" position=absolute>
+  <img class="back4" src="pdf/cardback_down.png" alt="triangle2" width="230" height="322" position=absolute>
+</div>
+
+<br><br><br>
+If you have not already, <a href="pdf/Bizarre-World-rulebook.pdf">read the rulebook!</a></p>
  
 
 <h2>Change history: </h2>
-
+12/31/2021: Added a way to print 4 cards at once.
 12/30/2021: First published this page. It contains "Purple Madness," the first set of cards, which currently has 10 options for each layer for a total of 1000 unique cards. 
 <br>
 </a>
