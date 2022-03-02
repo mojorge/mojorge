@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+  - 12
+script:
+  - npm t
+deploy:
+  provider: script
+  skip_cleanup: true
+  script: scripts/deploy.sh
+  on:
+    branch: master
