@@ -230,6 +230,7 @@ Search for a post:
 
 
 <h2>All posts</h2>
+<button type="button" id="2022all" class="2022all" onclick="clickallfunction()">Click All</button>
 
 <h4>2018</h4>
 <ul>
@@ -596,6 +597,49 @@ Search for a post:
       </ul>
     </div>
   </li>
+<li><button type="button" class="collapsible">November</button>
+    <div class="content">
+      <ul>
+        <li><a href="2021/11/color-zero/index.html">Color Zero</a></li>
+      </ul>
+    </div>
+  </li>
+<li><button type="button" class="collapsible">December</button>
+    <div class="content">
+      <ul>
+        <li><a href="2021/12/bizarre-world/index.html">Bizarre World</a></li>
+        <li><a href="2021/12/cant-touch-this/index.html">Can't Touch This</a></li>
+        <li><a href="2021/12/mining-inc/index.html">Mining Inc</a></li>
+        <li><a href="2021/12/number-line/index.html">Number Line</a></li>
+      </ul>
+    </div>
+  </li>
+</ul>
+
+<h4>2022</h4> 
+<ul>
+  <li><button type="button" class="collapsible" id="2022">January</button>
+    <div class="content">
+      <ul>
+        <li><a href="2022/01/idle-six/index.html">Idle Six</a></li>
+      </ul>
+    </div>
+  </li>
+<li><button type="button" class="collapsible" id="2022">February</button>
+    <div class="content">
+      <ul>
+        <li><a href="2021/02/sumo-sumo/index.html">Sumo Sumo</a></li>
+      </ul>
+    </div>
+  </li>
+<li><button type="button" class="collapsible" id="2022">April</button>
+    <div class="content">
+      <ul>
+        <li><a href="2021/04/3d-printer/index.html">3D Printer</a></li>
+        <li><a href="2021/04/lottery-election/index.html">Lottery Ball Election</a></li>
+      </ul>
+    </div>
+  </li>
 </ul>
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
@@ -634,6 +678,15 @@ for (i = 0; i < coll.length; i++) {
     }
   });
 }
+
+
+
+function clickallfunction(){
+    for(i = 0; i <= coll.length; i++)  
+       coll[i].click();
+}
+
+
 </script>
 
 
