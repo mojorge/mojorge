@@ -1,0 +1,266 @@
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="2200: Escaping Earth, a single player legacy deck-building roguelike PNP game by Jorge Zhang.">
+<meta name="keywords" content="Board Game, Tabletop, Game, Game design, 3D printing">
+<meta name="author" content="Jorge Zhang">
+
+<meta property="og:title" content="Jorge Zhang" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="pdf/sumoguyprinted.png" />
+<meta property="og:url" content="https://www.jorgezhang.com" />
+
+<title>2200: Escaping Earth</title>
+
+
+		
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q4LHHGS01W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Q4LHHGS01W');
+</script>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 1px;
+}
+
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+
+ul.main_menu{
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li.main_menu {
+  float: left;
+}
+
+li.main_menu a, .dropbtn {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li.main_menu a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+header {
+  background-color: #ffffff;
+  padding: 10px;
+  text-align: center;
+  color: black;
+}
+
+
+.main-title a{
+  color:#222222;
+  margin:0;
+  font-size:35px;
+  line-height:1.2em;
+  word-wrap:break-word;
+  font-weight:700;
+  text-decoration: none;
+}
+
+
+
+
+</style>
+
+</head>
+
+
+<header>
+
+<h1 class="main-title"><a href="../../../index.html">Jorge Zhang</a></h1>
+
+</header>
+
+
+<div class="row">
+<div class="col-1">
+</div>
+<div class="col-10">
+<ul class="main_menu">
+  <li class="main_menu"><a href="../../../daggers-highschool.html">About Daggers High</a></li>
+  <li class="main_menu"><a href="../../../puzzles/index.html">Puzzles</a></li>
+  <li class="main_menu"><a href="../../../tutoring/index.html">Tutoring</a></li>
+  <li class="dropdown">
+    <a href="../../../blog-archive.html" class="dropbtn">Blog Archive</a>
+    <div class="dropdown-content">
+      <a href="../../../category/reviews/index.html">Reviews</a>
+      <a href="../../../tag/education/index.html">Education</a>
+      <a href="../../../category/funny/index.html">Funny</a>
+      <a href="../../../category/politics/index.html">Politics</a>
+    </div>
+  </li>
+</ul>
+</div>
+<div class="col-1">
+</div>
+</div>
+
+<p></p>
+
+<div class="row">
+<div class="col-1">
+</div>
+<div class="col-10">
+
+<h1>2200: Escaping Earth</h1>		
+
+</header>
+
+
+<p>May 28, 2022 by Jorge Zhang</p>
+
+<img src="pdf/escapingearth.png" alt="escaping earth" width="500" height="300">
+
+<br>
+<b>Introduction:</b> 2200: Escaping Earth is a single player legacy deck-building roguelike print and play game. Earth is nearly destroyed, and the elites have fled to mars and are preventing anyone else from escaping earth. Your goal is to defeat the defenses they have set up to keep you trapped on Earth.
+
+<br>
+<br>
+
+<b>Design notes:</b> I started seriously thinking about making a deck-building game late last year when I applied for a game design position at a company that mostly makes deck-building games. I didn't get the job, but it eventually led to this game. I was also playing a lot of digital deck-building games around the same time (Slay the Spire, Roguebook, Inscryption, and Monster Train). Anyway, my main design idea was based around the same idea that inspired Silent Ships: card games are great when they are combined with area control. In Silent Ships, you played cards on a board and moved them around, and so my initial plan was a card game where you played units on a board (represented by cards) and defeated enemies (also represented by cards), and then added those enemies to your deck as a new card. Unfortunately, I quickly found out that it takes way too much space when combined with my other main idea: a 3D board.
+<br>
+
+<div style="text-indent:40px">
+To emulate 3D area control, I wanted to use multiple 2D boards that were treated as if they were stacked on top of each-other. This meant miniaturing the boards, which is where I got the idea of making the cards the boards. Then, your unit would be represented by a small miniature instead of by a card. What about the enemies? I found an easy solution: to draw the enemies directly on each card. My main idea with 3D area control was to create gameplay with positioning and to do neat things with attacks (by giving them interesting ranges). 
+</div>
+<div style="text-indent:40px">
+    Once I had finalized the main mechanics, it was time to start focusing on the deck-building part. From the start, I wanted this game to be one where you would progressively get stronger every run, and so I included a bunch of elements that I later removed: the ability to upgrade your individual cards, the ability to add additional range to your cards, an XP system, a research track, a generic cannon attack for each ship... yeah, it was a huge mess. The problem with all of these ideas was two-fold: firstly, it added way too much bloat to the game. But secondly and more importantly, it encouraged gameplay that was grindy. 
+</div>
+<div style="text-indent:40px">
+Grindy gameplay can sometimes be ok in video games, but definitely not in single player board games. The reason is that the players have much more power in a board game. Force them to grind through 100 mobs to collect 100 gold? In a board game, the player can just give themselves 100 gold from the bank and then pretend they grinded through those mobs. In a video game, they would need to hack the game files. Anyway, long story short, I realized that I was trying to introduce video game systems (upgrading cards is very common in digital deck-builders like Slay the spire) into a tabletop game, and it was creating some large issues. 
+</div>
+<div style="text-indent:40px">
+I still wanted a way to add progression into the game so that you could improve your abilities between runs. Also known as legacy mechanisms, it is not super common to have them in board games because it almost always means doing irreversible damage to some of the components in the game. For example, had I kept upgrading cards in the game, you would have to physically mark each card to upgrade it. That's not an issue in video games, but it is a huge deal with board games because it kills the replayability (and also is just painful in a hobby where people frequently sleeve cards in plastic to protect them from things like edge scuffing, never mind ripping a card in half like some games ask you to do). But I wasn't ready to give up on legacy mechanisms entirely. "Permanent" cards, one of the many mechanics I tried, came to save the day. 
+</div>
+<div style="text-indent:40px">
+In 2200: Escaping Earth, Permanent cards have a simple effect which is that you can keep them between runs. At first, I only gave one or two cards Permanent. I really liked the ability, so I added it to a few more cards. And then a few more. Before I knew it, 4/5 of all cards in the game were Permanent. At the same time, I realized that with Permanents in the game, the start of each run became super interesting: you had to decide which cards to include in your deck <i>before</i> each run. It also completely solved another massive game design problem that many deck builders struggle with: how do you let players explore a unique strategy if their starting deck does not complement that strategy? And what if players go for a strategy, but then they get unlucky and don't obtain the right cards? Well, in this game if you wanted to make a Missile-focused deck, you can simply remove all the lasers from your starting deck.
+</div>
+<div style="text-indent:40px">
+This is getting a bit long, so the last major game design challenge I'll write about here was with adjusting the difficulty. I have no idea if I did a good job or not (I'm writing this as of uploading the game files for the very first time), because something I find normal might be too tough for someone without much deck-building experience, and too easy for others. I ended up giving most enemies a nasty ability (I restrained myself to 1 ability per enemy since each card is already really cramped and also to avoid complicated scenarios) to make them more difficult without relying as much on giving enemies extremely high health bars or large sums of attack. I also saved the strongest abilities for the later zones, which I think also helps craft some identity around each new zone. Digital games have an easier time with this because the burden of computation is on the computer and not the player.
+</div>
+<div style="text-indent:40px">
+Anyway, that's probably enough for now. I ended up with a game that I am pretty happy with, but I spent so much time developing it that I think I need a little break from further developing this game for a while. The plan is to submit this game to the 2022 Solitaire PnP design contest on board game geek and hope that the massive number of cards to print for this game does not deter any playtesters.
+</div>
+
+<h2>FILES:</h2>
+
+<b>All cards in the game in a 9-card format:</b> <a href="pdf/2200_escaping_earth_pnp_DOUBLESIDED.pdf">Download</a>
+<br>
+Suggestion: print this double-sided. Ideally, laminate the cards. When cutting the cards, use a paper guillotine cutter and cut slightly into the bleed on each card (NOT directly on the black lines of each zone card: that is cutting too much and you will probably cut off parts of the backside of each card).
+<br>
+<br>
+<b>Playmat:</b> <a href="pdf/playmat.pdf">Download</a>
+<br>
+Print this single-sided.
+<br>
+<br>
+<b>Rules:</b> <a href="https://docs.google.com/document/d/18epyAfXQPD4btneNUIpDM3TCiEG_bj9LdUKWWA-Ycfc/edit?usp=sharing">Google Drive</a>
+<br>
+Feel free to leave a comment if you have any suggestions for changes!
+<br>
+<br>
+<b>3D printed ship STL file:</b> <a href="pdf/ship.stl">Download</a>
+<br>
+I did NOT make this STL file, but I have no idea where I got this file from and can't find it online anymore. Apologies to whoever made this model because it is great and I would have liked to give attribution. Also, please don't sue me. I recommend printing this with a raft. It is a very small and fast print.
+<br>
+You will additionally need some small cubes to play this game, but not that many of them. 
+
+<br>
+<br>
+<h2>Change history: </h2>
+5/28/22: published this page.
+<br>
+</a>
+
+</div></div>
+<div class="col-1">
+</div>
+</div>
+
+
+<div class="row">
+<div class="col-1">
+</div>
+<div class="col-10">
+<footer>
+<span>&copy; 2020 Jorge Zhang</span> 
+</footer>
+</div>
+<div class="col-1">
+</div>
+</div>
+
+
+</body>
+</html>
