@@ -1,0 +1,239 @@
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Sumo Sumo, a PNP game by Jorge Zhang.">
+<meta name="keywords" content="Board Game, Tabletop, Game, Game design, 3D printing">
+<meta name="author" content="Jorge Zhang">
+
+<meta property="og:title" content="Jorge Zhang" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="pdf/sumoguyprinted.png" />
+<meta property="og:url" content="https://www.jorgezhang.com" />
+
+<title>Sneaky Seven</title>
+
+
+		
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q4LHHGS01W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Q4LHHGS01W');
+</script>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 1px;
+}
+
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+
+ul.main_menu{
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li.main_menu {
+  float: left;
+}
+
+li.main_menu a, .dropbtn {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li.main_menu a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+header {
+  background-color: #ffffff;
+  padding: 10px;
+  text-align: center;
+  color: black;
+}
+
+
+.main-title a{
+  color:#222222;
+  margin:0;
+  font-size:35px;
+  line-height:1.2em;
+  word-wrap:break-word;
+  font-weight:700;
+  text-decoration: none;
+}
+
+
+
+
+</style>
+
+</head>
+
+
+<header>
+
+<h1 class="main-title"><a href="../../../index.html">Jorge Zhang</a></h1>
+
+</header>
+
+
+<div class="row">
+<div class="col-1">
+</div>
+<div class="col-10">
+<ul class="main_menu">
+  <li class="main_menu"><a href="../../../daggers-highschool.html">About Daggers High</a></li>
+  <li class="main_menu"><a href="../../../puzzles/index.html">Puzzles</a></li>
+  <li class="main_menu"><a href="../../../tutoring/index.html">Tutoring</a></li>
+  <li class="dropdown">
+    <a href="../../../blog-archive.html" class="dropbtn">Blog Archive</a>
+    <div class="dropdown-content">
+      <a href="../../../category/reviews/index.html">Reviews</a>
+      <a href="../../../tag/education/index.html">Education</a>
+      <a href="../../../category/funny/index.html">Funny</a>
+      <a href="../../../category/politics/index.html">Politics</a>
+    </div>
+  </li>
+</ul>
+</div>
+<div class="col-1">
+</div>
+</div>
+
+<p></p>
+
+<div class="row">
+<div class="col-1">
+</div>
+<div class="col-10">
+
+<h1>Sumo Sumo</h1>		
+
+</header>
+
+
+<p>February 7, 2022 by Jorge Zhang</p>
+
+<br>
+Introduction: This simple abstract 2-player game is played on the back of my business card.
+<br>
+<br>
+Designer notes: A week or so ago, I realized that I was almost out of business cards. I ordered 250 or so all the way back in 2019, and I only began making a serious dent in that number recently (I've been selling a large number of cards on TCGPlayer, and include a card in each envelope). My old business card was blank on the back, and I figured that it would be a good challenge to try and use that space to make a game. I didn't want there to be any outside components, and I also wanted the rules to fit on the card. Since the front needed to have my actual information, flipping the card was not an option either. These strict conditions helped me settle on my design.
+<br>
+<br>
+I spent a while rebalancing the game. I initially wanted to do something like "if the guess was less than twice the original number but greater than or equal to the original number, then the guessing player wins," but I felt that the mental load of calculating that was too high. Still, I liked the asymmetry of some numbers being "better" than others as it created meaningful choices. I figured that the game would be self-balancing as the guesser could guess those better options more often. I eventually got the idea of making the first player choose a higher number than their first guess. This achieved the goal of creating some asymmetry by making lower numbers a better choice. After that, I did some math to try and make the game reasonably fair (so neither player has a huge advantage in terms of win percentage). I settled on 7 after doing some calculations, which were definitely a bit wonky because I had to account for the various strategies.
+
+
+<br>
+<br>
+
+
+
+<img src="pdf/sneakyseven.jpeg" alt="business card printed" width="300" height="450">
+<img src="pdf/businesscardfront.jpeg" alt="sbusiness card front" width="450" height="300">
+
+<br>
+<br>
+	
+
+<br>
+
+PnP Files: <a href="pdf/sneakysevenpnp">Download</a></p>
+
+
+
+<br>
+<br>
+<h2>Change history: </h2>
+9/08/22: published this page.
+
+<br>
+</a>
+
+</div></div>
+<div class="col-1">
+</div>
+</div>
+
+
+<div class="row">
+<div class="col-1">
+</div>
+<div class="col-10">
+<footer>
+<span>&copy; 2020 Jorge Zhang</span> 
+</footer>
+</div>
+<div class="col-1">
+</div>
+</div>
+
+
+</body>
+</html>
