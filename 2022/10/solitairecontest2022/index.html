@@ -1,0 +1,650 @@
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="1 card print and play game.">
+<meta name="keywords" content="Board Game, Tabletop, Game, Game design, 3D printing">
+<meta name="author" content="Jorge Zhang">
+
+<meta property="og:title" content="Jorge Zhang" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="pdf/sumoguyprinted.png" />
+<meta property="og:url" content="https://www.jorgezhang.com" />
+
+<title>BGG Solitaire Contest 2022</title>
+
+
+		
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q4LHHGS01W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Q4LHHGS01W');
+</script>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 1px;
+}
+
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+
+ul.main_menu{
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li.main_menu {
+  float: left;
+}
+
+li.main_menu a, .dropbtn {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li.main_menu a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+header {
+  background-color: #ffffff;
+  padding: 10px;
+  text-align: center;
+  color: black;
+}
+
+
+.main-title a{
+  color:#222222;
+  margin:0;
+  font-size:35px;
+  line-height:1.2em;
+  word-wrap:break-word;
+  font-weight:700;
+  text-decoration: none;
+}
+
+
+table {
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th {
+  cursor: pointer;
+}
+
+th, td {
+  text-align: left;
+  padding: 16px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2
+}
+</style>
+
+
+</head>
+
+
+<header>
+
+<h1 class="main-title"><a href="../../../index.html">Jorge Zhang</a></h1>
+
+</header>
+
+
+<div class="row">
+<div class="col-1">
+</div>
+<div class="col-10">
+<ul class="main_menu">
+  <li class="main_menu"><a href="../../../daggers-highschool.html">About Daggers High</a></li>
+  <li class="main_menu"><a href="../../../puzzles/index.html">Puzzles</a></li>
+  <li class="main_menu"><a href="../../../tutoring/index.html">Tutoring</a></li>
+  <li class="dropdown">
+    <a href="../../../blog-archive.html" class="dropbtn">Blog Archive</a>
+    <div class="dropdown-content">
+      <a href="../../../category/reviews/index.html">Reviews</a>
+      <a href="../../../tag/education/index.html">Education</a>
+      <a href="../../../category/funny/index.html">Funny</a>
+      <a href="../../../category/politics/index.html">Politics</a>
+    </div>
+  </li>
+</ul>
+</div>
+<div class="col-1">
+</div>
+</div>
+
+<p></p>
+
+<div class="row">
+<div class="col-1">
+</div>
+<div class="col-10">
+
+<h1>Jorge's 2022 Solitaire Design Contest Ranking</h1>		
+
+</header>
+
+
+<p>July 31, 2022 by Jorge Zhang</p>
+
+
+<br>
+<b>Introduction:</b> I played and ranked every game in the 2022 Solitaire Design Contest, and here are my results.
+
+
+<h3>My criteria</h3>
+<ol>
+<li><b>Uniqueness/creativity:</b> If a game is very fun but another game does it better, then I'd rather play that game instead. Thus, generally speaking, I was harsh on overdone themes, overdone mechanics, and adaptions/expansions of pre-existing games. On the other hand, a game can be quite mediocre but if it was memorable and creative, then I believe that the novelty of playing it still provides a great deal of value. 
+</li>
+<li><b>Fun:</b> Super subjective, but super important. </li>
+<li><b>Execution:</b> This is split into two categories. The first is micro design, AKA interesting decision-making. Am I spending every second making interesting decisions or does the game kind of play itself? The second is macro design. Does the game deliver its promised experience? I looked for mechanics that were intuitive because they were well connected to the theme. I also looked for a streamlined game that wasn't bloated by too many mechanics or fluff. 
+<li><b>Good rulebook:</b> I personally hate writing rulebooks, so I understand why there are so many bad rulebooks out there (some of them are mine :D). That said, this is an extremely important factor for me when playing a game. A game could be great, but if it is not explained well, then I can't actually play it. </li>
+<li><b>Luck:</b> I randomly add a number between 1 and 17 to the score for every game. That's because this ranking is not fair.</li>
+</ol>
+
+<h3>What I am not judging</h3>
+<ol>
+<li><b>Good artwork:</b> I am a huge believer in iterative design (move fast and break things), which is why I believe that good art has nothing to do with good design. In many ways, having excellent art is a hinderance to the design process: it means that it is harder to make prototypes, it is harder to make changes based on critical feedback, it is likely to draw playtester focus away from gameplay, and most importantly it takes away time from actually playing and designing games. To be clear, art is ultimately incredibly important, and if this were a ranking of published games then it would definitely be a factor. That said, I feel like it is a bit unfair to penalize designers for doing what I see as a good design practice (which is to wait to commission art until late in the design process). I also believe that designers should generally specialize in design and work with people who specialize in art instead of attempting to do everything themselves. 
+</li>
+<li><b>My own games:</b> It isn't possible for me to be objective about my own games.</li>
+</ol>
+
+
+<p><strong>Click the headers to sort the table.</strong> The first time you click, the sorting direction is ascending (A to Z). Click again, and the sorting direction will be descending (Z to A):</p>
+
+<table id="myTable">
+  <tr>
+   <!--When a header is clicked, run the sortTable function, with a parameter, 0 for sorting by names, 1 for sorting by country:-->  
+    <th onclick="sortTable(0)">Name</th>
+    <th onclick="sortTable(1)">Score</th>
+    <th onclick="sortTable(2)">Comments</th>
+  </tr>
+  <tr>
+    <td>Tubbataha</td>
+    <td>1610.010564</td>
+    <td>This is a very solid Worker Placement game that scored well in all categories. There is a really unique row-shifting mechanic that is a delight to use.</td>
+  </tr>
+  <tr>
+    <td>At the Edge of Dreams</td>
+    <td>1017.605752</td>
+    <td>I enjoyed this tile placement game quite a bit. I really liked how the tiles were asymmetrically double-sided.</td>
+  </tr>
+  <tr>
+    <td>Spearmint Island</td>
+    <td>1114.023462</td>    
+    <td>This design achieves its goal of making spirit island in a mint tin. I had to ding it a bit for uniqueness but it scored high in execution.</td>
+  </tr>
+  <tr>
+    <td>Garden Builder</td>
+    <td>1842.256924</td>
+    <td>This is an excellent puzzly tile placement game. </td>
+  </tr>
+  <tr>
+    <td>Strike, Spare, or Split</td>
+    <td>1403.565058</td>
+    <td>An extremely unique dexterity game. If you like bowling you may want to check this out. </td>
+  </tr>
+  <tr>
+    <td>Dungeon Crawler X</td>
+    <td>1974.574448</td>
+    <td>Dungeon crawler tabletop games usually score low for me because a lot of them should probably just be a video game, but the gameplay here was really unique. I especially appreciate how this game encourages fleeing from fights you can't win, and how you have to make trade-offs between playing powerful moves and keeping your deck in order.</td>
+  </tr>
+  <tr>
+    <td>Lawn Party</td>
+    <td>1761.759476</td>
+    <td>A very unique nano game with a fun theme.</td>
+  </tr>
+  <tr>
+    <td>Golden Hour</td>
+    <td>1932.629134</td>
+    <td>A highly thematic wildlife photography game that creates some extremely memorable moments. I found that the game dragged out a bit too long, but the designer has since updated the game to fix that.</td>
+  </tr>
+  <tr>
+    <td>Cities and Color</td>
+    <td>454.6060892</td>
+    <td>An interesting "roll and write" game except you are drawing cards from a deck and placing them into your city.</td>
+  </tr>
+  <tr>
+    <td>Arcane Valley</td>
+    <td>215.741884</td>
+    <td>This game is a tower defense video game adapted into a turn-based tabletop game. It is an admirable attempt but I personally felt like it didn't really execute this vision well and that I'd rather just play a tower defense video game. I also thought that the RNG in this game was poorly executed because it serves as a difficulty modifier rather than as a way to create variance/new experiences. </td>
+  </tr>
+  <tr>
+    <td>Zrrrk Tower</td>
+    <td>1188.840084</td>
+    <td>A dungeon crawling game with a creative 9 slot mechanic. This game creates memorable moments through swingy gameplay and high randomness, but also gives the player some tools to mitigate this randomness.</td>
+  </tr>
+  <tr>
+    <td>Ripples and Branches</td>
+    <td>1590.98919</td>
+    <td>A game about writing a haiku? This is a very cool pickup and delivery game where you want to take your time to collect good cards, but not take too long either because your patron will get mad at you. This was a surprisingly thematic game, especially considering that it is a traditional deck game (just uses a standard 54 card poker deck). </td>
+  </tr>
+  <tr>
+    <td>Purzon: The Travelling Merchant</td>
+    <td>908.2129416</td>
+    <td>This tile-placement game uses hexagonal tiles and takes good advantage of the mechanical uniqueness of a hexagonal tile.</td>
+  </tr>
+  <tr>
+    <td>Hide Nor Hare</td>
+    <td>1726.1901</td>
+    <td>This is a fantastic sudoku-like puzzle game. I found a strategy that is so far undefeated for me, which I now regret because I can't play normally anymore. </td>
+  </tr>
+  <tr>
+    <td>Moon Landing</td>
+    <td>188.374986</td>
+    <td>This is a Yahtzee-like game with a neat course heading mechanic. I ultimately bounced off of it since I felt that it was a bit of a slog and that the decisions were largely not that interesting. </td>
+  </tr>
+  <tr>
+    <td>Picklock</td>
+    <td>561.2061922</td>
+    <td>I got into lock picking as a hobby for about a month because of the Lockpicking Lawyer's Youtube Channel, so I really enjoyed the theme on this game. It is highly thematic but a bit light for my usual tastes. </td>
+  </tr>
+  <tr>
+    <td>Tomb of the Chaos Emporer</td>
+    <td>202.602602</td>
+    <td>This game is a dungeon crawler that I strongly feel would work way better as a video game. I think my feelings about this game are largely summarized by this line that I wrote as feedback to the designer, "Tomb of the Chaos Emperor feels like playing a dungeon crawler video game except you are the computer instead of the player. Your game time is largely spent doing what a computer would normally do instantly: rolling a die, checking a table, processing a random encounter, processing loot (which is often a random item so you have to roll the dice yet again), generating enemies (first the tier of enemy, then which enemy in that tier it is, then the aggressiveness of the enemy, then any rolls for that enemies skills, possible persuation checks and awarness checks... yeah), and much more."</td>
+  </tr>
+  <tr>
+    <td>Alchemist's Apprentice</td>
+    <td>2529.52066</td>
+    <td>This game scored high in every category. It is a dice-placement campaign game where the game is actually a book that you play through. It is funny, extremely unique, excellently executed, and a well-deserved top spot in this ranking list. I love how you slowly uncover the rules of the game as you play- the game is actually a book so it works extremely well. </td>
+  </tr>
+  <tr>
+    <td>Sniper Rocket: Bot Destroyer</td>
+    <td>210.9051435</td>
+    <td>This game is a game where the game "learns" over time and changes its strategy against you based on what you do. It is a fascinating concept, but I found that it fell completely flat because it doesn't really fulfill on this promise. The learning is incredibly basic and ineffective, and it learns really slowly so the game ends up feeling like a slog. </td>
+  </tr>
+  <tr>
+    <td>Pyrates</td>
+    <td>534.8050278</td>
+    <td>This pirate adventure game feels very thematic. I felt like the game was not very well balanced, but it definitely has a lot of potential. </td>
+  </tr>
+  <tr>
+    <td>Dungeon Quest D6</td>
+    <td>67.00346441</td>
+    <td>This is a dungeon and dragons like game where you track your stats by manipulating several decks of cards rather than with a pencil and paper. In practice, I think it was a really inefficient use of components and ultimately a downgrade from a simple tracker or pencil and paper, so I ultimately bounced off of this game. </td>
+  </tr>
+  <tr>
+    <td>Safety in numebers</td>
+    <td>124.4649275</td>
+    <td>This game was ultimately withdrawn from the contest.</td>
+  </tr>
+  <tr>
+    <td>Cultissism</td>
+    <td>449.4039722</td>
+    <td>This game is apparently based on a video game. It is a neat economic action selection game. I think it is lacking tension though because it's basically impossible to lose in my experience. The theme is kind of dark/edgy because it involves cannibalism, slavery, and human sacrifice. </td>
+  </tr>
+  <tr>
+    <td>HMS Speedy</td>
+    <td>1329.80583</td>
+    <td>This is a really neat game with multi-purpose cards that serve to track your stats and also be the encounters that you face along the way. Overall, it is a very efficient design that does a lot of things right.</td>
+  </tr>
+  <tr>
+    <td>Bismarck's Dance</td>
+    <td>2297.120491</td>
+    <td>This game feels like a worker placement game, but it inverts your expectations. Unlike most worker placement games where you are rewarded for efficiency and playing as many actions as possible, you'll frequently be rewarded for committing your workers long term (or you can be like me and almost start a world war). The game rewards you for being patient, playing the long game, and pulling all the strings. I absolutely love this dynamic and it is incredibly satisfying and thematic. </td>
+  </tr>
+  <tr>
+    <td>Trash Bandits</td>
+    <td>1119.09291</td>
+    <td>You get to be a raccoon in this game, which is fun. Anyway, this is a neat set collection and worker placement game that has an interesting scoring concept: you only score for your 2 most common types of trash, and lose points for everything else. </td>
+  </tr>
+  <tr>
+    <td>Escape of the Alphabats</td>
+    <td>1656.509497</td>
+    <td>This is a really neat randomly generated word game. I love how easy it is to generate a new random setup, print it out, and play on that. </td>
+  </tr>
+  <tr>
+    <td>Boneyard 7</td>
+    <td>852.9212873</td>
+    <td>An interesting domino based trick-taking game.</td>
+  </tr>
+  <tr>
+    <td>Rome in a Day</td>
+    <td>2446.568155</td>
+    <td>I dinged this game on uniqueness (I had to- its a Roman-themed euro game), and it STILL managed to get an extremely high score. I love how the designer was not afraid to stray away from overpowered effects. In fact, everything you do in this game feels extremely powerful: and it is awesome. That's the thing though- you have to figure out which overpowered thing you want to do next, and you really do not have all that much time to do it because the game ends before you know it. </td>
+  </tr>
+  <tr>
+    <td>Dungeon Capture</td>
+    <td>191.1479548</td>
+    <td>This is a dungeon crawling dice game. I liked how a lot of the monsters had various effects, but it did feel a bit light on interesting decision-making because of the balance of the game. </td>
+  </tr>
+  <tr>
+    <td>Backscatter</td>
+    <td>127.5587125</td>
+    <td>This is a deck builder using a traditional 54-card poker deck. I think it has some interesting ideas, but it ultimately is currently a slugfest of long battles due to the prominence of healing and ties, and lacks a lot of what I love about deck-builders. There aren't synergies to discover and strategies to explore because every card is basically a vanilla number that does nothing special.</td>
+  </tr>
+  <tr>
+    <td>Dread</td>
+    <td>1859.788387</td>
+    <td>It's a turn-based game, but it somehow feels like a real-time game. It kind of reminds me of those third person shooter games where you have to survive against a huge horde of zombies because multiple mobs spawn every turn. Quickly slicing your way through all of these mobs makes you feel really powerful. I really love the action-covering mechanic where you can take more actions on your turn, but you have to inefficiently throw away cards to do so. If you try to play too efficiently, you will get overwhelmed by the zombies, but if you play too recklessly, you'll succumb to exhaustion. </td>
+  </tr>
+  <tr>
+    <td>Flower Up</td>
+    <td>1210.550833</td>
+    <td>This is an excellent dice placement game that feels like the crunchier, more puzzly, and difficult version of Alchemist's Apprentice. I found that it was a very punishing game and that the game had inverse progression where you felt like your options got increasingly constrained and worse over time. I did not do well at all during my playthrough, but I still really enjoyed the game. </td>
+  </tr>
+  <tr>
+    <td>Deck Detective</td>
+    <td>370.7666989</td>
+    <td>This is an interesting logical deduction game. The theme feels very tacked on: for example, the fact that murder suspects apparently arrest other suspects makes no sense to me. The logical deduction is great, but it feels burried underneath a lot of weird mechanics. </td>
+  </tr>
+  <tr>
+    <td>Rolling Dough</td>
+    <td>354.2084773</td>
+    <td>This is a worker placement game with an interesting baking theme. Sadly I felt that it was a bit too much like actual cooking, except you don't get to eat anything after you are done. Your actions don't feel very powerful and the game is essentially starting and then waiting for a series of timers to finish. </td>
+  </tr>
+  <tr>
+    <td>Dancefloor</td>
+    <td>1561.702613</td>
+    <td>This is a really cool matching game where you slide tiles onto the 3x3 board by pushing other tiles out of the way. It feels kind of like the popular mobile game 2048: as time goes on, your board fills up with higher numbers that are harder to get rid of. The scoring in this game is really wonky and there is a legacy element that I think is a bit weird for a game of this light weight- but the mechanics are very solid and the gameplay is entertaining.</td>
+  </tr>
+  <tr>
+    <td>Space Privateer Command</td>
+    <td>224.7228743</td>
+    <td>This game is a video game adaption. There are so many mechanics that it is impossible to really name the main mechanics of this game. It's "only 18 cards," but the rulebook is a novel. My feedback to the designer highlights my overall feelings well, "This game feels like it tries to be a huge expansive experience through rules instead of components. To put it another way, Magic the Gathering would be a game that is expansive through components instead of rules. The base rules to mtg are actually not terribly interesting, and it is the tens of thousands of unique cards that "change the rules" that add flavor to the game. This game feels like if Magic the Gathering was 18 cards and a book of rules. The problem with this approach is that it creates a huge rules overhead for a very small payoff. The game begins to feel repetitive even during a single play. There are no real surprises because instead of a deck of cards, you see all the possible events in a table and can easily predict the range of outcomes. Combat becomes repetitive because there are only a few different possible ship types. The missions never change and are always the same 6. Your events are always the same 6 events on repeat. There are dozens of various mechanics in this game, but each mechanic basically only has one card associated with it, so you never end up "re-using" the rules for a new situation like you would in a game that has a rule for events and then a deck of 80 events that all do different things."
+
+
+</td>
+  </tr>
+  <tr>
+    <td>Concrete Jungle</td>
+    <td>610.4103649</td>
+    <td>This is a really neat game inspired by platformer video games. I like how you build up momentum over time, which makes you faster but also increases the chances that you will bump into something. I am not too sure about the action management/programming aspect of the game because it does take away a bit from the momentum management part of the game, and I kind of wonder what the game would be like if it were more like graph paper racing. </td>
+  </tr>
+  <tr>
+    <td>ECKomino</td>
+    <td>2381.074853</td>
+    <td>I am a big fan of trick-taking games and was an avid bridge player for about 2 years. This domino trick-taking game loses a lot of the subtleties of bridge (hard to compete with arguably the best trick taking game of all time, especially as a solitaire trick-taking game), but introduces a few really awesome and unique domino mechanics. The dual-sided nature of dominos means that cards can be played in multiple ways. You also have to accomplish 3 different goals over 3 rounds: which means that you are sometimes doing your best to lose all of the tricks. I prefer this game to Boneyard 7, the other domino trick-taking game in this contest by the same designer, because ECKomino involves a lot more long-term strategy and planning.
+</td>
+  </tr>
+  <tr>
+    <td>Rainbow Gems</td>
+    <td>107.4054446</td>
+    <td>Rainbow Gems is a roll-and-move set collection game that is playable with a standard poker deck. I thought that the mechanic where you move less far for each card in your hand was really interesting, but in practice it often resulted in skipping turns due to not being able to move at all.  </td>
+  </tr>
+  <tr>
+    <td>Power lines</td>
+    <td>803.9034139</td>
+    <td>This is a neat tile placement game where you attempt to connect houses to power plants. It plays very quickly due to the fact that you draw 4 and play 3, which I think more tile-placing games should emulate (compared to draw X place 1). A small nitpick is that you get points for using more powerlines, which often results in weird inefficient configurations where you purposely avoid directly connecting houses and power plants through the shortest possible path. I guess maybe you are playing as the power line company that gets paid for each power line built. </td>
+  </tr>
+  <tr>
+    <td>Dicey Desperado</td>
+    <td>807.0645606</td>
+    <td>This game is Yahtzee meets deck building, and I love it. This game has incredible potential, but it currently lacks the variety and synergy-building that I look for in a deck building game. While it lacks content, the mechanics really do work well together.</td>
+  </tr>
+  <tr>
+    <td>Emmet and the Spider Web</td>
+    <td>717.7703548</td>
+    <td>This is a neat puzzle game that feels a bit like candy crush. You are trying to create certain configurations of symbols within a 4x4 grid based on the cards in your hand. I think that this mechanic is really cool. My only real issue with the game is that it feels a little bit too light for my tastes. </td>
+  </tr>
+  <tr>
+    <td>The Spirit Guardian</td>
+    <td>699.5139974</td>
+    <td>This game is Century: Spice Road meets a Choose Your Own Adventure book. It is a really a weird and interesting combination, and I thought that it made for a very memorable experience. That said, I found that the book interfered too much with the gameplay. Every time I made a move in the game, I was forced to read through an entire page of text to see what my next available actions were. As the type of person who skips cutscenes in video games, this didn't work very well for me, but I can imagine someone else really enjoying this game.</td>
+  </tr>
+  <tr>
+    <td>Crisis Imperator</td>
+    <td>1783.345767</td>
+    <td>This game is an amazing resource management game. You are constantly making agonizing decisions over which battles to neglect and which ones to focus on so that you don't lose control of your entire empire. I loved how each card was multi-purpose and could be events, a 4 possible outcome battle, or even stat buffs/debuffs. Overall, there is a ton of game here, but it is not that hard to learn as things feel fairly intuitive. In fact, I would say that the main thing holding this game back from being even higher is that the game doesn't feel very balanced right now. Certain things feel too strong while others feel very underpowered. I prefer this game to the HMS Speedy, another game with similar mechanics by the same designer.
+</td>
+  </tr>
+  <tr>
+    <td>The Cartographer's Curse</td>
+    <td>865.9226884</td>
+    <td>This is really 2 games in one: a tile placement game and a map exploration game. The idea is that you first make the map, and then explore it. Sadly, exploring the map means destroying it by picking up tiles and adding them to your inventory, which I felt undermined the tile placement portion of the game because you had to destroy your hard work in making a map. I also felt that the exploring portion of the game felt a bit grindy. It was like a survival video game (Don't Starve, Minecraft, etc.) where you craft tools to survive, but I felt that this style of game was a bit too grindy for a tabletop game. In general, grindiness is very dangerous in a tabletop game because, well, grinding is generally not enjoyable and the player(s) can just cheat. I really enjoyed the puzzle of the tile laying- I spent like 20+ minutes just on this portion of the game because I was obsessed with making a perfect map. What's great about this puzzle is the fact that there are some really interesting ways to make a continuous map- you can place tiles so that the ocean is on the border, but you can also place land tiles on the border.
+</td>
+  </tr>
+  <tr>
+    <td>El Subsuelo</td>
+    <td>761.1895058</td>
+    <td>This is an interesting economic worker placement game about running a bar that books musicians. Towards the end of the game, there are a lot of long combo strings that you can pull off, so if you enjoy that kind of gameplay then this is a good one to check out. I did feel that the ability to continually combo off was probably not ideal because it meant you were a bit too powerful near the game end and could pull off essentially whatever you wanted to. Ironically, when you are too powerful there is actually less decision-making to be made because you can just max out everything. </td>
+  </tr>
+  <tr>
+    <td>Make Sail</td>
+    <td>1570.139204</td>
+    <td>This game is sort of like a movement programming game combined with a racing game. The idea is that you first slot all the cards in the deck in various places, and then resolve everything at once. I really love this mechanic because it means that the game feels really fast to play through. It also makes for some very interesting long term decision-making. This game also features scoring methods that are hidden at the start of the game, which I personally really liked. My main concern with this game is balance- the scoring favors promoting the ship that is least far along a bit too much compared to the other strategies, and certain actions just feel a bit too underpowered to make them a particularly interesting decision. 
+</td>
+  </tr>
+  <tr>
+    <td>Octopus Treasure Hunt</td>
+    <td>687.5835409</td>
+    <td>This is an interesting roll and write game. Your goal is to draw lines toward treasure chests, but you might not roll the right lines that you need. That said, there isn't a ton of tension in this game because you rarely lose oxygen, so you can usually just draw useless lines until you roll the thing you need. This lack of tension undermines a lot of the decision making because you can always afford to just keep stalling until you get the perfect outcome. </td>
+  </tr>
+  <tr>
+    <td>Crossword Adventures</td>
+    <td>734.6194217</td>
+    <td>This game feels like solitaire scrabble, but with various interesting objectives and a light amount of story. For example, you might be trying to make words of a certain length, rather than scoring as many points as you can. I liked this idea a lot, and I think it works fairly well. I think that fans of word games will enjoy this game.</td>
+  </tr>
+  <tr>
+    <td>Mazes Inc</td>
+    <td>722.2367934</td>
+    <td>This is an interesting game where you first construct a maze to distract a minotaur while leaving enough treasures behind for you to collect. This game was quite unique and I enjoyed the puzzle of constructing the maze.</td>
+  </tr>
+  <tr>
+    <td>six sided quest</td>
+    <td>251.1576026</td>
+    <td>This game is like a video game RPG, and would likely work much better as a video game. There is a lot of administrative work to be done in generating the encounters and random events that a computer could handle instantly. I did like the combat mechanic from this game where you would roll one die for your attack and then roll a block die for each enemy in the combat. Any enemy with a lower die roll than your attack would die. This resulted in being able to resolve combats with a large number of enemies fairly quickly and in a way that made you feel powerful.
+</td>
+  </tr>
+  <tr>
+    <td>the night stalker</td>
+    <td>2241.193993</td>
+    <td>This game is an incredibly thematic game about being a detective trying to obtain leads and evidence to solve a murder case. This game has a really awesome mechanic where you draw a card with a fingerprint on it, and you have to compare it to the fingerprints of the 4 suspects to determine which suspect the evidence belongs to. It's a small thing, but it really makes you feel immersed in the game. </td>
+  </tr>
+  <tr>
+    <td>a most dangerous rescue</td>
+    <td>224.9432269</td>
+    <td>I played this game digitally. It is a dueling game. The gameplay felt repetitive and uninteresting to me, and I also found that the theme was a bit weird (rescuing precious artifacts from an evil gang).  </td>
+  </tr>
+  <tr>
+    <td>vengeance fight club</td>
+    <td>208.6444495</td>
+    <td>The first rule of fight club is that you don't talk about fight club.</td>
+  </tr>
+  <tr>
+    <td>bairs: save the radiant realm</td>
+    <td>244.9837806</td>
+    <td>This is an exploration game, but it feels a bit unfocused as it contains a large number of various mechanics that do not always feel very cohesive.</td>
+  </tr>
+  <tr>
+    <td>Pongoi</td>
+    <td>399.5065516</td>
+    <td>This is a push your luck game that seems like it would work much better as a multiplayer game.</td>
+  </tr>
+  <tr>
+    <td>Island of flowers</td>
+    <td>482.9252629</td>
+    <td>This tile placement game has some intuitive matching mechanics that feel very connected to the theme. The game is on the light side. </td>
+  </tr>
+  <tr>
+    <td>The ballad of robin hood</td>
+    <td>104.3121863</td>
+    <td>This roleplaying game feels like it would possibly work well as a video game, but felt like a lot of administrative work when I played.</td>
+  </tr>
+  <tr>
+    <td>white rabbit solitaire</td>
+    <td>1284.63612</td>
+    <td>This simple dice-trading micro game is a great example of how less is sometimes more. The game focuses on a unique mechanic called dice-trading in which you exchange dice from your collection with one in the row. You can only exchange dice that are 1 away in value from each-other, which makes for some interesting decisions where you might make some bad trades to hopefully reroll into what you need. I think that dice-trading as a mechanic has a lot of potential. </td>
+  </tr>
+</table>
+
+
+<h3>My Scoring Methodology</h3>
+((Creativity score out of 102 * Design Score out of 102)/17)^(1 + (fun score out of 102 / 204)) + Rulebook score out of 102 + result of a D17 roll (the luck factor)
+
+<h3>Why are you using such a weird formula?</h3>
+For fun!
+
+<h3>Will you reveal the component scores, such as how high a particular game's fun score was?</h3>
+Nope. It's a secret... and I also don't want people nitpicking the scores I chose. It is all subjective anyway.
+
+<h3>Implications of the formula</h3>
+Because this formula contains an exponent, a very small variance accounts for a large score differential among the scorers above 2000+, and the opposite applies for games under a score of 1000. The rulebook score and the luck factor have the least impact on the score. 
+
+<h3>Other notes</h3>
+I printed and played a physical prototype for every game (unless otherwise noted). I tend to like playing the physical version more, and I have a fancy laser printer that deserves to be used.
+
+<br>
+<br>
+<br>
+
+
+<script>
+function sortTable(n) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+  table = document.getElementById("myTable");
+  switching = true;
+  //Set the sorting direction to ascending:
+  dir = "asc"; 
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 1; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("TD")[n];
+      y = rows[i + 1].getElementsByTagName("TD")[n];
+      /*check if the two rows should switch place,
+      based on the direction, asc or desc:*/
+      if (dir == "asc") {
+        if (n!=1){
+          if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+            //if so, mark as a switch and break the loop:
+            shouldSwitch= true;
+            break;
+          }
+        }
+        if (n==1){
+            if (x.innerHTML.toLowerCase().split(".")[0].length < y.innerHTML.toLowerCase().split(".")[0].length ) {
+              if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                shouldSwitch= true;
+                break;
+              }
+            }
+        }
+      } else if (dir == "desc") {
+        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch = true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      //Each time a switch is done, increase this count by 1:
+      switchcount ++;      
+    } else {
+      /*If no switching has been done AND the direction is "asc",
+      set the direction to "desc" and run the while loop again.*/
+      if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+}
+</script>
+
+</div></div>
+<div class="col-1">
+</div>
+</div>
+
+
+<div class="row">
+<div class="col-1">
+</div>
+<div class="col-10">
+<footer>
+<span>&copy; 2020 Jorge Zhang</span> 
+</footer>
+</div>
+<div class="col-1">
+</div>
+</div>
+
+
+</body>
+</html>
