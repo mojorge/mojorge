@@ -1995,6 +1995,14 @@ li.dropdown {
   transform: rotate(180deg); 
 } 
 
+ .trianglespecialexpansion { 
+  position: absolute; 
+  top: 414px; 
+  left: 758px; 
+  border: 00px black solid; 
+  transform: rotate(180deg); 
+} 
+
  .trianglespecial3 { 
   position: absolute; 
   top: 72px; 
@@ -2132,7 +2140,27 @@ Want to try the game but don't want to print it at home? I'll send you a copy! <
   <button style="background-color:red" onclick = "GFG_Fun()"> MAKE CARD    </button> 
   <button class="bigbutton" onclick = "printpage()"> PRINT PAGE</button> 
 
-  <button id="btnicon">Icon Guide?</button>
+
+<select id="select_first" onchange="selectionchanged()">
+  <option value='0'> Default (emeralds, poops, swirls)
+  <option value='1'> No Swirls (emeralds, poops, triangles)
+  <option value='2'> No Emeralds (swirls, poops, triangles)
+  <option value='3'> No Poops (emeralds, swirls, triangles)
+
+</select>
+
+<select id="select_second" onchange="selectionchanged()">
+  <option value='0'> Default (wilds)
+  <option value='1'> Green Plus
+</select>
+
+<select id="select_special" onchange="selectionchanged()">
+  <option value='0'> Default (Stars)
+  <option value='1'> Smiley Faces
+</select>
+
+  <button id="btnicon" onclick = "changeguide()">Icon Guide?</button>
+  <button id="btnicontwo" onclick = "changeguide2()">Expansion Guide?</button>
 
 <br>
 <br>
@@ -2434,8 +2462,10 @@ Want to try the game but don't want to print it at home? I'll send you a copy! <
 <img class="trianglespecial9" src="pdf/transparentgridcropped.png" width="230" height="322"> 
 <img class="trianglespecial10" src="pdf/transparentgridcropped.png" width="230" height="322"> 
 
-<img id="firsticonguide" class="trianglespecial1" src="pdf/iconguide4.png" width="230" height="322" display="block"> 
-<img id="secondiconguide" class="trianglespecial2" src="pdf/iconguide4.png" width="230" height="322" display="block"> 
+<img id="firsticonguide" class="trianglespecial1" src="pdf/iconguide4.png" width="230" height="322" display="block" style="display:block;"> 
+<img id="secondiconguide" class="trianglespecial2" src="pdf/iconguide4.png" width="230" height="322" display="block" style="display:block;"> 
+<img id="specialiconguide" class="trianglespecialexpansion" src="pdf/iconguideexpansion.png" width="230" height="322" display="none" style="display:none;"> 
+
 
 <img class="trianglespecial3" src="pdf/transparentgridcropped.png" width="230" height="322"> 
 <img class="trianglespecial4" src="pdf/transparentgridcropped.png" width="230" height="322"> 
@@ -2466,10 +2496,29 @@ function shuffle(array) {
 }
 
 
+function selectionchanged(){
+  var x = parseInt(document.getElementById('select_first').value);
+  var y = parseInt(document.getElementById('select_second').value);
+  var z = parseInt(document.getElementById('select_special').value);
+
+}
 
 function GFG_Fun() {      
+        var c1 = parseInt(document.getElementById("select_first").value);
+        var c2 = parseInt(document.getElementById("select_second").value);
+        var c3 = parseInt(document.getElementById("select_special").value);
 
-        let arr = [0,7, 2, 3, 4, 5, 6,0,7, 2, 3, 4, 5, 6,0,1, 2, 3, 4, 5, 7,0,1, 2, 3, 4, 6, 6,0,1, 2, 3, 4, 6, 7];
+        let arr = [0,0,0,0,0,1,1,1,2,2,2,2,2];
+        if (c1 == 0){arr.push(3,3,3,3,3,4,4,4,4,4,6,6,6,6,6)}
+        if (c1 == 1){arr.push(3,3,3,3,3,4,4,4,4,4,9,9,9,9,9)}
+        if (c1 == 2){arr.push(6,6,6,6,6,4,4,4,4,4,9,9,9,9,9)}
+        if (c1 == 3){arr.push(6,6,6,6,6,3,3,3,3,3,9,9,9,9,9)}
+        if (c2 == 0){arr.push(7,7,7,7)}
+        if (c2 == 1){arr.push(8,8,8,8)}
+        if (c3 == 0){arr.push(5,5,5)}
+        if (c3 == 1){arr.push(10,10,10)}
+
+        
         shuffle(arr)
         for (let i = 0; i < 280; i++) {
               if (i%35 == 0){shuffle(arr)}
@@ -2493,17 +2542,26 @@ function printpage() {
 
 
 
-const btn = document.querySelector('#btnicon');
-btn.addEventListener('click', (event) => {
+function changeguide() {
   if (document.getElementById("firsticonguide").style.display == "none"){
     document.getElementById("firsticonguide").style.display = "block";
     document.getElementById("secondiconguide").style.display = "block";
   } 
-  else if (document.getElementById("firsticonguide").style.display = "block"){
+  else if (document.getElementById("firsticonguide").style.display == "block"){
     document.getElementById("firsticonguide").style.display = "none";
     document.getElementById("secondiconguide").style.display = "none";
   } 
-        });    
+}
+
+function changeguide2() {
+  if (document.getElementById("specialiconguide").style.display == "none"){
+    document.getElementById("specialiconguide").style.display = "block";
+  } 
+  else if (document.getElementById("specialiconguide").style.display == "block"){
+    document.getElementById("specialiconguide").style.display = "none";
+  } 
+}
+
 
 
     </script> 
