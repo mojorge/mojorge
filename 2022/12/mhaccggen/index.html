@@ -30,6 +30,7 @@
 
 <link rel="stylesheet" type="text/css" href="stuff.css" media="screen" />
 
+<link rel="stylesheet" type="text/css" href="print.css" media="print" />
 
 
 </head>
@@ -72,6 +73,8 @@
 
 <div class="col-10">
 
+
+<div class ="hideforprint">
 <h1>MHA CCG Custom Character Card Generator</h1>		
 </header>
 
@@ -174,6 +177,16 @@ After you are done, click the button. Screenshot that card, then once you have e
 </div>
 
 </div>
+
+<br>
+The following generator generates 4 cards at once in a configuration that is ready to print! It comes with card backs. Fold along the dividing line in order to make cards.
+
+<br>
+<button class="bigbutton" onclick = "printpage()"> PRINT PAGE</button> 
+<br>
+<br>
+
+</div>
       
 <script> 
        
@@ -234,21 +247,7 @@ function placeimage(c, a, b){
 
 function printpage() {
 
-var prtContent = document.getElementById("card_here_2").innerHTML;
-      var mywindow = window.open('', 'new div', 'height=400,width=600');
-      mywindow.document.write('<html><head><title></title>');
-      mywindow.document.write('<link rel="stylesheet" href="stuff.css" type="text/css" />');
-      mywindow.document.write('</head><body >');
-      mywindow.document.write(prtContent);
-      mywindow.document.write('</body></html>');
-      mywindow.document.close();
-      mywindow.focus();
-      setTimeout(1000);
-      mywindow.print();
-
-      mywindow.close();
-
-      return true;
+window.print()
 }
 
 let t = 'sample';
@@ -312,24 +311,18 @@ let transferHealth = (ele) => {
 
 
 
-<br>
-The following generator generates 4 cards at once in a configuration that is ready to print! It comes with card backs. Fold along the dividing line in order to make cards.
 
-<br>
-<button class="bigbutton" onclick = "printpage()"> PRINT PAGE</button> 
-<br>
-<br>
 
 
 <div id = "card_here_2" class="container2">
 
-
-  <img id="bottom1" class="triangle2" src="pdf/bottom1.png" alt="triangle2" width="230" height="322" position=absolute>
-  <img id="middle1" class="triangle2" src="pdf/middle1.png" alt="triangle2" width="230" height="322" position=absolute>
-  <img id="front1" class="triangle2" src="pdf/front1.png" alt="triangle2" width="230" height="322" position=absolute>
-  <img id="topsymbol1" class="triangle2" src="pdf/deathtop.png" alt="triangle2" width="230" height="322" position=absolute>
-  <img id="centersymbol1" class="triangle2" src="pdf/deathcenter.png" alt="triangle2" width="230" height="322" position=absolute>
-  <img id="bottomsymbol1" class="triangle2" src="pdf/deathbottom.png" alt="triangle2" width="230" height="322" position=absolute>
+<div id = "card_1" class="card1">
+  <img id="bottom1" class="triangleimage" src="pdf/bottom1.png" alt="triangle2" width="230" height="322" position=absolute>
+  <img id="middle1" class="triangleimage" src="pdf/middle1.png" alt="triangle2" width="230" height="322" position=absolute>
+  <img id="front1" class="triangleimage" src="pdf/front1.png" alt="triangle2" width="230" height="322" position=absolute>
+  <img id="topsymbol1" class="triangleimage" src="pdf/deathtop.png" alt="triangle2" width="230" height="322" position=absolute>
+  <img id="centersymbol1" class="triangleimage" src="pdf/deathcenter.png" alt="triangle2" width="230" height="322" position=absolute>
+  <img id="bottomsymbol1" class="triangleimage" src="pdf/deathbottom.png" alt="triangle2" width="230" height="322" position=absolute>
 
   <div class="strokeme">
     <div id="creaturename1" style="font-size:15px" class="textpage">Character Name </div>
@@ -337,60 +330,69 @@ The following generator generates 4 cards at once in a configuration that is rea
     <div id="health1" style="font-size:18px" class="textbinder1">20</div>
   </div>
   <div class="strokeme2">
-    <div id="creatureability1" style="font-size:6.2px" class="textbinder2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.  </div>
+    <div id="creatureability1" style="font-size:6.5px" class="textbinder2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.  </div>
   </div>
+</div>
 
-  <img id="bottom2" class="triangle3" src="pdf/bottom1.png" alt="triangle2" width="230" height="322" position=absolute>
-  <img id="middle2" class="triangle3" src="pdf/middle1.png" alt="triangle2" width="230" height="322" position=absolute>
-  <img id="front2" class="triangle3" src="pdf/front1.png" alt="triangle2" width="230" height="322" position=absolute>
-  <img id="topsymbol2" class="triangle3" src="pdf/deathtop.png" alt="triangle2" width="230" height="322" position=absolute>
-  <img id="centersymbol2" class="triangle3" src="pdf/deathcenter.png" alt="triangle2" width="230" height="322" position=absolute>
-  <img id="bottomsymbol2" class="triangle3" src="pdf/deathbottom.png" alt="triangle2" width="230" height="322" position=absolute>
+<div id = "card_2" class="card2">
+  <img id="bottom2" class="triangleimage" src="pdf/bottom1.png" alt="triangle2" width="230" height="322" position=absolute>
+  <img id="middle2" class="triangleimage" src="pdf/middle1.png" alt="triangle2" width="230" height="322" position=absolute>
+  <img id="front2" class="triangleimage" src="pdf/front1.png" alt="triangle2" width="230" height="322" position=absolute>
+  <img id="topsymbol2" class="triangleimage" src="pdf/deathtop.png" alt="triangle2" width="230" height="322" position=absolute>
+  <img id="centersymbol2" class="triangleimage" src="pdf/deathcenter.png" alt="triangle2" width="230" height="322" position=absolute>
+  <img id="bottomsymbol2" class="triangleimage" src="pdf/deathbottom.png" alt="triangle2" width="230" height="322" position=absolute>
  <div class="strokeme">
-  <div id="creaturename2" style="font-size:15px" class="textpage3">Character Name</div>
-  <div id="creaturecost2" style="font-size:18px" class="textpage4">0</div>
-  <div id="health2" style="font-size:18px" class="textbinder3">20</div>
+  <div id="creaturename2" style="font-size:15px" class="textpage">Character Name</div>
+  <div id="creaturecost2" style="font-size:18px" class="textpage2">0</div>
+  <div id="health2" style="font-size:18px" class="textbinder1">20</div>
  </div>
  <div class="strokeme2">
-    <div id="creatureability2" style="font-size:6.2px" class="textbinder4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.  </div>
+    <div id="creatureability2" style="font-size:6.5px" class="textbinder2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.  </div>
+</div>
 </div>
 
-  <img id="bottom3" class="triangle4" src="pdf/bottom1.png" alt="triangle2" width="230" height="322" position=absolute>
-  <img id="middle3" class="triangle4" src="pdf/middle1.png" alt="triangle2" width="230" height="322" position=absolute>
-  <img id="front3" class="triangle4" src="pdf/front1.png" alt="triangle2" width="230" height="322" position=absolute>
-  <img id="topsymbol3" class="triangle4" src="pdf/deathtop.png" alt="triangle2" width="230" height="322" position=absolute>
-  <img id="centersymbol3" class="triangle4" src="pdf/deathcenter.png" alt="triangle2" width="230" height="322" position=absolute>
-  <img id="bottomsymbol3" class="triangle4" src="pdf/deathbottom.png" alt="triangle2" width="230" height="322" position=absolute>
+<div id = "card_3" class="card3">
+  <img id="bottom3" class="triangleimage" src="pdf/bottom1.png" alt="triangle2" width="230" height="322" position=absolute>
+  <img id="middle3" class="triangleimage" src="pdf/middle1.png" alt="triangle2" width="230" height="322" position=absolute>
+  <img id="front3" class="triangleimage" src="pdf/front1.png" alt="triangle2" width="230" height="322" position=absolute>
+  <img id="topsymbol3" class="triangleimage" src="pdf/deathtop.png" alt="triangle2" width="230" height="322" position=absolute>
+  <img id="centersymbol3" class="triangleimage" src="pdf/deathcenter.png" alt="triangle2" width="230" height="322" position=absolute>
+  <img id="bottomsymbol3" class="triangleimage" src="pdf/deathbottom.png" alt="triangle2" width="230" height="322" position=absolute>
  <div class="strokeme">
-  <div id="creaturename3" style="font-size:15px" class="textpage5">Character Name</div>
-  <div id="creaturecost3" style="font-size:18px" class="textpage6">0</div>
-    <div id="health3" style="font-size:18px" class="textbinder5">20</div>
+  <div id="creaturename3" style="font-size:15px" class="textpage">Character Name</div>
+  <div id="creaturecost3" style="font-size:18px" class="textpage2">0</div>
+    <div id="health3" style="font-size:18px" class="textbinder1">20</div>
 </div>
  <div class="strokeme2">
-    <div id="creatureability3" style="font-size:6.2px" class="textbinder6">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.  </div>
+    <div id="creatureability3" style="font-size:6.5px" class="textbinder2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.  </div>
+</div>
 </div>
 
-  <img id="bottom4" class="triangle5" src="pdf/bottom1.png" alt="triangle2" width="230" height="322" position=absolute>
-  <img id="middle4" class="triangle5" src="pdf/middle1.png" alt="triangle2" width="230" height="322" position=absolute>
-  <img id="front4" class="triangle5" src="pdf/front1.png" alt="triangle2" width="230" height="322" position=absolute>
-  <img id="topsymbol4" class="triangle5" src="pdf/deathtop.png" alt="triangle2" width="230" height="322" position=absolute>
-  <img id="centersymbol4" class="triangle5" src="pdf/deathcenter.png" alt="triangle2" width="230" height="322" position=absolute>
-  <img id="bottomsymbol4" class="triangle5" src="pdf/deathbottom.png" alt="triangle2" width="230" height="322" position=absolute>
+<div id = "card_4" class="card4">
+  <img id="bottom4" class="triangleimage" src="pdf/bottom1.png" alt="triangle2" width="230" height="322" position=absolute>
+  <img id="middle4" class="triangleimage" src="pdf/middle1.png" alt="triangle2" width="230" height="322" position=absolute>
+  <img id="front4" class="triangleimage" src="pdf/front1.png" alt="triangle2" width="230" height="322" position=absolute>
+  <img id="topsymbol4" class="triangleimage" src="pdf/deathtop.png" alt="triangle2" width="230" height="322" position=absolute>
+  <img id="centersymbol4" class="triangleimage" src="pdf/deathcenter.png" alt="triangle2" width="230" height="322" position=absolute>
+  <img id="bottomsymbol4" class="triangleimage" src="pdf/deathbottom.png" alt="triangle2" width="230" height="322" position=absolute>
  <div class="strokeme">
-  <div id="creaturename4" style="font-size:15px" class="textpage7">Character Name</div>
-  <div id="creaturecost4" style="font-size:18px" class="textpage8">0</div>
-    <div id="health4" style="font-size:18px" class="textbinder7">20</div>
+  <div id="creaturename4" style="font-size:15px" class="textpage">Character Name</div>
+  <div id="creaturecost4" style="font-size:18px" class="textpage2">0</div>
+    <div id="health4" style="font-size:18px" class="textbinder1">20</div>
 </div>
  <div class="strokeme2">
-    <div id="creatureability4" style="font-size:6.2px" class="textbinder8">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.  </div>
+    <div id="creatureability4" style="font-size:6.5px" class="textbinder2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.  </div>
+</div>
+
 </div>
 
 <hr class="specialhr">
 
-  <img class="back1" src="pdf/cardback_down.jpg" alt="triangle2" width="230" height="322" position=absolute>
-  <img class="back2" src="pdf/cardback_down.jpg" alt="triangle2" width="230" height="322" position=absolute>
-  <img class="back3" src="pdf/cardback_down.jpg" alt="triangle2" width="230" height="322" position=absolute>
-  <img class="back4" src="pdf/cardback_down.jpg" alt="triangle2" width="230" height="322" position=absolute>
+
+  <img class="back1" src="pdf/cardback_down.png" alt="triangle2" width="230" height="322" position=absolute>
+  <img class="back2" src="pdf/cardback_down.png" alt="triangle2" width="230" height="322" position=absolute>
+  <img class="back3" src="pdf/cardback_down.png" alt="triangle2" width="230" height="322" position=absolute>
+  <img class="back4" src="pdf/cardback_down.png" alt="triangle2" width="230" height="322" position=absolute>
 
 </div>
 
@@ -398,9 +400,6 @@ The following generator generates 4 cards at once in a configuration that is rea
 
  
 
-<h2>Change history: </h2>
-12/29/2022: Made this generator.
-<br>
 </a>
 
 </div></div>
@@ -413,7 +412,6 @@ The following generator generates 4 cards at once in a configuration that is rea
 </div>
 <div class="col-10">
 <footer>
-<span>&copy; 2020 Jorge Zhang</span> 
 </footer>
 </div>
 <div class="col-1">
