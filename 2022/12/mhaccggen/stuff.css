@@ -183,14 +183,14 @@ header {
 .textbox2 {
   position: absolute;
   top: 253px;
-  left: 51px;
+  left: 45px;
   border: 0px red solid;
 }
 
 .textbox3 {
   position: absolute;
-  top: 332px;
-  left: 38px;
+  top: 334px;
+  left: 33px;
   border: 0px red solid;
 }
 
@@ -267,14 +267,14 @@ header {
 .textpage2 {
   position: absolute;
   top: 117px;
-  left: 25px;
+  left: 23px;
   border: 0px red solid;
 }
 
 .textbinder1 {
   position: absolute;
   top: 155px;
-  left: 19px;
+  left: 17px;
   border: 0px red solid;
 }
 
@@ -282,7 +282,7 @@ header {
   position: absolute;
   top: 210px;
   left: 39px;
-  right: 23px;
+  right: 28px;
   border: 0px red solid;
 }
 
