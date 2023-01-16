@@ -1,0 +1,297 @@
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="My hero CCG Custom Card generator ">
+<meta name="keywords" content="Board Game, Tabletop, Game, Game design">
+<meta name="author" content="Jorge Zhang">
+
+<title>Shadow Era GEN</title>
+
+<meta property="og:image" content="pdf/cardback.png"/>
+<meta property="og:description" content="Shadow Era CCG Character Card Generator."/>
+
+		
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q4LHHGS01W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Q4LHHGS01W');
+</script>
+
+
+
+<link rel="stylesheet" type="text/css" href="stuff.css" media="screen" />
+
+<link rel="stylesheet" type="text/css" href="print.css" media="print" />
+
+
+</head>
+
+
+<header>
+
+<h1 class="main-title"><a href="../../../index.html">Jorge Zhang</a></h1>
+
+</header>
+
+
+<div class="row">
+<div class="col-1">
+</div>
+<div class="col-10">
+<ul class="main_menu">
+  <li class="main_menu"><a href="../../../daggers-highschool.html">About Daggers High</a></li>
+  <li class="main_menu"><a href="../../../puzzles/index.html">Puzzles</a></li>
+  <li class="main_menu"><a href="../../../tutoring/index.html">Tutoring</a></li>
+  <li class="dropdown">
+    <a href="../../../blog-archive.html" class="dropbtn">Blog Archive</a>
+    <div class="dropdown-content">
+      <a href="../../../category/reviews/index.html">Reviews</a>
+      <a href="../../../tag/education/index.html">Education</a>
+      <a href="../../../category/funny/index.html">Funny</a>
+      <a href="../../../category/politics/index.html">Politics</a>
+    </div>
+  </li>
+</ul>
+</div>
+<div class="col-1">
+</div>
+</div>
+
+<p></p>
+
+<div class="row">
+<div class="col-1"> </div>
+
+<div class="col-10">
+
+
+<div class ="hideforprint">
+<h1>Shadow Era Custom Card Generator</h1>		
+</header>
+
+
+<p>January 15, 2023 by Jorge Zhang</p>
+
+INSTRUCTIONS: In order, input the following:
+<ol>
+<li><b>Character Name:</b> Enter some text.</li>
+<li><b>Health:</b> Value between 0 and 99.</li>
+<li><b>Ability:</b> Enter text.</li>
+<li><b>Image:</b> Enter a URL to an image, then click "INSERT IMAGE." Example: https://i.imgur.com/6ECF3c7.jpeg</li>
+
+</ol>
+<br><br>
+
+      
+
+
+
+
+<input type="text" onkeyup='transferText(this)' id="cardname" name="cardname" minlength="3" maxlength="20" required>
+
+<input type="text" onkeyup='transferHealth(this)' id="cardhealth" name="cardhealth" minlength="1" maxlength="2" required>
+
+<textarea type="text"  onkeyup='writeText(this)' id="cardability" name="cardability" minlength="1" maxlength="1000" required></textarea>
+
+
+<input type="text" id="imageurl" name="cardhealth" minlength="0" maxlength="200" required>
+
+
+<span id="selectedbackground"></span>
+
+
+<span id="selectedmiddle"></span> <button class="greenbutton" onclick = "GFG_Fun('creaturename','creaturecost')">INSERT IMAGE</button> 
+
+<br>
+
+
+
+
+<br><br><br>
+
+<div id = "body" style = "text-align:center;"> 
+</div>
+
+<div id = "card_here" class="container">
+  <img id="bottom" class="triangle1" src="pdf/bottom1.png" alt="triangle" width="495" height="695" position=absolute>
+  <img id="front" class="triangle1" src="pdf/front1.png" alt="triangle" width="495" height="695" position=absolute>
+
+
+
+<div class="strokeme">
+
+
+  <div id="creaturename" style="font-size:30px" class="textbox"> Character Name </div>
+ <!-- <div id="creaturecost" style="font-size:42px" class="textbox2">5</div> --!>
+  <div id="health" style="font-size:32px" class="textbox3">20</div>
+  <div id="creatureability" style="font-size:14px" class="textbox4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</div>
+
+
+</div>
+
+</div>
+
+
+</div>
+      
+<script> 
+       
+
+function GFG_Fun(d, e) {
+  var t3 = document.getElementById("imageurl").value;
+
+   document.getElementById("bottom").src = t3;
+   document.getElementById("bottom1").src = t3;
+   document.getElementById("bottom2").src = t3;
+   document.getElementById("bottom3").src = t3;
+   document.getElementById("bottom4").src = t3;
+
+
+} 
+
+
+function selectionchanged(){
+
+  var j = document.getElementById('cardname').value;
+  var hand = parseInt(document.getElementById('select_cost').value);
+  var t = document.getElementById("select_top").value;
+  var c = document.getElementById("select_center").value;
+  var b = document.getElementById("select_bottom").value;
+
+  document.getElementById("creaturecost").innerHTML = hand;
+  document.getElementById("creaturecost1").innerHTML = hand;
+  document.getElementById("creaturecost2").innerHTML = hand;
+  document.getElementById("creaturecost3").innerHTML = hand;
+  document.getElementById("creaturecost4").innerHTML = hand;
+
+  document.getElementById("topsymbol").src='pdf/'+t+'.png';
+  document.getElementById("topsymbol1").src='pdf/'+t+'.png';
+  document.getElementById("topsymbol2").src='pdf/'+t+'.png';
+  document.getElementById("topsymbol3").src='pdf/'+t+'.png';
+  document.getElementById("topsymbol4").src='pdf/'+t+'.png';
+
+  document.getElementById("centersymbol").src='pdf/'+c+'.png';
+  document.getElementById("centersymbol1").src='pdf/'+c+'.png';
+  document.getElementById("centersymbol2").src='pdf/'+c+'.png';
+  document.getElementById("centersymbol3").src='pdf/'+c+'.png';
+  document.getElementById("centersymbol4").src='pdf/'+c+'.png';
+
+  document.getElementById("bottomsymbol").src='pdf/'+b+'.png';
+  document.getElementById("bottomsymbol1").src='pdf/'+b+'.png';
+  document.getElementById("bottomsymbol2").src='pdf/'+b+'.png';
+  document.getElementById("bottomsymbol3").src='pdf/'+b+'.png';
+  document.getElementById("bottomsymbol4").src='pdf/'+b+'.png';
+
+
+}
+
+
+function placeimage(c, a, b){
+  document.getElementById(a).src = 'pdf/'+c+b+'.png';
+}
+
+
+function printpage() {
+
+window.print()
+}
+
+let t = 'sample';
+
+let writeText = (ele) => {
+    t = ele.value;
+    var thetext = t.replace(/\n\r?/g, '<br />');
+    thetext = thetext.replace(/Enhance/g, "<span class='colortext'>Enhance</span>")
+    thetext = thetext.replace(/Response/g, "<span class='colortext2'>Response</span>")
+    thetext = thetext.replace(/Form/g, "<span class='colortext3'>Form</span>")
+
+    document.getElementById('creatureability').innerHTML = 
+      thetext;
+    document.getElementById('creatureability1').innerHTML = 
+      thetext;
+    document.getElementById('creatureability2').innerHTML = 
+      thetext;
+    document.getElementById('creatureability3').innerHTML = 
+      thetext;
+    document.getElementById('creatureability4').innerHTML = 
+      thetext;
+}
+
+let testtext = 'sample';
+
+let transferText = (ele) => {
+    testtext = ele.value;
+    var thetext = testtext;
+
+    document.getElementById('creaturename').innerHTML = 
+      thetext;
+    document.getElementById('creaturename1').innerHTML = 
+      thetext;
+    document.getElementById('creaturename2').innerHTML = 
+      thetext;
+    document.getElementById('creaturename3').innerHTML = 
+      thetext;
+    document.getElementById('creaturename4').innerHTML = 
+      thetext;
+}
+
+let testtext2 = 'sample';
+
+let transferHealth = (ele) => {
+    testtext2 = ele.value;
+    var thetext = testtext2;
+
+    document.getElementById('health').innerHTML = 
+      thetext;
+    document.getElementById('health1').innerHTML = 
+      thetext;
+    document.getElementById('health2').innerHTML = 
+      thetext;
+    document.getElementById('health3').innerHTML = 
+      thetext;
+    document.getElementById('health4').innerHTML = 
+      thetext;
+}
+
+</script> 
+
+
+
+
+
+
+
+
+ 
+
+</a>
+
+</div></div>
+<div class="col-1">
+</div>
+
+
+<div class="row">
+<div class="col-1">
+</div>
+<div class="col-10">
+<footer>
+</footer>
+</div>
+<div class="col-1">
+</div>
+</div>
+
+
+</body>
+</html>
