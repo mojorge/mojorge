@@ -101,7 +101,6 @@ header {
 .container {
   width: 540px;
   height: 740px;
-  max-width: 80%;
   background-color: whitesmoke;
   border-radius: 5px;
   padding: 10px;
@@ -176,7 +175,7 @@ header {
 .textbox {
   position: absolute;
   top: 25px;
-  left: 120px;
+  left: 25%;
   border: 0px red solid;
 }
 
@@ -196,9 +195,17 @@ header {
 
 .textbox4 {
   position: absolute;
-  top: 528px;
-  left: 45px;
-  Right: 67px;
+  top: 548px;
+  left: 10%;
+  Right: 15%;
+  border: 0px red solid;
+}
+
+.typeofcard {
+  position: absolute;
+  top: 483px;
+  left: 10%;
+  Right: 15%;
   border: 0px red solid;
 }
 
@@ -432,4 +439,42 @@ header {
      color: dodgerblue; 
    }
 
+.slidecontainer {
+  width: 100%;
+}
 
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 25px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #04AA6D;
+  cursor: pointer;
+}
+
+.circle {
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  font-size: 15px;
+  color: #fff;
+  border: 1px solid #CCC;
+  text-align: center;
+  background: #800080;
+  overflow-inline: visible;
+}
