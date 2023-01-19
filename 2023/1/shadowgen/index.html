@@ -92,6 +92,16 @@ INSTRUCTIONS: In order, input the following:
 
 </ol>
 <br>      
+<select id="select_generator" onchange="selectionchanged()">
+  <option value='hero'>Hero card
+  <option value='ally'>Ally card
+</select>
+     
+<select id="select_foil" onchange="selectionchanged()">
+  <option value='none'>Non-foil
+  <option value='foil'>Foil
+</select>
+<br>
 
 <select id="select_top" onchange="selectionchanged()">
   <option value='magetop'>Mage
@@ -101,8 +111,6 @@ INSTRUCTIONS: In order, input the following:
   <option value='roguetop'>Rogue
   <option value='wulventop'>Wulven
   <option value='elementaltop'>Elemental
-
-
 </select>
 
 <input type="text" onkeyup='transferText(this)' id="cardname" name="cardname" minlength="3" maxlength="20" required>
@@ -139,7 +147,7 @@ INSTRUCTIONS: In order, input the following:
   <img id="bottom" class="triangle1" src="pdf/bottom1.png" alt="triangle" width="495" height="695" position=absolute>
   <img id="front" class="triangle1" src="pdf/front1.png" alt="triangle" width="495" height="695" position=absolute>
   <img id="topsymbol" class="triangle1" src="pdf/warriortop.png" alt="triangle" width="495" height="695" position=absolute>
-
+  <img id="foil" class="foiled" src="pdf/foil.png" alt="triangle" width="495" height="695" position=absolute>
 
 <div class="strokeme">
 
@@ -147,7 +155,7 @@ INSTRUCTIONS: In order, input the following:
   <div id="creaturename" style="font-size:30px" class="textbox"> Character Name </div>
  <!-- <div id="creaturecost" style="font-size:42px" class="textbox2">5</div> --!>
   <div id="health" style="font-size:32px" class="textbox3">20</div>
-  <div id="creaturetype" style="font-size:23px" class="typeofcard"> Human Hero - Mage </div>
+  <div id="creaturetype" style="font-size:23px" class="typeofcard"> Human Hero - Warrior </div>
 </div>
 
   <div id="creatureability" style="font-size:18px" class="textbox4"><div class='circle' style='display: inline'> &nbsp;4 </div>&nbsp;Target opposing ally with cost 4 or less is killed.
@@ -192,8 +200,25 @@ function GFG_Fun(d, e) {
 function selectionchanged(){
 
   var t = document.getElementById("select_top").value;
+  var pick = document.getElementById("select_generator").value;
+  var foiling = document.getElementById("select_foil").value;
+
 
   document.getElementById("topsymbol").src='pdf/'+t+'.png';
+
+  if (pick == "hero"){
+}
+  if (pick == "ally"){
+  document.getElementById("front").src='pdf/front2.png';
+}
+
+
+  if (foiling == "foil"){
+  document.getElementById("foil").style.display="inline";  
+}
+  if (foiling == "none"){
+  document.getElementById("foil").syle.display="none";  
+}
 
 }
 
