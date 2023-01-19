@@ -138,8 +138,10 @@ INSTRUCTIONS: In order, input the following:
 <div class="slidecontainer">
   <p>Name Position: <input type="range" min="1" max="100" value="50" id="sliderRange">
   Text Vertical Position: <input type="range" min="1" max="100" value="50" id="sliderRange2">
-</div>
+  Health Position: <input type="range" min="1" max="100" value="50" id="sliderRange3">
 </p>
+</div>
+
 
 For Allies: <input type="text" placeholder="Cost" onkeyup='transferCost(this)' id="cardcost" name="cardcost" minlength="1" maxlength="2" required>
 
@@ -167,7 +169,7 @@ For Allies: <input type="text" placeholder="Cost" onkeyup='transferCost(this)' i
 
   <div id="creaturename" style="font-size:30px" class="textbox"> Character Name </div>
   <div id="creaturecost" style="font-size:42px" class="textbox2"></div> 
-  <div id="creatureattack" style="font-size:42px" class="textboxattack"></div> 
+  <div id="creatureattack" style="font-size:32px" class="textboxattack"></div> 
   <div id="health" style="font-size:32px" class="textbox3">20</div>
   <div id="creaturetype" style="font-size:23px" class="typeofcard"> Human Hero - Warrior </div>
 
@@ -197,6 +199,11 @@ var rangeslider2 = document.getElementById("sliderRange2");
 rangeslider2.oninput = function() {
    verticalshift = this.value + 0
    document.getElementById("creatureability").style.top = verticalshift+"px";
+}
+
+var rangeslider3 = document.getElementById("sliderRange3");
+rangeslider3.oninput = function() {
+   document.getElementById("health").style.left = this.value+"%";
 }
 
 
