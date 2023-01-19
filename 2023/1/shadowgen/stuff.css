@@ -194,6 +194,8 @@ header {
   left: 25%;
   border: 0px red solid;
   font-family: Arial;
+
+
 }
 
 .textbox2 {
@@ -219,6 +221,8 @@ header {
   Right: 15%;
   border: 0px red solid;
   font-family: Arial;
+  color: black;
+
 }
 
 .whitetext {
