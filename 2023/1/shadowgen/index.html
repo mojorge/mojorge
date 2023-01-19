@@ -160,9 +160,12 @@ For Allies: <input type="text" placeholder="Cost" onkeyup='transferCost(this)' i
 
 
   <div id="creaturename" style="font-size:30px" class="textbox"> Character Name </div>
- <!-- <div id="creaturecost" style="font-size:42px" class="textbox2">5</div> --!>
+  <div id="creaturecost" style="font-size:42px" class="textbox2"></div> 
+  <div id="creatureattack" style="font-size:42px" class="textboxattack"></div> 
   <div id="health" style="font-size:32px" class="textbox3">20</div>
   <div id="creaturetype" style="font-size:23px" class="typeofcard"> Human Hero - Warrior </div>
+
+
 </div>
 
   <div id="creatureability" style="font-size:18px" class="textbox4"><div class='circle' style='display: inline'> &nbsp;4 </div>&nbsp;Target opposing ally with cost 4 or less is killed.
@@ -285,6 +288,27 @@ let transferType = (ele) => {
     document.getElementById('creaturetype').innerHTML = 
       thetext;
 }
+
+let testtext4 = 'sample';
+
+let transferCost = (ele) => {
+    testtext4 = ele.value;
+    var thetext = testtext4;
+
+    document.getElementById('creaturecost').innerHTML = 
+      thetext;
+}
+
+let testtext5 = 'sample';
+
+let transferAttack = (ele) => {
+    testtext5 = ele.value;
+    var thetext = testtext5;
+
+    document.getElementById('creatureattack').innerHTML = 
+      thetext;
+}
+
 
 
 </script> 

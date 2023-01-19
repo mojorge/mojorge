@@ -189,8 +189,8 @@ header {
 
 .textbox2 {
   position: absolute;
-  top: 253px;
-  left: 45px;
+  top: 23px;
+  left: 50px;
   border: 0px red solid;
 }
 
@@ -204,6 +204,14 @@ header {
 .textbox4 {
   position: absolute;
   top: 548px;
+  left: 10%;
+  Right: 15%;
+  border: 0px red solid;
+}
+
+.textboxattack {
+  position: absolute;
+  top: 628px;
   left: 10%;
   Right: 15%;
   border: 0px red solid;
