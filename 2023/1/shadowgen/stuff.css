@@ -217,6 +217,15 @@ header {
   border: 0px red solid;
 }
 
+.whitetext {
+  position: absolute;
+  top: 548px;
+  left: 10%;
+  Right: 15%;
+  border: 0px red solid;
+  display:none;
+}
+
 .textboxattack {
   position: absolute;
   top: 628px;
@@ -450,6 +459,8 @@ header {
     -webkit-print-color-adjust:exact;
     -webkit-filter:opacity(1);
 }
+
+
 
    .colortext {
      color: orange; 

@@ -99,6 +99,7 @@ INSTRUCTIONS: In order, input the following:
   <option value='hero'>Hero card
   <option value='ally'>Ally card
   <option value='ability'>Ability or Item card
+  <option value='fullart'>Full Art
 </select>
      
 <select id="select_foil" onchange="selectionchanged()">
@@ -160,6 +161,12 @@ For Allies: <input type="text" placeholder="Cost" onkeyup='transferCost(this)' i
 <select id="select_item_type" onchange="selectionchanged()">
   <option value='none'>No durability
   <option value='durability'>Durability
+  <option value='health'>Health
+</select>
+
+<select id="select_cost" onchange="selectionchanged()">
+  <option value='none'>No cost
+  <option value='cost'>Cost
 </select>
 
 <br><br><br>
@@ -174,6 +181,7 @@ For Allies: <input type="text" placeholder="Cost" onkeyup='transferCost(this)' i
   <img id="foilcard" class="triangle1" src="pdf/none.png" alt="triangle" width="495" height="695" position=absolute>
   <img id="attacktype" class="triangle1" src="pdf/none.png" alt="triangle" width="495" height="695" position=absolute>
   <img id="durabilitytype" class="triangle1" src="pdf/none.png" alt="triangle" width="495" height="695" position=absolute>
+  <img id="istherecost" class="triangle1" src="pdf/none.png" alt="triangle" width="495" height="695" position=absolute>
 
 <div class="strokeme">
 
@@ -190,8 +198,10 @@ For Allies: <input type="text" placeholder="Cost" onkeyup='transferCost(this)' i
   <div id="creatureability" style="font-size:18px" class="textbox4"><div class='circle' style='display: inline'> &nbsp;4 </div>&nbsp;Target opposing ally with cost 4 or less is killed.
 </div>
 
-
-
+<div class="strokeme">
+  <div id="creatureability2" style="font-size:18px" class="whitetext"><div class='circle' style='display: inline'> &nbsp;4 </div>&nbsp;Target opposing ally with cost 4 or less is killed.
+</div>
+</div>
 
 </div>
 
@@ -233,11 +243,12 @@ function selectionchanged(){
   var foiling = document.getElementById("select_foil").value;
   var attacktype = document.getElementById("select_attack_type").value;
   var durabilityquestion = document.getElementById("select_item_type").value;
+  var costquestion = document.getElementById("select_cost").value;
 
   document.getElementById("attacktype").src='pdf/'+attacktype+'.png';
   document.getElementById("foilcard").src='pdf/'+foiling+'.png';
   document.getElementById("durabilitytype").src='pdf/'+durabilityquestion+'.png';
-
+  document.getElementById("istherecost").src='pdf/'+costquestion+'.png';
 
 
   if (t!="none"){
@@ -257,6 +268,16 @@ function selectionchanged(){
 }
   if (pick == "ability"){
   document.getElementById("front").src='pdf/front3.png';
+}
+  if (pick == "fullart"){
+  document.getElementById("front").src='pdf/front4.png';
+  document.getElementById("creatureability2").style.display='block';
+  document.getElementById("creatureability").style.display='none';
+
+} else{
+  document.getElementById("creatureability2").style.display='none';
+  document.getElementById("creatureability").style.display='block';
+
 }
 
 
@@ -300,6 +321,8 @@ let writeText = (ele) => {
 
 
     document.getElementById('creatureability').innerHTML = 
+      thetext;
+    document.getElementById('creatureability2').innerHTML = 
       thetext;
 
 }
