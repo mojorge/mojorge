@@ -193,6 +193,7 @@ header {
   top: 25px;
   left: 25%;
   border: 0px red solid;
+  font-family: Arial;
 }
 
 .textbox2 {
@@ -200,6 +201,7 @@ header {
   top: 23px;
   left: 50px;
   border: 0px red solid;
+  font-family: Arial;
 }
 
 .textbox3 {
@@ -207,6 +209,7 @@ header {
   top: 634px;
   left: 430px;
   border: 0px red solid;
+  font-family: Arial;
 }
 
 .textbox4 {
@@ -215,6 +218,7 @@ header {
   left: 10%;
   Right: 15%;
   border: 0px red solid;
+  font-family: Arial;
 }
 
 .whitetext {
@@ -224,6 +228,7 @@ header {
   Right: 15%;
   border: 0px red solid;
   display:none;
+  font-family: Arial;
 }
 
 .textboxattack {
@@ -232,6 +237,7 @@ header {
   left: 9%;
   Right: 15%;
   border: 0px red solid;
+  font-family: Arial;
 }
 
 .typeofcard {
@@ -240,6 +246,7 @@ header {
   left: 10%;
   Right: 15%;
   border: 0px red solid;
+  font-family: Arial;
 }
 
 .container2 {
