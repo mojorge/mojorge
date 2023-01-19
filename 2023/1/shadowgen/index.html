@@ -83,6 +83,7 @@
 
 INSTRUCTIONS: In order, input the following:
 <ol>
+<li><b>Class Icon:</b> Select Class.</li>
 <li><b>Character Name:</b> Enter some text.</li>
 <li><b>Health:</b> Value between 0 and 99.</li>
 <li><b>Faction, class, and tribe:</b> Text.</li>
@@ -90,12 +91,19 @@ INSTRUCTIONS: In order, input the following:
 <li><b>Image:</b> Enter a URL to an image, then click "INSERT IMAGE." Example: https://i.imgur.com/6ECF3c7.jpeg</li>
 
 </ol>
-<br><br>
+<br>      
 
-      
+<select id="select_top" onchange="selectionchanged()">
+  <option value='magetop'>Mage
+  <option value='warriortop'>Warrior
+  <option value='huntertop'>Hunter
+  <option value='priesttop'>Priest
+  <option value='roguetop'>Rogue
+  <option value='wulventop'>Wulven
+  <option value='elementaltop'>Elemental
 
 
-
+</select>
 
 <input type="text" onkeyup='transferText(this)' id="cardname" name="cardname" minlength="3" maxlength="20" required>
 
@@ -130,7 +138,7 @@ INSTRUCTIONS: In order, input the following:
 <div id = "card_here" class="container">
   <img id="bottom" class="triangle1" src="pdf/bottom1.png" alt="triangle" width="495" height="695" position=absolute>
   <img id="front" class="triangle1" src="pdf/front1.png" alt="triangle" width="495" height="695" position=absolute>
-
+  <img id="topsymbol" class="triangle1" src="pdf/warriortop.png" alt="triangle" width="495" height="695" position=absolute>
 
 
 <div class="strokeme">
@@ -183,36 +191,9 @@ function GFG_Fun(d, e) {
 
 function selectionchanged(){
 
-  var j = document.getElementById('cardname').value;
-  var hand = parseInt(document.getElementById('select_cost').value);
   var t = document.getElementById("select_top").value;
-  var c = document.getElementById("select_center").value;
-  var b = document.getElementById("select_bottom").value;
-
-  document.getElementById("creaturecost").innerHTML = hand;
-  document.getElementById("creaturecost1").innerHTML = hand;
-  document.getElementById("creaturecost2").innerHTML = hand;
-  document.getElementById("creaturecost3").innerHTML = hand;
-  document.getElementById("creaturecost4").innerHTML = hand;
 
   document.getElementById("topsymbol").src='pdf/'+t+'.png';
-  document.getElementById("topsymbol1").src='pdf/'+t+'.png';
-  document.getElementById("topsymbol2").src='pdf/'+t+'.png';
-  document.getElementById("topsymbol3").src='pdf/'+t+'.png';
-  document.getElementById("topsymbol4").src='pdf/'+t+'.png';
-
-  document.getElementById("centersymbol").src='pdf/'+c+'.png';
-  document.getElementById("centersymbol1").src='pdf/'+c+'.png';
-  document.getElementById("centersymbol2").src='pdf/'+c+'.png';
-  document.getElementById("centersymbol3").src='pdf/'+c+'.png';
-  document.getElementById("centersymbol4").src='pdf/'+c+'.png';
-
-  document.getElementById("bottomsymbol").src='pdf/'+b+'.png';
-  document.getElementById("bottomsymbol1").src='pdf/'+b+'.png';
-  document.getElementById("bottomsymbol2").src='pdf/'+b+'.png';
-  document.getElementById("bottomsymbol3").src='pdf/'+b+'.png';
-  document.getElementById("bottomsymbol4").src='pdf/'+b+'.png';
-
 
 }
 
