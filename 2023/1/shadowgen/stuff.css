@@ -502,3 +502,15 @@ header {
   background: #800080;
   overflow-inline: visible;
 }
+
+.circleblack {
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  font-size: 15px;
+  color: #fff;
+  border: 1px solid #CCC;
+  text-align: center;
+  background: #000000;
+  overflow-inline: visible;
+}
