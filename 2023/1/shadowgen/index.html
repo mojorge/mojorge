@@ -88,6 +88,7 @@ INSTRUCTIONS: In order, input the following:
 <li><b>Health:</b> Value between 0 and 99.</li>
 <li><b>Faction, class, and tribe:</b> Text.</li>
 <li><b>Ability:</b> Enter text. TIP: Use the keywords 3SE:, 4SE:, and 5SE:. It will automatically turn into shadow energy cost notation.</li>
+<li><b>Flavor Text:</b> Enter text.</li>
 <li><b>Image:</b> Enter a URL to an image, then click "INSERT IMAGE." Example: https://i.imgur.com/6ECF3c7.jpeg</li>
 <li><b>Cost [ALLY ONLY]:</b>Value between 0 and 99.</li>
 <li><b>Attack [ALLY ONLY]:</b>Value between 0 and 99.</li>
@@ -127,6 +128,8 @@ INSTRUCTIONS: In order, input the following:
 
 <textarea type="text" placeholder="Ability" onkeyup='writeText(this)' id="cardability" name="cardability" minlength="1" maxlength="1000" required></textarea>
 
+<textarea type="text" placeholder="Flavor Text" onkeyup='writeText2(this)' id="cardflavor" name="cardflavor" minlength="1" maxlength="1000" required></textarea>
+
 
 <input type="text" placeholder="URL" id="imageurl" name="cardhealth" minlength="0" maxlength="200" required>
 
@@ -140,6 +143,7 @@ INSTRUCTIONS: In order, input the following:
 <div class="slidecontainer">
   <p>Name Position: <input type="range" min="1" max="100" value="50" id="sliderRange">
   Text Vertical Position: <input type="range" min="1" max="100" value="50" id="sliderRange2">
+  Flavor Text Vertical Position: <input type="range" min="1" max="100" value="50" id="sliderRange4">
   Health Position: <input type="range" min="1" max="100" value="50" id="sliderRange3">
 </p>
 </div>
@@ -203,6 +207,16 @@ For Allies: <input type="text" placeholder="Cost" onkeyup='transferCost(this)' i
 </div>
 </div>
 
+  <i><div id="creatureflavor" style="font-size:14px" style="font-family:Arial" class="flavorbox"> Flavor Text.
+</div></i>
+
+<div class="strokeme">
+<i>
+  <div id="creatureflavor2" style="font-size:14px" style="font-family:Arial" class="whiteflavor">Flavor Text.
+</div>
+</i>
+</div>
+
 </div>
 
 
@@ -238,6 +252,14 @@ rangeslider2.oninput = function() {
 var rangeslider3 = document.getElementById("sliderRange3");
 rangeslider3.oninput = function() {
    document.getElementById("health").style.left = this.value+"%";
+}
+
+var rangeslider4 = document.getElementById("sliderRange4");
+rangeslider4.oninput = function() {
+   verticalshift = this.value + 0
+   document.getElementById("creatureflavor").style.top = verticalshift+"px";
+   document.getElementById("creatureflavor2").style.top = verticalshift+"px";
+
 }
 
 
@@ -286,10 +308,14 @@ function selectionchanged(){
   document.getElementById("front").src='pdf/front4.png';
   document.getElementById("creatureability2").style.display='block';
   document.getElementById("creatureability").style.display='none';
+  document.getElementById("creatureflavor2").style.display='block';
+  document.getElementById("creatureflavor").style.display='none';
 
 } else{
   document.getElementById("creatureability2").style.display='none';
   document.getElementById("creatureability").style.display='block';
+  document.getElementById("creatureflavor2").style.display='none';
+  document.getElementById("creatureflavor").style.display='block';
 
 }
 
@@ -314,6 +340,7 @@ let t = 'sample';
 let writeText = (ele) => {
     t = ele.value;
     var thetext = t.replace(/\n\r?/g, '<br />');
+
     thetext = thetext.replace(/4SE:/g, "<div class='circle' style='display: inline'>&nbsp;4 </div>&nbsp;")
     thetext = thetext.replace(/3SE:/g, "<div class='circle' style='display: inline'>&nbsp;3 </div>&nbsp;")
     thetext = thetext.replace(/5SE:/g, "<div class='circle' style='display: inline'>&nbsp;5 </div>&nbsp;")
@@ -342,6 +369,18 @@ let writeText = (ele) => {
       thetext;
 
 }
+
+let t2 = 'sample';
+
+let writeText2 = (ele) => {
+    t2 = ele.value;
+    var theflavortext = t2.replace(/\n\r?/g, '<br />');
+    document.getElementById('creatureflavor').innerHTML = 
+      theflavortext;
+    document.getElementById('creatureflavor2').innerHTML = 
+      theflavortext;
+}
+
 
 let testtext = 'sample';
 

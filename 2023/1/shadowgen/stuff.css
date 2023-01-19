@@ -225,6 +225,17 @@ header {
 
 }
 
+.flavorbox {
+  position: absolute;
+  top: 628px;
+  left: 10%;
+  Right: 15%;
+  border: 0px red solid;
+  font-family: Arial;
+  color: black;
+  text-align: center;
+}
+
 .whitetext {
   position: absolute;
   top: 548px;
@@ -233,6 +244,17 @@ header {
   border: 0px red solid;
   display:none;
   font-family: Arial;
+}
+
+.whiteflavor {
+  position: absolute;
+  top: 628px;
+  left: 10%;
+  Right: 15%;
+  border: 0px red solid;
+  display:none;
+  font-family: Arial;
+  text-align: center;
 }
 
 .textboxattack {
