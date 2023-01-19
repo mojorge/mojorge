@@ -89,6 +89,9 @@ INSTRUCTIONS: In order, input the following:
 <li><b>Faction, class, and tribe:</b> Text.</li>
 <li><b>Ability:</b> Enter text. TIP: Use the keywords 3SE:, 4SE:, and 5SE:. It will automatically turn into shadow energy cost notation.</li>
 <li><b>Image:</b> Enter a URL to an image, then click "INSERT IMAGE." Example: https://i.imgur.com/6ECF3c7.jpeg</li>
+<li><b>Cost [ALLY ONLY]:</b>Value between 0 and 99.</li>
+<li><b>Attack [ALLY ONLY]:</b>Value between 0 and 99.</li>
+
 
 </ol>
 <br>      
@@ -111,18 +114,19 @@ INSTRUCTIONS: In order, input the following:
   <option value='roguetop'>Rogue
   <option value='wulventop'>Wulven
   <option value='elementaltop'>Elemental
+  <option value='none'>No class
 </select>
 
-<input type="text" onkeyup='transferText(this)' id="cardname" name="cardname" minlength="3" maxlength="20" required>
+<input type="text" placeholder="Name" onkeyup='transferText(this)' id="cardname" name="cardname" minlength="3" maxlength="20" required>
 
-<input type="text" onkeyup='transferHealth(this)' id="cardhealth" name="cardhealth" minlength="1" maxlength="2" required>
+<input type="text" placeholder="Health" onkeyup='transferHealth(this)' id="cardhealth" name="cardhealth" minlength="1" maxlength="2" required>
 
-<input type="text" onkeyup='transferType(this)' id="cardtype" name="cardtype" minlength="1" maxlength="100" required>
+<input type="text" placeholder="Type" onkeyup='transferType(this)' id="cardtype" name="cardtype" minlength="1" maxlength="100" required>
 
-<textarea type="text"  onkeyup='writeText(this)' id="cardability" name="cardability" minlength="1" maxlength="1000" required></textarea>
+<textarea type="text" placeholder="Ability" onkeyup='writeText(this)' id="cardability" name="cardability" minlength="1" maxlength="1000" required></textarea>
 
 
-<input type="text" id="imageurl" name="cardhealth" minlength="0" maxlength="200" required>
+<input type="text" placeholder="URL" id="imageurl" name="cardhealth" minlength="0" maxlength="200" required>
 
 
 <span id="selectedbackground"></span>
@@ -137,6 +141,9 @@ INSTRUCTIONS: In order, input the following:
 </div>
 </p>
 
+For Allies: <input type="text" placeholder="Cost" onkeyup='transferCost(this)' id="cardcost" name="cardcost" minlength="1" maxlength="2" required>
+
+<input type="text" placeholder="Attack" onkeyup='transferAttack(this)' id="cardattack" name="cardattack" minlength="1" maxlength="2" required>
 
 <br><br><br>
 
@@ -188,11 +195,6 @@ function GFG_Fun(d, e) {
   var t3 = document.getElementById("imageurl").value;
 
    document.getElementById("bottom").src = t3;
-   document.getElementById("bottom1").src = t3;
-   document.getElementById("bottom2").src = t3;
-   document.getElementById("bottom3").src = t3;
-   document.getElementById("bottom4").src = t3;
-
 
 } 
 
@@ -203,10 +205,17 @@ function selectionchanged(){
   var pick = document.getElementById("select_generator").value;
   var foiling = document.getElementById("select_foil").value;
 
-
+  if (t!="none"){
+  document.getElementById("topsymbol").style.display='';
   document.getElementById("topsymbol").src='pdf/'+t+'.png';
+}
+  if (t=="none"){
+  document.getElementById("topsymbol").style.display='none';
+}
+
 
   if (pick == "hero"){
+  document.getElementById("front").src='pdf/front1.png';
 }
   if (pick == "ally"){
   document.getElementById("front").src='pdf/front2.png';
@@ -214,10 +223,10 @@ function selectionchanged(){
 
 
   if (foiling == "foil"){
-  document.getElementById("foil").style.display="inline";  
+  document.getElementById("foil").style.display='inline';  
 }
   if (foiling == "none"){
-  document.getElementById("foil").syle.display="none";  
+  document.getElementById("foil").syle.display='none';  
 }
 
 }
