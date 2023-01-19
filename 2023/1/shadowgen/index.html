@@ -145,6 +145,11 @@ For Allies: <input type="text" placeholder="Cost" onkeyup='transferCost(this)' i
 
 <input type="text" placeholder="Attack" onkeyup='transferAttack(this)' id="cardattack" name="cardattack" minlength="1" maxlength="2" required>
 
+<select id="select_attack_type" onchange="selectionchanged()">
+  <option value='none'>No attack type
+  <option value='ice'>Ice
+</select>
+
 <br><br><br>
 
 <div id = "body" style = "text-align:center;"> 
@@ -154,7 +159,8 @@ For Allies: <input type="text" placeholder="Cost" onkeyup='transferCost(this)' i
   <img id="bottom" class="triangle1" src="pdf/bottom1.png" alt="triangle" width="495" height="695" position=absolute>
   <img id="front" class="triangle1" src="pdf/front1.png" alt="triangle" width="495" height="695" position=absolute>
   <img id="topsymbol" class="triangle1" src="pdf/warriortop.png" alt="triangle" width="495" height="695" position=absolute>
-  <img id="foil" class="foiled" src="pdf/foil.png" alt="triangle" width="495" height="695" position=absolute>
+  <img id="foilcard" class="triangle1" src="pdf/none.png" alt="triangle" width="495" height="695" position=absolute>
+  <img id="attacktype" class="triangle1" src="pdf/none.png" alt="triangle" width="495" height="695" position=absolute>
 
 <div class="strokeme">
 
@@ -207,6 +213,13 @@ function selectionchanged(){
   var t = document.getElementById("select_top").value;
   var pick = document.getElementById("select_generator").value;
   var foiling = document.getElementById("select_foil").value;
+  var attacktype = document.getElementById("select_attack_type").value;
+
+
+  document.getElementById("attacktype").src='pdf/'+attacktype+'.png';
+  document.getElementById("foilcard").src='pdf/'+foiling+'.png';
+
+
 
   if (t!="none"){
   document.getElementById("topsymbol").style.display='';
@@ -225,12 +238,10 @@ function selectionchanged(){
 }
 
 
-  if (foiling == "foil"){
-  document.getElementById("foil").style.display='inline';  
-}
-  if (foiling == "none"){
-  document.getElementById("foil").syle.display='none';  
-}
+
+
+
+
 
 }
 

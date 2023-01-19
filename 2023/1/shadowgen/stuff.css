@@ -124,6 +124,14 @@ header {
   border: 0px red solid;
 }
 
+.attacksymbol {
+  position: absolute;
+  display: none;
+  top: 10px;
+  left: 10px;
+  border: 0px red solid;
+}
+
 .triangle2 {
   position: absolute;
   top: 72px;
