@@ -288,6 +288,16 @@ let writeText = (ele) => {
     thetext = thetext.replace(/2:/g, "<div class='circleblack' style='display: inline'>&nbsp;2 </div>&nbsp;")
     thetext = thetext.replace(/3:/g, "<div class='circleblack' style='display: inline'>&nbsp;3 </div>&nbsp;")
     thetext = thetext.replace(/4:/g, "<div class='circleblack' style='display: inline'>&nbsp;4 </div>&nbsp;")
+    thetext = thetext.replace(/Steadfast/g, "<b>Steadfast</b>")
+    thetext = thetext.replace(/Protector/g, "<b>Protector</b>")
+    thetext = thetext.replace(/Defender/g, "<b>Defender</b>")
+    thetext = thetext.replace(/Ambush/g, "<b>Ambush</b>")
+    thetext = thetext.replace(/Shroud/g, "<b>Shroud</b>")
+    thetext = thetext.replace(/Haste/g, "<b>Haste</b>")
+    thetext = thetext.replace(/Predator/g, "<b>Predator</b>")
+    thetext = thetext.replace(/Stealth/g, "<b>Stealth</b>")
+
+
 
     document.getElementById('creatureability').innerHTML = 
       thetext;
