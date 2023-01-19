@@ -207,8 +207,19 @@ For Allies: <input type="text" placeholder="Cost" onkeyup='transferCost(this)' i
 
 
 </div>
+
+<br><br>
+    <div>
+      <button onclick="darkMode()">Darkmode (for Scout)</button>
+    </div>
+    <script>
+      function darkMode() {
+        var element = document.body;
+        element.classList.toggle("dark-mode");
+      }
+
       
-<script> 
+
        
 
 var rangeslider = document.getElementById("sliderRange");
@@ -306,6 +317,9 @@ let writeText = (ele) => {
     thetext = thetext.replace(/4SE:/g, "<div class='circle' style='display: inline'>&nbsp;4 </div>&nbsp;")
     thetext = thetext.replace(/3SE:/g, "<div class='circle' style='display: inline'>&nbsp;3 </div>&nbsp;")
     thetext = thetext.replace(/5SE:/g, "<div class='circle' style='display: inline'>&nbsp;5 </div>&nbsp;")
+    thetext = thetext.replace(/2SE:/g, "<div class='circle' style='display: inline'>&nbsp;2 </div>&nbsp;")
+    thetext = thetext.replace(/1SE:/g, "<div class='circle' style='display: inline'>&nbsp;1 </div>&nbsp;")
+    thetext = thetext.replace(/0SE:/g, "<div class='circle' style='display: inline'>&nbsp;0 </div>&nbsp;")
     thetext = thetext.replace(/0:/g, "<div class='circleblack' style='display: inline'>&nbsp;0 </div>&nbsp;")
     thetext = thetext.replace(/1:/g, "<div class='circleblack' style='display: inline'>&nbsp;1 </div>&nbsp;")
     thetext = thetext.replace(/2:/g, "<div class='circleblack' style='display: inline'>&nbsp;2 </div>&nbsp;")
