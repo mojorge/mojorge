@@ -2003,6 +2003,14 @@ li.dropdown {
   transform: rotate(180deg); 
 } 
 
+ .trianglespecialexpansion2 { 
+  position: absolute; 
+  top: 414px; 
+  left: 522px; 
+  border: 00px black solid; 
+  transform: rotate(180deg); 
+} 
+
  .trianglespecial3 { 
   position: absolute; 
   top: 72px; 
@@ -2465,6 +2473,7 @@ Want to try the game but don't want to print it at home? I'll send you a copy! <
 <img id="firsticonguide" class="trianglespecial1" src="pdf/iconguide4.png" width="230" height="322" display="block" style="display:block;"> 
 <img id="secondiconguide" class="trianglespecial2" src="pdf/iconguide4.png" width="230" height="322" display="block" style="display:block;"> 
 <img id="specialiconguide" class="trianglespecialexpansion" src="pdf/iconguideexpansion.png" width="230" height="322" display="none" style="display:none;"> 
+<img id="specialiconguide2" class="trianglespecialexpansion2" src="pdf/iconguideexpansion.png" width="230" height="322" display="none" style="display:none;"> 
 
 
 <img class="trianglespecial3" src="pdf/transparentgridcropped.png" width="230" height="322"> 
@@ -2560,6 +2569,14 @@ function changeguide2() {
   else if (document.getElementById("specialiconguide").style.display == "block"){
     document.getElementById("specialiconguide").style.display = "none";
   } 
+
+  if (document.getElementById("specialiconguide2").style.display == "none"){
+    document.getElementById("specialiconguide2").style.display = "block";
+  } 
+  else if (document.getElementById("specialiconguide2").style.display == "block"){
+    document.getElementById("specialiconguide2").style.display = "none";
+  } 
+
 }
 
 
