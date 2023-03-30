@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Chester, a PNP game by Jorge Zhang.">
+<meta name="keywords" content="Board Game, Tabletop, Game, Game design, 3D printing">
+<meta name="author" content="Jorge Zhang">
+
+<meta property="og:title" content="Jorge Zhang" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="pdf/chester.png" />
+<meta property="og:url" content="https://www.jorgezhang.com" />
+
+<title>Alternate Win Conditions</title>
+
+
+		
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q4LHHGS01W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Q4LHHGS01W');
+</script>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 1px;
+}
+
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+
+ul.main_menu{
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li.main_menu {
+  float: left;
+}
+
+li.main_menu a, .dropbtn {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li.main_menu a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+header {
+  background-color: #ffffff;
+  padding: 10px;
+  text-align: center;
+  color: black;
+}
+
+
+.main-title a{
+  color:#222222;
+  margin:0;
+  font-size:35px;
+  line-height:1.2em;
+  word-wrap:break-word;
+  font-weight:700;
+  text-decoration: none;
+}
+
+
+
+
+</style>
+
+</head>
+
+
+<header>
+
+<h1 class="main-title"><a href="../../../index.html">Jorge Zhang</a></h1>
+
+</header>
+
+
+<div class="row">
+<div class="col-1">
+</div>
+<div class="col-10">
+<ul class="main_menu">
+  <li class="main_menu"><a href="../../../daggers-highschool.html">About Daggers High</a></li>
+  <li class="main_menu"><a href="../../../puzzles/index.html">Puzzles</a></li>
+  <li class="main_menu"><a href="../../../tutoring/index.html">Tutoring</a></li>
+  <li class="dropdown">
+    <a href="../../../blog-archive.html" class="dropbtn">Blog Archive</a>
+    <div class="dropdown-content">
+      <a href="../../../category/reviews/index.html">Reviews</a>
+      <a href="../../../tag/education/index.html">Education</a>
+      <a href="../../../category/funny/index.html">Funny</a>
+      <a href="../../../category/politics/index.html">Politics</a>
+    </div>
+  </li>
+</ul>
+</div>
+<div class="col-1">
+</div>
+</div>
+
+<p></p>
+
+<div class="row">
+<div class="col-1">
+</div>
+<div class="col-10">
+
+<h1>Why I Love Alternate Win Conditions, and why they Don't Have to be Balanced</h1>		
+
+</header>
+
+
+<p>March 29, 2023 by Jorge Zhang</p>
+
+It's been a while since I last blogged about Game Design (back in 2018-2019ish). Back then, I was a fresh designer working on my first few designs, and looking back on those old posts made me wish I continued blogging about it. By now, I've designed about 20 games (I'm fluffing up my numbers as many of them are simple pnps or 1-card games), but I still am learning a lot about design and improving at it. I have learned a lot of lessons, but I've realized that if I don't take the time to analyze them deeply or write them down somewhere then I may forget them or never internalize them in the first place. Anyway, that is why I decided to write about something I have been thinking a lot about lately: alternate win conditions.
+<br>
+<br>
+My first game of Root was against two experienced players who carefully explained the rules of the game to me. The most common way to win was through Victory Points. There was another way - domination - but it seldom happened. Towards the end of the game, the two experienced players were predictably much further ahead on VP. My game was pretty much lost, and that is when I decided to go for domination. I knew it wouldn't work, because each of the other 3 players all had a turn to make moves to stop me. But I mustered the best argument I could- I explained to the other players that they could simply focus on their own game instead of countering me, because the person after them would be able to stop me and thus save them the trouble. This argument really should not have worked, but the players around the table had written off domination as a path to victory. In fact, they reasoned that such a play was foolish because domination was easy to prevent- and losing the ability to win via VP was a significant handicap. This resulted in the players proceeding to pass the hot potato onwards until the player right before me realized that they could not stop my domination alone after all. Thus, I won my first ever game of Root.
+<br>
+<br>
+I love alternate win conditions because they have the potential to create memorable moments- ones that I can recount years later in great detail. But I have found that alternate win conditions are quite rare in games. After designing a few games with alternate win conditions, I think there are good reasons that many designers choose not to incorporate them. For example, in my game Chroma Mix, there are 3 possible win conditions ranging from having 16+ cards in hand, having 17+ VP, and owning a copy of each rank 4 card. Some of my playtesters get frustrated by having too many options, saying that they felt lost or directionless. Others felt that the paths to victory were not balanced. They are right- I still haven't quite nailed the balance between them. This was tearing me up for a while and I spent a lot of time trying to make the win rates even. 
+<br>
+<br>
+Eventually, I gave up trying to balance the 3 win conditions, and for a while this made me pretty disheartened. It forced me to challenge my assumptions about balance, and I realized that alternate win conditions do not have to be balanced by the nature of being alternate wins. In fact, sometimes having a win condition that is explicitly more difficult to achieve than others can be rewarding in of itself. Perhaps it can create moments like my first game of Root. I have since stopped worrying about the exact win percentage of each path to victory in Chroma Mix. Perhaps one of the win conditions only serves as a distraction in 90% of games. But that is enough, because in the 10% of times where it matters, it will make for an incredibly memorable experience.
+
+
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+
+</a>
+
+</div></div>
+<div class="col-1">
+</div>
+</div>
+
+
+<div class="row">
+<div class="col-1">
+</div>
+<div class="col-10">
+<footer>
+<span>&copy; 2020 Jorge Zhang</span> 
+</footer>
+</div>
+<div class="col-1">
+</div>
+</div>
+
+
+</body>
+</html>
