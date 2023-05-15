@@ -1,0 +1,229 @@
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Chester, a PNP game by Jorge Zhang.">
+<meta name="keywords" content="Board Game, Tabletop, Game, Game design, 3D printing">
+<meta name="author" content="Jorge Zhang">
+
+<meta property="og:title" content="Jorge Zhang" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="pdf/chester.png" />
+<meta property="og:url" content="https://www.jorgezhang.com" />
+
+<title>Market Row</title>
+
+
+		
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q4LHHGS01W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Q4LHHGS01W');
+</script>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 1px;
+}
+
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+
+ul.main_menu{
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li.main_menu {
+  float: left;
+}
+
+li.main_menu a, .dropbtn {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li.main_menu a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+header {
+  background-color: #ffffff;
+  padding: 10px;
+  text-align: center;
+  color: black;
+}
+
+
+.main-title a{
+  color:#222222;
+  margin:0;
+  font-size:35px;
+  line-height:1.2em;
+  word-wrap:break-word;
+  font-weight:700;
+  text-decoration: none;
+}
+
+
+
+
+</style>
+
+</head>
+
+
+<header>
+
+<h1 class="main-title"><a href="../../../index.html">Jorge Zhang</a></h1>
+
+</header>
+
+
+<div class="row">
+<div class="col-1">
+</div>
+<div class="col-10">
+<ul class="main_menu">
+  <li class="main_menu"><a href="../../../daggers-highschool.html">About Daggers High</a></li>
+  <li class="main_menu"><a href="../../../puzzles/index.html">Puzzles</a></li>
+  <li class="main_menu"><a href="../../../tutoring/index.html">Tutoring</a></li>
+  <li class="dropdown">
+    <a href="../../../blog-archive.html" class="dropbtn">Blog Archive</a>
+    <div class="dropdown-content">
+      <a href="../../../category/reviews/index.html">Reviews</a>
+      <a href="../../../tag/education/index.html">Education</a>
+      <a href="../../../category/funny/index.html">Funny</a>
+      <a href="../../../category/politics/index.html">Politics</a>
+    </div>
+  </li>
+</ul>
+</div>
+<div class="col-1">
+</div>
+</div>
+
+<p></p>
+
+<div class="row">
+<div class="col-1">
+</div>
+<div class="col-10">
+
+<h1>Is 6 a Magic Number for Market Rows?</h1>		
+
+</header>
+
+
+<p>May 14, 2023 by Jorge Zhang</p>
+
+A market row is a very common board game mechanic. Put simply, it is a group of face-up cards arranged in a row. Players can purchase cards from this row. 
+<br>
+<br>
+Many people have asked me why I settled on 6 cards each for the 2 market rows in Chroma Mix. They felt that there were too many cards per row. My answer has been: I tried all the other reasonable counts and didn't like it. The deeper reason lies with two of my fundamental design principles:
+<ol>
+<li>Encourage Mixing</li>
+<li>Encourage Synergies</li>
+</ol>
+Most of the fun of Chroma Mix is the mix mechanic, and so my primary design goal was to encourage mixing (mixing in Chroma Mix is similar to buying cards in other games). Having large market rows helps allow for mixing because it means that the chances a player can mix something on their turn are high even if they only have a few cards in their hand. Another large source of fun is finding synergies between cards. With larger market rows, there is a greater chance that players can build a synergistic combo.
+<br>
+<br>
+The more I thought about it, the more I realized that a lot of games have 6 card market rows. Ascension, Century: Spice Road, and Clank are good examples. This matches with my experience play testing Chroma Mix at non-6 market row counts, and so based on my limited anecdotal data, what I propose is that there is something special about 6 cards in a market row that makes it a magic number. More than 6 and you overload players with too many choices. Less than 6 and there aren't enough choices: sometimes the game gets "stuck" with no one wishing to buy any cards. I should note that some games have different card row counts. Dune Imperium has a 5 card row, which is interesting because Paul Dennen also designed Clank. According to Paul, a 5 card row <a href="https://boardgamegeek.com/thread/2887007/interview-paul-dennen-about-dune-imperiums-design">helps reduce the complexity of Dune Imperium </a> given all the non-deck building systems in that game, and he also wanted to <a href="https://boardgamegeek.com/thread/2741595/article/38648185#38648185">prevent players from seeing the same cards every game</a>. Again, this is really just a random hypothesis and will certainly not apply to every game, but I would be very curious if anyone out there has any data on this.*
+<br>
+<br>
+One issue with encouraging synergies via a 6 card market row is that tried and true synergies can be repeated from game to game. There is still skill in finding better synergies or executing known synergies better, but it puts a cap on the sense of discovery from finding new combos. I think that this is what my play testers were hitting on when they suggested a smaller market row. The solution? While I hate to say it, in my mind the ideal solution is expansions. Reducing the number of cards in the market rows has the previously mentioned downsides and does not really solve the problem in the long term either. I would love to include more cards in the base game, but that also has its own issues (higher costs, information overload, etc), and feels a bit like putting the cart before the horse. I also personally don't believe it affects the replayability beyond the loss of a sense of discovery from seeing a particular card for the first time. I have played or observed at least 50 games (probably much higher, I just didn't record every session), and I feel like I am still improving at the game and seeing new things. 
+<br>
+<br>
+*Sidenote: since Chroma Mix has 2 6-card rows, it could technically be considered a 12 card market. I suppose this somewhat undermines my hypothesis, but I will say that because a card from the first row is necessary to obtain a card from the second row, players are often not deciding between all 12 cards.
+<br>
+<br>
+If you are interested in checking out Chroma Mix, you can find the game on Gamefound at <a href="https://gamefound.com/projects/jayzee-games/chroma-mix">https://gamefound.com/projects/jayzee-games/chroma-mix</a>. I am planning to launch on June 1st, and greatly appreciate pre-launch page follows. By following the game, you'll get updates on its development and also help boost the algorithm. Thank you for reading, and I hope to see you on the campaign page!
+<br>
+<br>
+
+</a>
+
+</div></div>
+<div class="col-1">
+</div>
+</div>
+
+
+<div class="row">
+<div class="col-1">
+</div>
+<div class="col-10">
+<footer>
+<span>&copy; 2020 Jorge Zhang</span> 
+</footer>
+</div>
+<div class="col-1">
+</div>
+</div>
+
+
+</body>
+</html>
