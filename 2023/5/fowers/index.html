@@ -1,0 +1,230 @@
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Chester, a PNP game by Jorge Zhang.">
+<meta name="keywords" content="Board Game, Tabletop, Game, Game design, 3D printing">
+<meta name="author" content="Jorge Zhang">
+
+<meta property="og:title" content="Jorge Zhang" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="pdf/chester.png" />
+<meta property="og:url" content="https://www.jorgezhang.com" />
+
+<title>Prediction Fatigue and Ego Outs</title>
+
+
+		
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q4LHHGS01W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Q4LHHGS01W');
+</script>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 1px;
+}
+
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+
+ul.main_menu{
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li.main_menu {
+  float: left;
+}
+
+li.main_menu a, .dropbtn {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li.main_menu a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+header {
+  background-color: #ffffff;
+  padding: 10px;
+  text-align: center;
+  color: black;
+}
+
+
+.main-title a{
+  color:#222222;
+  margin:0;
+  font-size:35px;
+  line-height:1.2em;
+  word-wrap:break-word;
+  font-weight:700;
+  text-decoration: none;
+}
+
+
+
+
+</style>
+
+</head>
+
+
+<header>
+
+<h1 class="main-title"><a href="../../../index.html">Jorge Zhang</a></h1>
+
+</header>
+
+
+<div class="row">
+<div class="col-1">
+</div>
+<div class="col-10">
+<ul class="main_menu">
+  <li class="main_menu"><a href="../../../daggers-highschool.html">About Daggers High</a></li>
+  <li class="main_menu"><a href="../../../puzzles/index.html">Puzzles</a></li>
+  <li class="main_menu"><a href="../../../tutoring/index.html">Tutoring</a></li>
+  <li class="dropdown">
+    <a href="../../../blog-archive.html" class="dropbtn">Blog Archive</a>
+    <div class="dropdown-content">
+      <a href="../../../category/reviews/index.html">Reviews</a>
+      <a href="../../../tag/education/index.html">Education</a>
+      <a href="../../../category/funny/index.html">Funny</a>
+      <a href="../../../category/politics/index.html">Politics</a>
+    </div>
+  </li>
+</ul>
+</div>
+<div class="col-1">
+</div>
+</div>
+
+<p></p>
+
+<div class="row">
+<div class="col-1">
+</div>
+<div class="col-10">
+
+<h1>Ego Outs and other Lessons from Tim Fowers</h1>		
+
+</header>
+
+
+<p>May 21, 2023 by Jorge Zhang</p>
+
+What type of player would like Chroma Mix? I posed this question to designer Tim Fowers, and this post is about what he had to say. 
+<h4>About Tim Fowers</h4>
+Tim is a large inspiration of mine. He runs an independent game business, and his highly successful and innovative games (such as Paperback and Burgle Bros) prove that it is possible to "make it" in the board gaming world as an independent designer-publisher. I got in contact with Tim after helping playtest his new game Typewriter, which was recently bundled with 10th anniversary Paperback and funded over $200,000 on Kickstarter. Tim generously agreed to play Chroma Mix, and his feedback was extremely insightful.
+<h4>The Ego Out</h4>
+The Ego Out is all about the experience players have when they lose. Losing a game can feel bad because of a feeling of inadequacy. This feeling of inadequacy is a function of luck: the less luck, the worse it feels to lose. Fowers calls this idea the Ego Out. If a game has a sufficient amount of luck, losing players can feel better about themselves because they can blame the luck in the game for their loss. On the other hand, in a purely skill-based game like Chess, players cannot blame luck and a loss feels really bad. That said, making a game that has too much luck can be a hazard as well: winning feels significantly less good if it is largely due to chance. Fowers mentioned a study that showed that a person's body chemistry can actually respond to the feeling of losing a game like chess: the body's testosterone drops, and they feel dominated. 
+<br>
+<br>
+So, where does Chroma Mix lie on this distribution? Well, as it is now, it is a highly skill-based game with a low amount of luck. This is in large part due to the 6-card market rows I discussed in a previous blog post. This isn't necessarily a bad thing, because there are a lot of people who enjoy the mentally stimulating challenge of a high skill, low luck game. My main concern is that Chroma Mix's theme does not necessarily scream high skill, low luck. 
+
+
+<h4>Prediction Fatigue</h4>
+Prediction fatigue is all about information. In games with perfect information (or close to it), it is optimal to plan ahead by calculating future turns on the current turn. This can be a positive- it feels good to make a long-term plan and execute it well. But if the predictions are too intense, then there is an urge to disengage from predicting. This can be unsatisfying.
+<br>
+<br>
+Chroma Mix lies on the side of high prediction. In many ways, the game forces you to make long term plans due to the presence of 3 different win conditions.
+
+<h4>What does this all mean for Chroma Mix?</h4>
+Chroma Mix attracts the type of player that loves high skill, low luck games. Tim speculates that this makes Chroma Mix a gamer's game rather than a casual or gateway game. As I work on the advertisements, trailer, and other marketing materials for the game, this is something I will need to keep in mind.
+<br>
+<br>
+Tim had some suggestions to broaden the appeal to a more casual gamer if I wanted to, such as reducing the size of the market rows but adding in ways to refresh the row if it stagnates. I can't help shake the idea that a smaller market row is not ideal for Chroma Mix, but I keep getting this feedback so I have recently begun revisiting my play testing at various market row sizes (I recently play tested one row on 6 and another row on 3, and it seems promising). I was a bit worried about making any changes so close to the launch date, so Tim filled me in on a small secret: a lot of crowdfunded games (including some of his) are developed further even after fulfilling. So if I do find the need to make changes- I still can. 
+<br>
+<br>
+
+
+</a>
+
+</div></div>
+<div class="col-1">
+</div>
+</div>
+
+
+<div class="row">
+<div class="col-1">
+</div>
+<div class="col-10">
+<footer>
+<span>&copy; 2020 Jorge Zhang</span> 
+</footer>
+</div>
+<div class="col-1">
+</div>
+</div>
+
+
+</body>
+</html>
